@@ -1033,10 +1033,27 @@ function shuffle(arr) {
   return a;
 }
 
+// Shuffle answer options while tracking correct answer index
+function shuffleOpts(q) {
+  const indices = [0, 1, 2, 3];
+  // Fisher-Yates shuffle on indices
+  for (let i = indices.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [indices[i], indices[j]] = [indices[j], indices[i]];
+  }
+  const newA = indices.indexOf(q.a);
+  return {
+    ...q,
+    opts: indices.map(i => q.opts[i]),
+    uaOpts: indices.map(i => q.uaOpts[i]),
+    a: newA,
+  };
+}
+
 function pick20() {
   const values = shuffle(ALL_Q.filter(q => q.cat === "🇦🇺 Australian Values ⭐")).slice(0, 5);
   const rest = shuffle(ALL_Q.filter(q => q.cat !== "🇦🇺 Australian Values ⭐")).slice(0, 15);
-  return shuffle([...values, ...rest]);
+  return shuffle([...values, ...rest]).map(shuffleOpts);
 }
 
 const CATS = [...new Set(ALL_Q.map(q => q.cat))];
@@ -1094,7 +1111,7 @@ export default function App() {
   }
 
   function startPrac(cat) {
-    const q = shuffle(ALL_Q.filter(q => q.cat === cat));
+    const q = shuffle(ALL_Q.filter(q => q.cat === cat)).map(shuffleOpts);
     setPracQ(q); setPracCat(cat);
     setCur(0); setSel(null); setAnswered(false); setScore(0); setWrong([]); setShowUa(false);
     setScreen("practice");
