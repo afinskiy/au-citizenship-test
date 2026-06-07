@@ -1156,7 +1156,7 @@ export default function App() {
     const color = CAT_COLOR[q.cat] || "#555";
     const isSim = screen === "sim";
     const pct = ((cur + 1) / qs.length) * 100;
-    const timerColor = timer.secs < 300 ? "#e74c3c" : timer.secs < 600 ? "#f39c12" : "#2ecc71";
+    const timerColor = timer.secs < 300 ? "#e74c3c" : timer.secs < 600 ? "#d68910" : "#27ae60";
 
     return (
       <div style={S.page}>
@@ -1171,7 +1171,7 @@ export default function App() {
           </div>
 
           {/* Progress */}
-          <div style={{ background:"#222", borderRadius:3, height:4, marginBottom:16, overflow:"hidden" }}>
+          <div style={{ background:"#e8ecf0", borderRadius:3, height:4, marginBottom:16, overflow:"hidden" }}>
             <div style={{ width:`${pct}%`, background:color, height:"100%", transition:"width 0.3s" }} />
           </div>
 
@@ -1186,10 +1186,10 @@ export default function App() {
           {/* Options */}
           <div style={{ display:"flex", flexDirection:"column", gap:8 }}>
             {(showUa ? q.uaOpts : q.opts).map((opt, idx) => {
-              let bg="#1c1c1c", border="1px solid #2a2a2a", col="#ccc";
+              let bg="#f8f9fb", border="1px solid #e0e5ea", col="#333";
               if (answered) {
-                if (idx === q.a) { bg="#0a2a0a"; border=`1.5px solid #2ecc71`; col="#2ecc71"; }
-                else if (idx === sel) { bg="#2a0a0a"; border=`1.5px solid #e74c3c`; col="#e74c3c"; }
+                if (idx === q.a) { bg="#e8f8ee"; border=`1.5px solid #27ae60`; col="#1a6e3a"; }
+                else if (idx === sel) { bg="#fdecea"; border=`1.5px solid #e74c3c`; col="#c0392b"; }
               }
               return (
                 <button key={idx} onClick={() => handleSelect(idx)}
@@ -1205,24 +1205,32 @@ export default function App() {
 
           {/* Explanation — Practice only */}
           {answered && !isSim && (
-            <div style={{ marginTop:14, background:"#111", borderRadius:12, padding:"14px 16px", borderLeft:`3px solid ${sel===q.a?"#2ecc71":"#e74c3c"}` }}>
-              <div style={{ fontSize:13, fontWeight:700, color: sel===q.a?"#2ecc71":"#e74c3c", marginBottom:6 }}>
+            <div style={{ marginTop:14, background:"#f0f7ff", border:"1px solid #d0e8ff", borderRadius:12, padding:"14px 16px", borderLeft:`3px solid ${sel===q.a?"#27ae60":"#e74c3c"}` }}>
+              <div style={{ fontSize:13, fontWeight:700, color: sel===q.a?"#27ae60":"#e74c3c", marginBottom:6 }}>
                 {sel===q.a ? "✅ Correct! / Правильно!" : "❌ Wrong / Неправильно"}
               </div>
-              <div style={{ fontSize:12.5, color:"#bbb", lineHeight:1.6 }}>
-                <b style={{ color:"#fff" }}>📖 Explanation:</b> {q.exp}
+              <div style={{ fontSize:12.5, color:"#334", lineHeight:1.6 }}>
+                <b style={{ color:"#1a1a2e" }}>📖 Explanation:</b> {q.exp}
               </div>
               {showUa && (
-                <div style={{ fontSize:12, color:"#888", lineHeight:1.5, marginTop:6, borderTop:"1px solid #222", paddingTop:6 }}>
-                  <b style={{ color:"#aaa" }}>🇺🇦 Пояснення:</b> {q.uaExp}
+                <div style={{ fontSize:12, color:"#556", lineHeight:1.5, marginTop:6, borderTop:"1px solid #d0e8ff", paddingTop:6 }}>
+                  <b style={{ color:"#334" }}>🇺🇦 Пояснення:</b> {q.uaExp}
                 </div>
               )}
+              <a
+                href={`https://t.me/afinskiy?text=${encodeURIComponent("🚨 Report error in AU Citizenship Test\n\nQuestion: " + q.en + "\nCorrect answer: " + q.opts[q.a] + "\n\nPlease describe the issue:")}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ display:"inline-block", marginTop:10, padding:"5px 12px", background:"#fff3cd", border:"1px solid #ffc107", borderRadius:8, fontSize:11, color:"#856404", textDecoration:"none", fontWeight:600 }}
+              >
+                ⚠️ Report an error / Повідомити про помилку
+              </a>
             </div>
           )}
 
           {/* Sim feedback (no explanation) */}
           {answered && isSim && (
-            <div style={{ marginTop:12, padding:"10px 14px", background:"#111", borderRadius:10, fontSize:13, color: sel===q.a?"#2ecc71":"#e74c3c" }}>
+            <div style={{ marginTop:12, padding:"10px 14px", background:"#f8f9fb", border:"1px solid #e8ecf0", borderRadius:10, fontSize:13, color: sel===q.a?"#27ae60":"#e74c3c" }}>
               {sel===q.a ? "✅ Correct!" : `❌ Correct answer: ${q.opts[q.a]}`}
             </div>
           )}
@@ -1233,7 +1241,7 @@ export default function App() {
             </button>
           )}
 
-          <div style={{ color:"#333", fontSize:11, textAlign:"center", marginTop:10 }}>
+          <div style={{ color:"#999", fontSize:11, textAlign:"center", marginTop:10 }}>
             ✅ {score} correct · {wrong.length} wrong
           </div>
         </div>
@@ -1261,22 +1269,22 @@ export default function App() {
             {timerDone && <div style={{ color:"#e74c3c", fontSize:12, marginTop:4 }}>⏱ Time ran out</div>}
           </div>
 
-          <div style={{ margin:"16px 0", background:"#1a1a1a", borderRadius:10, padding:14, fontSize:13 }}>
+          <div style={{ margin:"16px 0", background:"#f8f9fb", border:"1px solid #e8ecf0", borderRadius:10, padding:14, fontSize:13 }}>
             <div style={{ display:"flex", justifyContent:"space-between", marginBottom:6 }}>
-              <span style={{ color:"#aaa" }}>Overall score</span>
+              <span style={{ color:"#666" }}>Overall score</span>
               <span style={{ color: pct>=75?"#2ecc71":"#e74c3c", fontWeight:700 }}>{score}/{total} ({pct}%)</span>
             </div>
             <div style={{ display:"flex", justifyContent:"space-between" }}>
-              <span style={{ color:"#aaa" }}>Values questions</span>
+              <span style={{ color:"#666" }}>Values questions</span>
               <span style={{ color: valuesCorrect===valuesTotal?"#2ecc71":"#e74c3c", fontWeight:700 }}>{valuesCorrect}/{valuesTotal}</span>
             </div>
           </div>
 
           {wrong.length > 0 && (
-            <div style={{ background:"#1a1a1a", borderRadius:10, padding:14, maxHeight:180, overflowY:"auto" }}>
+            <div style={{ background:"#fff8f8", border:"1px solid #fce", borderRadius:10, padding:14, maxHeight:180, overflowY:"auto" }}>
               <p style={{ color:"#e74c3c", fontSize:12, fontWeight:700, marginBottom:8 }}>Питання з помилками:</p>
               {wrong.map(i => (
-                <div key={i} style={{ fontSize:11.5, color:"#999", marginBottom:5, paddingBottom:5, borderBottom:"1px solid #222" }}>
+                <div key={i} style={{ fontSize:11.5, color:"#555", marginBottom:5, paddingBottom:5, borderBottom:"1px solid #eee" }}>
                   ❌ {simQ[i].en}
                 </div>
               ))}
@@ -1307,10 +1315,10 @@ export default function App() {
           </div>
 
           {wrong.length > 0 && (
-            <div style={{ marginTop:16, background:"#1a1a1a", borderRadius:10, padding:14, maxHeight:200, overflowY:"auto" }}>
+            <div style={{ marginTop:16, background:"#fff8f8", border:"1px solid #fce", borderRadius:10, padding:14, maxHeight:200, overflowY:"auto" }}>
               <p style={{ color:"#e74c3c", fontSize:12, fontWeight:700, marginBottom:8 }}>Повтори ці питання:</p>
               {wrong.map(i => (
-                <div key={i} style={{ fontSize:11.5, color:"#999", marginBottom:5, paddingBottom:5, borderBottom:"1px solid #222" }}>
+                <div key={i} style={{ fontSize:11.5, color:"#555", marginBottom:5, paddingBottom:5, borderBottom:"1px solid #eee" }}>
                   ❌ {pracQ[i].en}
                 </div>
               ))}
@@ -1331,19 +1339,19 @@ export default function App() {
 
 // ─── STYLES ───────────────────────────────────────────────────────────────────
 const S = {
-  page: { minHeight:"100vh", background:"#0d0d0d", display:"flex", alignItems:"center", justifyContent:"center", padding:"20px 12px", fontFamily:"'Segoe UI',system-ui,sans-serif" },
-  card: { background:"#161616", borderRadius:18, padding:"24px 20px", maxWidth:640, width:"100%", boxShadow:"0 0 80px rgba(0,0,0,0.8)" },
+  page: { minHeight:"100vh", background:"#f0f4f8", display:"flex", alignItems:"center", justifyContent:"center", padding:"20px 12px", fontFamily:"'Segoe UI',system-ui,sans-serif" },
+  card: { background:"#ffffff", borderRadius:18, padding:"24px 20px", maxWidth:640, width:"100%", boxShadow:"0 4px 24px rgba(0,0,0,0.10)" },
   flag: { fontSize:52, textAlign:"center", marginBottom:4 },
-  h1: { textAlign:"center", fontSize:20, fontWeight:800, color:"#fff", margin:0 },
-  sub: { textAlign:"center", color:"#777", fontSize:13, margin:"4px 0 0" },
-  modeBox: { background:"#1c1c1c", borderRadius:12, padding:"16px", marginTop:16 },
-  modeTitle: { fontWeight:700, color:"#fff", fontSize:15, marginBottom:6 },
-  modeDesc: { color:"#888", fontSize:12.5, lineHeight:1.6, marginBottom:10 },
+  h1: { textAlign:"center", fontSize:20, fontWeight:800, color:"#1a1a2e", margin:0 },
+  sub: { textAlign:"center", color:"#666", fontSize:13, margin:"4px 0 0" },
+  modeBox: { background:"#f8f9fb", border:"1px solid #e8ecf0", borderRadius:12, padding:"16px", marginTop:16 },
+  modeTitle: { fontWeight:700, color:"#1a1a2e", fontSize:15, marginBottom:6 },
+  modeDesc: { color:"#666", fontSize:12.5, lineHeight:1.6, marginBottom:10 },
   btn: { width:"100%", padding:"13px", border:"none", borderRadius:10, fontSize:14, fontWeight:700, cursor:"pointer", color:"#fff" },
   catBtn: { padding:"8px 14px", border:"none", borderRadius:8, fontSize:12, fontWeight:600, cursor:"pointer", color:"#fff" },
   badge: { padding:"3px 10px", borderRadius:20, fontSize:10, fontWeight:700, color:"#fff", letterSpacing:0.5 },
-  question: { fontSize:16.5, fontWeight:600, color:"#fff", marginBottom:16, lineHeight:1.6 },
+  question: { fontSize:16.5, fontWeight:600, color:"#1a1a2e", marginBottom:16, lineHeight:1.6 },
   opt: { display:"flex", alignItems:"center", gap:12, padding:"11px 14px", borderRadius:10, fontSize:13.5, transition:"all 0.15s", fontFamily:"inherit" },
   letter: { minWidth:26, height:26, borderRadius:6, display:"flex", alignItems:"center", justifyContent:"center", fontSize:12, fontWeight:700, color:"#fff", flexShrink:0 },
-  toggleBtn: { marginBottom:14, padding:"5px 12px", background:"#1e1e1e", color:"#999", border:"1px solid #2e2e2e", borderRadius:8, fontSize:12, cursor:"pointer", fontFamily:"inherit" },
+  toggleBtn: { marginBottom:14, padding:"5px 12px", background:"#f0f4f8", color:"#666", border:"1px solid #dde3ea", borderRadius:8, fontSize:12, cursor:"pointer", fontFamily:"inherit" },
 };
