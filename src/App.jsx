@@ -1161,6 +1161,14 @@ export default function App() {
             ))}
           </div>
         </div>
+
+              <div style={{ borderTop:"0.5px solid #e8ecf0", paddingTop:14, marginTop:16 }}>
+                <div style={{ fontSize:11, color:"#999", textAlign:"center", marginBottom:8 }}>Маєш питання або хочеш спілкуватись?</div>
+                <a href="https://t.me/uainau" target="_blank" rel="noopener noreferrer"
+                  style={{ display:"flex", alignItems:"center", justifyContent:"center", gap:8, background:"#229ED9", color:"white", borderRadius:10, padding:11, fontSize:13, fontWeight:600, textDecoration:"none" }}>
+                  <span style={{ fontSize:16 }}>✈️</span> Спільнота українців в Австралії
+                </a>
+              </div>
       </div>
     </div>
   );
@@ -1261,6 +1269,14 @@ export default function App() {
           <div style={{ color:"#999", fontSize:11, textAlign:"center", marginTop:10 }}>
             ✅ {score} correct · {wrong.length} wrong
           </div>
+
+          <div style={{ borderTop:"0.5px solid #e8ecf0", paddingTop:14, marginTop:16 }}>
+            <div style={{ fontSize:11, color:"#999", textAlign:"center", marginBottom:8 }}>Маєш питання або хочеш спілкуватись?</div>
+            <a href="https://t.me/uainau" target="_blank" rel="noopener noreferrer"
+              style={{ display:"flex", alignItems:"center", justifyContent:"center", gap:8, background:"#229ED9", color:"white", borderRadius:10, padding:11, fontSize:13, fontWeight:600, textDecoration:"none" }}>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="white" style={{flexShrink:0}}><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248l-2.013 9.483c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L7.08 14.4l-2.95-.924c-.64-.203-.654-.64.136-.948l11.527-4.447c.535-.194 1.003.13.769.167z"/></svg> Спільнота українців в Австралії
+            </a>
+          </div>
         </div>
       </div>
     );
@@ -1312,6 +1328,14 @@ export default function App() {
             <button onClick={()=>setScreen("menu")} style={{ ...S.btn, flex:1, background:"#2a2a2a" }}>← Menu</button>
             <button onClick={startSim} style={{ ...S.btn, flex:1, background:"#e74c3c" }}>🔄 Try Again</button>
           </div>
+
+          <div style={{ borderTop:"0.5px solid #e8ecf0", paddingTop:14, marginTop:16 }}>
+            <div style={{ fontSize:11, color:"#999", textAlign:"center", marginBottom:8 }}>Маєш питання або хочеш спілкуватись?</div>
+            <a href="https://t.me/uainau" target="_blank" rel="noopener noreferrer"
+              style={{ display:"flex", alignItems:"center", justifyContent:"center", gap:8, background:"#229ED9", color:"white", borderRadius:10, padding:11, fontSize:13, fontWeight:600, textDecoration:"none" }}>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="white" style={{flexShrink:0}}><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248l-2.013 9.483c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L7.08 14.4l-2.95-.924c-.64-.203-.654-.64.136-.948l11.527-4.447c.535-.194 1.003.13.769.167z"/></svg> Спільнота українців в Австралії
+            </a>
+          </div>
         </div>
       </div>
     );
@@ -1345,6 +1369,14 @@ export default function App() {
           <div style={{ display:"flex", gap:10, marginTop:16 }}>
             <button onClick={()=>setScreen("menu")} style={{ ...S.btn, flex:1, background:"#2a2a2a" }}>← Menu</button>
             <button onClick={()=>startPrac(pracCat)} style={{ ...S.btn, flex:1, background: CAT_COLOR[pracCat]||"#555" }}>🔄 Ще раз</button>
+          </div>
+
+          <div style={{ borderTop:"0.5px solid #e8ecf0", paddingTop:14, marginTop:16 }}>
+            <div style={{ fontSize:11, color:"#999", textAlign:"center", marginBottom:8 }}>Маєш питання або хочеш спілкуватись?</div>
+            <a href="https://t.me/uainau" target="_blank" rel="noopener noreferrer"
+              style={{ display:"flex", alignItems:"center", justifyContent:"center", gap:8, background:"#229ED9", color:"white", borderRadius:10, padding:11, fontSize:13, fontWeight:600, textDecoration:"none" }}>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="white" style={{flexShrink:0}}><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248l-2.013 9.483c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L7.08 14.4l-2.95-.924c-.64-.203-.654-.64.136-.948l11.527-4.447c.535-.194 1.003.13.769.167z"/></svg> Спільнота українців в Австралії
+            </a>
           </div>
         </div>
       </div>
