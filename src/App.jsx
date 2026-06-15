@@ -641,6 +641,200 @@ const ALL_Q = [
   },
 
 
+
+  // ── 🌏 STATES, TERRITORIES & ELECTIONS (from Our Common Bond) ──
+  {
+    cat: "🌏 Australia & Its People",
+    en: "What is the capital city of New South Wales?",
+    opts: ["Sydney","Canberra","Newcastle","Wollongong"],
+    a: 0,
+    ua: "Яка столиця Нового Південного Уельсу?",
+    uaOpts: ["Сідней","Канберра","Ньюкасл","Воллонгонг"],
+    exp: "New South Wales was the first colony established by the British. Sydney is the capital city of New South Wales and is the nation's largest city. (Our Common Bond, Part 1)",
+    uaExp: "Новий Південний Уельс — перша британська колонія. Сідней є його столицею та найбільшим містом країни. (Частина 1)"
+  },
+  {
+    cat: "🌏 Australia & Its People",
+    en: "What is the capital city of Victoria?",
+    opts: ["Melbourne","Geelong","Ballarat","Bendigo"],
+    a: 0,
+    ua: "Яка столиця Вікторії?",
+    uaOpts: ["Мельбурн","Джілонг","Балларат","Бендіго"],
+    exp: "Victoria is the smallest of the mainland states. Victoria's capital city is Melbourne. Many fine buildings in Victoria were built from the wealth created by the gold rush of the 1850s. (Our Common Bond, Part 1)",
+    uaExp: "Вікторія — найменший материковий штат. Столиця — Мельбурн. Багато будівель збудовані з доходів від золотої лихоманки 1850-х. (Частина 1)"
+  },
+  {
+    cat: "🌏 Australia & Its People",
+    en: "What is the capital city of South Australia?",
+    opts: ["Adelaide","Port Augusta","Mount Gambier","Whyalla"],
+    a: 0,
+    ua: "Яка столиця Південної Австралії?",
+    uaOpts: ["Аделаїда","Порт-Огаста","Маунт-Гамб'є","Уайалла"],
+    exp: "South Australia has a rugged coastline and many famous wine regions. Adelaide, the capital city, has many examples of fine colonial architecture. (Our Common Bond, Part 1)",
+    uaExp: "Південна Австралія має скелясте узбережжя та знамениті винні регіони. Столиця — Аделаїда з прикладами чудової колоніальної архітектури. (Частина 1)"
+  },
+  {
+    cat: "🌏 Australia & Its People",
+    en: "What is the capital city of Tasmania?",
+    opts: ["Hobart","Launceston","Devonport","Burnie"],
+    a: 0,
+    ua: "Яка столиця Тасманії?",
+    uaOpts: ["Гобарт","Лонсестон","Девонпорт","Бурні"],
+    exp: "Tasmania is the smallest state, separated from the mainland by the Bass Strait. Tasmania's capital city is Hobart. Much of the island has unspoilt wilderness landscapes. (Our Common Bond, Part 1)",
+    uaExp: "Тасманія — найменший штат, відокремлений протокою Басса. Столиця — Гобарт. Більша частина острова — незаймана природа. (Частина 1)"
+  },
+  {
+    cat: "🌏 Australia & Its People",
+    en: "What is the capital city of the Australian Capital Territory?",
+    opts: ["Canberra","Sydney","Queanbeyan","Goulburn"],
+    a: 0,
+    ua: "Яка столиця Австралійської столичної території?",
+    uaOpts: ["Канберра","Сідней","Куінбіян","Гулберн"],
+    exp: "The Australian Capital Territory is located between Sydney and Melbourne. It is home to the nation's capital city, Canberra. Several national institutions are located in Canberra, including Parliament House and the High Court. (Our Common Bond, Part 1)",
+    uaExp: "Австралійська столична територія розташована між Сіднеєм і Мельбурном. Тут знаходиться столиця країни — Канберра з Будинком Парламенту та Верховним судом. (Частина 1)"
+  },
+  {
+    cat: "🌏 Australia & Its People",
+    en: "What is Queensland's second largest state claim in Australia?",
+    opts: ["Queensland is the second largest state","Queensland is the largest state","Queensland is the third largest state","Queensland is the smallest mainland state"],
+    a: 0,
+    ua: "Яке місце займає Квінсленд за розміром серед штатів Австралії?",
+    uaOpts: ["Квінсленд — другий за розміром штат","Квінсленд — найбільший штат","Квінсленд — третій за розміром штат","Квінсленд — найменший материковий штат"],
+    exp: "Queensland is the second largest state. Queensland's capital city is Brisbane. The Torres Strait Islands lie to the north of the state and the world-famous Great Barrier Reef runs along its eastern coast. (Our Common Bond, Part 1)",
+    uaExp: "Квінсленд — другий за розміром штат. Столиця — Брісбен. На північ — острови Торресової протоки, на сході — Великий Бар'єрний риф. (Частина 1)"
+  },
+  {
+    cat: "🌏 Australia & Its People",
+    en: "What iconic landmarks are associated with South Australia?",
+    opts: ["The Barossa Valley and the Flinders Ranges","Uluru and Kings Canyon","The 12 Apostles and Great Ocean Road","Cradle Mountain and Port Arthur"],
+    a: 0,
+    ua: "Які знакові місця пов'язані з Південною Австралією?",
+    uaOpts: ["Долина Бароса та гори Флінерс","Улуру та Кінгс Каньон","12 апостолів та Грейт Оушен Роуд","Гора Крейдл та Порт-Артур"],
+    exp: "South Australia's icons include the Barossa Valley and the Flinders Ranges. Adelaide, the capital city, has many examples of fine colonial architecture. (Our Common Bond, Part 1)",
+    uaExp: "Символи Південної Австралії: долина Бароса та гори Флінерс. Столиця Аделаїда славиться колоніальною архітектурою. (Частина 1)"
+  },
+  {
+    cat: "🌏 Australia & Its People",
+    en: "What iconic landmarks are associated with Tasmania?",
+    opts: ["Cradle Mountain, Port Arthur, and the Bay of Fires","Uluru and Kata Tjuta","The 12 Apostles and Melbourne Cricket Ground","Ningaloo Coast and the Kimberley region"],
+    a: 0,
+    ua: "Які знакові місця пов'язані з Тасманією?",
+    uaOpts: ["Гора Крейдл, Порт-Артур та Бухта Вогнів","Улуру та Ката Тьюта","12 апостолів та Мельбурнський крикетний стадіон","Узбережжя Нінгалу та регіон Кімберлі"],
+    exp: "Tasmanian icons include Cradle Mountain, Port Arthur, and the Bay of Fires. Much of the island has unspoilt wilderness landscapes. (Our Common Bond, Part 1)",
+    uaExp: "Символи Тасманії: гора Крейдл, Порт-Артур та Бухта Вогнів. Більша частина острова — незаймана дика природа. (Частина 1)"
+  },
+  {
+    cat: "🌏 Australia & Its People",
+    en: "What iconic landmarks are associated with Western Australia?",
+    opts: ["Ningaloo Coast, Margaret River, and the Kimberley region","The 12 Apostles and Great Ocean Road","Uluru and Kings Canyon","Cradle Mountain and Port Arthur"],
+    a: 0,
+    ua: "Які знакові місця пов'язані із Західною Австралією?",
+    uaOpts: ["Узбережжя Нінгалу, Маргарет Рівер та регіон Кімберлі","12 апостолів та Грейт Оушен Роуд","Улуру та Кінгс Каньон","Гора Крейдл та Порт-Артур"],
+    exp: "Western Australia is the largest state. Perth is the capital city. Western Australia's icons include the Ningaloo Coast, Margaret River, and the Kimberley region. (Our Common Bond, Part 1)",
+    uaExp: "Західна Австралія — найбільший штат, столиця — Перт. Символи: узбережжя Нінгалу, Маргарет Рівер та регіон Кімберлі. (Частина 1)"
+  },
+
+  // ── 🏛️ ELECTIONS & GOVERNMENT DETAILS ──
+  {
+    cat: "🏛️ Government & Law",
+    en: "What is the total number of senators in the Australian Senate?",
+    opts: ["76","72","100","48"],
+    a: 0,
+    ua: "Яка загальна кількість сенаторів в австралійському Сенаті?",
+    uaOpts: ["76","72","100","48"],
+    exp: "There is a total of 76 senators. Each state elects 12 senators, and the Australian Capital Territory and Northern Territory elect two senators each. (Our Common Bond, Part 3)",
+    uaExp: "Загальна кількість сенаторів — 76. Кожен штат обирає 12, а АСТ та Північна Територія — по 2 сенатори. (Частина 3)"
+  },
+  {
+    cat: "🏛️ Government & Law",
+    en: "How many senators does each territory (ACT and NT) elect?",
+    opts: ["2","12","6","4"],
+    a: 0,
+    ua: "Скільки сенаторів обирає кожна територія (АСТ та ПТ)?",
+    uaOpts: ["2","12","6","4"],
+    exp: "Each state elects 12 senators. The Australian Capital Territory and Northern Territory each elect two senators. Total: 76 senators. (Our Common Bond, Part 3)",
+    uaExp: "Кожна територія (АСТ та Північна Територія) обирає по 2 сенатори. Кожен штат — 12 сенаторів. Всього: 76. (Частина 3)"
+  },
+  {
+    cat: "🏛️ Government & Law",
+    en: "What is the Australian Electoral Commission (AEC)?",
+    opts: ["An independent Commonwealth agency responsible for conducting federal elections and referendums","A department within the Prime Minister's office","A court that resolves election disputes","A state government body that manages voting"],
+    a: 0,
+    ua: "Що таке Австралійська виборча комісія (AEC)?",
+    uaOpts: ["Незалежний федеральний орган, що проводить федеральні вибори та референдуми","Підрозділ офісу прем'єр-міністра","Суд, що вирішує виборчі спори","Орган уряду штату, що управляє голосуванням"],
+    exp: "The Australian Electoral Commission (AEC) is a Commonwealth agency responsible for conducting federal elections and referendums, and maintaining the Commonwealth electoral roll. The AEC is independent of the government. (Our Common Bond, Part 3)",
+    uaExp: "AEC — незалежний федеральний орган, відповідальний за проведення федеральних виборів і референдумів та ведення списку виборців. Він не залежить від уряду. (Частина 3)"
+  },
+  {
+    cat: "🏛️ Government & Law",
+    en: "How is voting conducted in Australian elections?",
+    opts: ["By secret ballot — no one is allowed to know whom you voted for","By public declaration in front of officials","By a show of hands at polling stations","By online declaration linked to your name"],
+    a: 0,
+    ua: "Як проводиться голосування на австралійських виборах?",
+    uaOpts: ["Таємним бюлетенем — ніхто не має права знати, за кого ви голосували","Публічною декларацією перед чиновниками","Підняттям руки на виборчих дільницях","Онлайн-декларацією, пов'язаною з вашим ім'ям"],
+    exp: "In Australia, voting in an election is by secret ballot, so you are free and safe to vote for any candidate. No one is allowed to know whom you have voted for, unless you choose to tell them. (Our Common Bond, Part 3)",
+    uaExp: "В Австралії голосування проводиться таємним бюлетенем. Ніхто не має права знати, за кого ви голосували, якщо ви самі не вирішите це розповісти. (Частина 3)"
+  },
+  {
+    cat: "🏛️ Government & Law",
+    en: "What happens if you do not vote in an Australian election without a good reason?",
+    opts: ["You may have to pay a fine","You lose your citizenship","You are removed from the electoral roll","Nothing happens"],
+    a: 0,
+    ua: "Що відбувається, якщо ви не голосуєте на виборах в Австралії без поважної причини?",
+    uaOpts: ["Вам може бути виписаний штраф","Ви втрачаєте громадянство","Вас виключають із виборчого списку","Нічого не відбувається"],
+    exp: "If you do not vote in an election and do not have a good reason for not voting, you may have to pay a fine. Voting is compulsory in federal and state or territory elections. (Our Common Bond, Part 3)",
+    uaExp: "Якщо ви не голосуєте без поважної причини, вам може бути виписаний штраф. Голосування є обов'язковим на федеральних та штатних виборах. (Частина 3)"
+  },
+  {
+    cat: "🏛️ Government & Law",
+    en: "What is the name given to the leader of a state government?",
+    opts: ["Premier","Prime Minister","Chief Minister","Governor"],
+    a: 0,
+    ua: "Як називається лідер уряду штату?",
+    uaOpts: ["Прем'єр (Premier)","Прем'єр-міністр","Головний міністр","Губернатор"],
+    exp: "The leader of a state government is called the Premier. The leader of a territory government is called the Chief Minister. The leader of the Australian Government is the Prime Minister. (Our Common Bond, Part 3)",
+    uaExp: "Лідер уряду штату називається Прем'єром (Premier). Лідер уряду території — Головним міністром (Chief Minister). Лідер федерального уряду — Прем'єр-міністром. (Частина 3)"
+  },
+  {
+    cat: "🏛️ Government & Law",
+    en: "What is the name given to the leader of a territory government?",
+    opts: ["Chief Minister","Premier","Governor","Prime Minister"],
+    a: 0,
+    ua: "Як називається лідер уряду території?",
+    uaOpts: ["Головний міністр (Chief Minister)","Прем'єр (Premier)","Губернатор","Прем'єр-міністр"],
+    exp: "The leader of a territory government is called the Chief Minister. The leader of a state government is called the Premier. (Our Common Bond, Part 3)",
+    uaExp: "Лідер уряду території називається Головним міністром (Chief Minister). Лідер уряду штату — Прем'єром (Premier). (Частина 3)"
+  },
+  {
+    cat: "🏛️ Government & Law",
+    en: "What is the role of the Governor-General regarding Bills passed by Parliament?",
+    opts: ["Signing all Bills passed by the Australian Parliament into law (Royal Assent)","Debating Bills in the Senate","Writing the Bills before Parliament sees them","Vetoing Bills that conflict with the Constitution"],
+    a: 0,
+    ua: "Яка роль Генерал-губернатора щодо законопроектів, прийнятих Парламентом?",
+    uaOpts: ["Підписання всіх законопроектів, прийнятих Парламентом, в закон (Королівська згода)","Дебати щодо законопроектів у Сенаті","Написання законопроектів до того, як їх побачить Парламент","Накладення вето на законопроекти, що суперечать Конституції"],
+    exp: "The Governor-General's role includes signing all Bills passed by the Australian Parliament into law — this is called Royal Assent. The Governor-General also performs ceremonial duties and approves appointments. (Our Common Bond, Part 3)",
+    uaExp: "Роль Генерал-губернатора включає підписання всіх законопроектів Парламенту в закон (Королівська згода), виконання церемоніальних обов'язків та затвердження призначень. (Частина 3)"
+  },
+  {
+    cat: "🏛️ Government & Law",
+    en: "What must happen for the Australian Constitution to be changed?",
+    opts: ["A referendum with a 'double majority' — majority of voters nationally AND majority in a majority of states","A simple majority vote in Parliament","A decision by the Governor-General","A vote in the Senate only"],
+    a: 0,
+    ua: "Що потрібно для зміни Конституції Австралії?",
+    uaOpts: ["Референдум з 'подвійною більшістю' — більшість виборців по всій країні І більшість у більшості штатів","Проста більшість голосів у Парламенті","Рішення Генерал-губернатора","Голосування лише в Сенаті"],
+    exp: "In a referendum, there needs to be a 'double majority' for the Australian Constitution to be changed — both the majority of voters in a majority of states AND a majority of voters across the nation must vote for the change. (Our Common Bond, Part 3)",
+    uaExp: "Для зміни Конституції потрібна 'подвійна більшість': більшість виборців по всій країні І більшість виборців у більшості штатів. (Частина 3)"
+  },
+  {
+    cat: "🏛️ Government & Law",
+    en: "What other name is given to the House of Representatives?",
+    opts: ["The Lower House or the People's House","The Upper House or the States' House","The Review House","The Constitutional House"],
+    a: 0,
+    ua: "Яка інша назва Палати представників?",
+    uaOpts: ["Нижня палата або Палата народу","Верхня палата або Палата штатів","Ревізійна палата","Конституційна палата"],
+    exp: "Other names for the House of Representatives are the Lower House or the People's House. The Senate is sometimes called the Upper House, the House of Review or the States' House. (Our Common Bond, Part 3)",
+    uaExp: "Інші назви Палати представників: Нижня палата або Палата народу. Сенат іноді називають Верхньою палатою, Ревізійною палатою або Палатою штатів. (Частина 3)"
+  },
   // ── 🌏 EXTRA FROM ONLINE PRACTICE TESTS ──
   {
     cat: "🌏 Australia & Its People",
