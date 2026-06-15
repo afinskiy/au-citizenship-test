@@ -640,6 +640,154 @@ const ALL_Q = [
     uaExp: "Чоловіки та жінки мають рівні права. Дискримінація за статтю є незаконною — це фундаментальна австралійська цінність. (Частини 2 і 4)"
   },
 
+
+  // ── 🌏 EXTRA FROM ONLINE PRACTICE TESTS ──
+  {
+    cat: "🌏 Australia & Its People",
+    en: "How did immigration levels change in the early 1900s?",
+    opts: ["They rose and then fell","They stayed the same","They slowly dropped","They rose steadily forever"],
+    a: 0,
+    ua: "Як змінились рівні імміграції на початку 1900-х?",
+    uaOpts: ["Зросли, а потім впали","Залишились незмінними","Повільно знижувались","Постійно зростали"],
+    exp: "Immigration rose due to British settlement programs but fell during global conflicts and the Great Depression. (Our Common Bond, Part 1)",
+    uaExp: "Імміграція зросла завдяки британським програмам, але впала під час світових конфліктів і Великої депресії. (Частина 1)"
+  },
+  {
+    cat: "🌏 Australia & Its People",
+    en: "From which countries did the first free settlers in Australia come?",
+    opts: ["Britain and Ireland","China and India","France and Germany","America and New Zealand"],
+    a: 0,
+    ua: "З яких країн приїхали перші вільні поселенці в Австралії?",
+    uaOpts: ["Велика Британія та Ірландія","Китай та Індія","Франція та Німеччина","Америка та Нова Зеландія"],
+    exp: "The first free immigrants came from Britain and Ireland, deeply influencing Australian culture, law and language. (Our Common Bond, Part 1)",
+    uaExp: "Перші вільні іммігранти приїхали з Великої Британії та Ірландії, суттєво вплинувши на австралійську культуру та закон. (Частина 1)"
+  },
+  {
+    cat: "🌏 Australia & Its People",
+    en: "Which was the first large non-European group to migrate to Australia?",
+    opts: ["Chinese","Indians","Sri Lankans","Japanese"],
+    a: 0,
+    ua: "Яка була перша велика не-європейська група мігрантів в Австралії?",
+    uaOpts: ["Китайці","Індійці","Шрі-ланкійці","Японці"],
+    exp: "Chinese migrants arrived in large numbers during the 1850s gold rush, making them the first major non-European migrant group in Australia. (Our Common Bond, Part 1)",
+    uaExp: "Китайські мігранти масово приїхали під час золотої лихоманки 1850-х і стали першою великою не-європейською групою мігрантів. (Частина 1)"
+  },
+  {
+    cat: "🌏 Australia & Its People",
+    en: "When do Aboriginal creation stories begin?",
+    opts: ["At the beginning of time","When the First Fleet arrived","200 years ago","During the gold rush"],
+    a: 0,
+    ua: "Коли починаються aboriginal creation stories (Час Сновидінь)?",
+    uaOpts: ["На початку часів","Коли прибув Перший флот","200 років тому","Під час золотої лихоманки"],
+    exp: "Aboriginal people believe their ancestors have been part of the land since the beginning of time — their creation stories begin with the beginning of time itself. (Our Common Bond, Part 1)",
+    uaExp: "Аборигени вірять, що їхні предки були частиною землі від початку часів. Їхні creation stories починаються з початку часів. (Частина 1)"
+  },
+  {
+    cat: "🌏 Australia & Its People",
+    en: "How do Indigenous Australians share their culture?",
+    opts: ["Through stories, art, and dance","Through sports and technology","Through written books only","Through formal schooling"],
+    a: 0,
+    ua: "Як корінні австралійці передають свою культуру?",
+    uaOpts: ["Через розповіді, мистецтво та танці","Через спорт та технології","Лише через письмові книги","Через формальне шкільне навчання"],
+    exp: "Indigenous Australians use stories, art and dance to pass down their culture, traditions and connection to the land across generations. (Our Common Bond, Part 1)",
+    uaExp: "Корінні австралійці передають культуру, традиції та зв'язок із землею через розповіді, мистецтво та танці. (Частина 1)"
+  },
+  {
+    cat: "🌏 Australia & Its People",
+    en: "For which group did the British establish the first colony in Australia?",
+    opts: ["Prisoners (convicts)","Free merchants","Military officers","Religious settlers"],
+    a: 0,
+    ua: "Для якої групи британці заснували першу колонію в Австралії?",
+    uaOpts: ["Ув'язнені (каторжники)","Вільні торговці","Військові офіцери","Релігійні поселенці"],
+    exp: "Britain established New South Wales as a penal colony for convicts to solve overcrowding in British jails. Free settlers arrived later. (Our Common Bond, Part 1)",
+    uaExp: "Велика Британія заснувала Новий Південний Уельс як каторжну колонію для ув'язнених через переповненість британських тюрем. (Частина 1)"
+  },
+
+  // ── 🗳️ EXTRA DEMOCRACY & RIGHTS ──
+  {
+    cat: "🗳️ Democracy & Rights",
+    en: "Who must obey Australia's laws?",
+    opts: ["All people in Australia, including government officials and visitors","Only Australian citizens","Only permanent residents","Only people who were born in Australia"],
+    a: 0,
+    ua: "Хто повинен дотримуватись законів Австралії?",
+    uaOpts: ["Всі люди в Австралії, включаючи чиновників та відвідувачів","Лише громадяни Австралії","Лише постійні резиденти","Лише народжені в Австралії"],
+    exp: "The Rule of Law means all people — citizens, residents, visitors and even government officials — must obey Australia's laws. No one is above the law. (Our Common Bond, Part 2)",
+    uaExp: "Верховенство права означає, що всі — громадяни, резиденти, відвідувачі і навіть чиновники — повинні дотримуватись законів Австралії. (Частина 2)"
+  },
+  {
+    cat: "🗳️ Democracy & Rights",
+    en: "What must Australian citizens do when called for jury service?",
+    opts: ["Attend and participate in jury service as instructed","Choose whether to attend or not","Ignore the summons","Pay a fee to avoid jury service"],
+    a: 0,
+    ua: "Що повинні робити громадяни Австралії, коли їх викликають до журі присяжних?",
+    uaOpts: ["З'явитись та брати участь у засіданні журі","Вирішити самостійно, йти чи ні","Ігнорувати виклик","Сплатити збір щоб уникнути журі"],
+    exp: "Jury service is a responsibility of Australian citizenship. Citizens must attend and participate in jury service when called upon. This helps ensure the court system is fair and open. (Our Common Bond, Part 2)",
+    uaExp: "Служба в журі — обов'язок громадянина. Коли тебе викликають, ти зобов'язаний з'явитись та брати участь. Це забезпечує справедливість судової системи. (Частина 2)"
+  },
+
+  // ── 🏛️ EXTRA GOVERNMENT & LAW ──
+  {
+    cat: "🏛️ Government & Law",
+    en: "Who is responsible for conducting federal elections and referendums in Australia?",
+    opts: ["The Australian Electoral Commission (AEC)","The Prime Minister's Office","The High Court of Australia","The Governor-General"],
+    a: 0,
+    ua: "Хто відповідає за проведення федеральних виборів та референдумів в Австралії?",
+    uaOpts: ["Австралійська виборча комісія (AEC)","Офіс прем'єр-міністра","Верховний суд Австралії","Генерал-губернатор"],
+    exp: "The Australian Electoral Commission (AEC) is an independent statutory authority responsible for conducting federal elections and referendums. (Our Common Bond, Part 3)",
+    uaExp: "Австралійська виборча комісія (AEC) — незалежний орган, відповідальний за проведення федеральних виборів та референдумів. (Частина 3)"
+  },
+  {
+    cat: "🏛️ Government & Law",
+    en: "Who exercises legislative power in Australia?",
+    opts: ["The Parliament","The Prime Minister","The High Court","The Governor-General"],
+    a: 0,
+    ua: "Хто здійснює законодавчу владу в Австралії?",
+    uaOpts: ["Парламент","Прем'єр-міністр","Верховний суд","Генерал-губернатор"],
+    exp: "Legislative power — the power to make laws — is exercised by the Parliament (the Senate and the House of Representatives). (Our Common Bond, Part 3)",
+    uaExp: "Законодавча влада — право ухвалювати закони — належить Парламенту (Сенату та Палаті представників). (Частина 3)"
+  },
+  {
+    cat: "🏛️ Government & Law",
+    en: "What happens if you break the law in Australia?",
+    opts: ["You may face legal consequences such as fines or imprisonment","You are only warned and never held accountable","You can choose your own punishment","Nothing happens if it is a minor offence"],
+    a: 0,
+    ua: "Що відбувається, якщо ви порушуєте закон в Австралії?",
+    uaOpts: ["Ви можете зіткнутися з правовими наслідками: штрафами або ув'язненням","Вас лише попереджають","Ви можете обрати власне покарання","Нічого не відбувається за дрібні порушення"],
+    exp: "If you break the law in Australia, you may face legal consequences. Australian law applies to everyone and consequences can include fines, community service or imprisonment. (Our Common Bond, Parts 2 & 3)",
+    uaExp: "Порушення закону в Австралії може призвести до правових наслідків: штрафів, громадських робіт або ув'язнення. Закон діє для всіх. (Частини 2 і 3)"
+  },
+
+  // ── 🇦🇺 EXTRA AUSTRALIAN VALUES ──
+  {
+    cat: "🇦🇺 Australian Values ⭐",
+    en: "What is the legal stance on violence in Australia?",
+    opts: ["Violence of any kind, physical or verbal, is illegal","Physical violence is illegal but verbal threats are not","Violence is acceptable in self-defence only","Minor violence is tolerated"],
+    a: 0,
+    ua: "Яка правова позиція щодо насилля в Австралії?",
+    uaOpts: ["Будь-яке насилля — фізичне чи словесне — є незаконним","Фізичне насилля незаконне, але словесні погрози — ні","Насилля допустиме лише для самозахисту","Незначне насилля толерується"],
+    exp: "Violence of any kind — physical or verbal — is unacceptable and illegal in Australia. Australians reject violence as a way to change a person's mind or the law. (Our Common Bond, Parts 2 & 4)",
+    uaExp: "Будь-яке насилля — фізичне чи словесне — є неприйнятним і незаконним в Австралії. Австралійці відкидають насилля як спосіб змінити чиюсь думку або закон. (Частини 2 і 4)"
+  },
+  {
+    cat: "🇦🇺 Australian Values ⭐",
+    en: "What are the core values that underpin Australian society?",
+    opts: ["Respect for freedom, equality and the rule of law","Obedience to only one religion","Speaking only English is mandatory","Loyalty to Britain above all else"],
+    a: 0,
+    ua: "Які основні цінності лежать в основі австралійського суспільства?",
+    uaOpts: ["Повага до свободи, рівності та верховенства права","Послух лише одній релігії","Розмова лише англійською обов'язкова","Лояльність до Британії понад усе"],
+    exp: "The core values underpinning Australian society include respect for freedom, equality, the rule of law, and mutual respect and tolerance. (Our Common Bond, Parts 2 & 4)",
+    uaExp: "Основні цінності австралійського суспільства: повага до свободи, рівності, верховенства права та взаємна повага і толерантність. (Частини 2 і 4)"
+  },
+  {
+    cat: "🇦🇺 Australian Values ⭐",
+    en: "Why is it important to obey the law in Australia?",
+    opts: ["Obeying the law ensures fairness and safety for everyone","So that you do not get deported","To earn tax refunds","To gain voting rights faster"],
+    a: 0,
+    ua: "Чому важливо дотримуватись закону в Австралії?",
+    uaOpts: ["Дотримання закону забезпечує справедливість та безпеку для всіх","Щоб не бути депортованим","Щоб отримати повернення податків","Щоб швидше отримати право голосу"],
+    exp: "Obeying the law is a fundamental responsibility in Australia. The Rule of Law ensures fairness, equality and safety for everyone in the community. (Our Common Bond, Parts 2 & 4)",
+    uaExp: "Дотримання закону — фундаментальний обов'язок в Австралії. Верховенство права забезпечує справедливість, рівність та безпеку для всіх. (Частини 2 і 4)"
+  },
   // ── 📋 TEST FORMAT ──
   {
     cat: "📋 Test Format",
