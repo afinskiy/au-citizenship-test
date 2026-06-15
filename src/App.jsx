@@ -695,10 +695,10 @@ const ALL_Q = [
   },
   {
     cat: "🌏 Australia & Its People",
-    en: "What is Queensland's second largest state claim in Australia?",
+    en: "Which is the second largest state in Australia?",
     opts: ["Queensland is the second largest state","Queensland is the largest state","Queensland is the third largest state","Queensland is the smallest mainland state"],
     a: 0,
-    ua: "Яке місце займає Квінсленд за розміром серед штатів Австралії?",
+    ua: "Який штат є другим за розміром в Австралії?",
     uaOpts: ["Квінсленд — другий за розміром штат","Квінсленд — найбільший штат","Квінсленд — третій за розміром штат","Квінсленд — найменший материковий штат"],
     exp: "Queensland is the second largest state. Queensland's capital city is Brisbane. The Torres Strait Islands lie to the north of the state and the world-famous Great Barrier Reef runs along its eastern coast. (Our Common Bond, Part 1)",
     uaExp: "Квінсленд — другий за розміром штат. Столиця — Брісбен. На північ — острови Торресової протоки, на сході — Великий Бар'єрний риф. (Частина 1)"
