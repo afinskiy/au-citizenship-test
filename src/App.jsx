@@ -1508,7 +1508,7 @@ export default function App() {
                 <div style={{ fontSize:11, color:"#999", textAlign:"center", marginBottom:8 }}>Маєш питання або хочеш спілкуватись?</div>
                 <a href="https://t.me/uainau" target="_blank" rel="noopener noreferrer"
                   style={{ display:"flex", alignItems:"center", justifyContent:"center", gap:8, background:"#229ED9", color:"white", borderRadius:10, padding:11, fontSize:13, fontWeight:600, textDecoration:"none" }}>
-                  <span style={{ fontSize:16 }}>✈️</span> Спільнота українців в Австралії
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="white" style={{flexShrink:0}}><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248l-2.013 9.483c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L7.08 14.4l-2.95-.924c-.64-.203-.654-.64.136-.948l11.527-4.447c.535-.194 1.003.13.769.167z"/></svg> Спільнота українців в Австралії
                 </a>
               </div>
       </div>
