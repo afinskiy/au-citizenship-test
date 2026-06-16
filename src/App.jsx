@@ -2215,6 +2215,366 @@ const ALL_Q = [
     ],
     exp: "The Rule of Law means that no person, group or religious rule is above the law. Everyone must obey Australia's laws regardless of their background, culture or religion. Australian law prevails over cultural or religious practices. (Our Common Bond, Parts 2 & 4)",
     uaExp: "Верховенство права: жодна особа, група чи релігійне правило не є вищим за закон. Всі повинні дотримуватись законів Австралії незалежно від культури чи релігії. (Частини 2 і 4)"
+  },
+  {
+    cat: "🌏 Australia & Its People",
+    en: "On Anzac Day, we remember",
+    opts: [
+      "the arrival of the First Fleet from Great Britain.",
+      "the creation of an independent Australian nation.",
+      "all Australians who have fought and died in wars."
+    ],
+    a: 2,
+    ua: "У День АНЗАК ми згадуємо",
+    uaOpts: [
+      "прибуття Першого флоту з Великої Британії.",
+      "створення незалежної австралійської нації.",
+      "усіх австралійців, які воювали й загинули у війнах."
+    ],
+    exp: "Anzac Day is commemorated on 25 April. It is a solemn day when Australians remember the service and sacrifice of all Australians who have served and died in wars, conflicts and peacekeeping operations. (Our Common Bond, Part 1)",
+    uaExp: "День АНЗАК відзначають 25 квітня. Це день пам'яті про службу й жертву австралійців, які служили та загинули у війнах, конфліктах і миротворчих операціях. (Частина 1)"
+  },
+  {
+    cat: "🌏 Australia & Its People",
+    en: "What are the colours of the Australian Aboriginal Flag?",
+    opts: [
+      "Green, white and black.",
+      "Black, red and yellow.",
+      "Blue, white and green."
+    ],
+    a: 1,
+    ua: "Які кольори прапора австралійських аборигенів?",
+    uaOpts: [
+      "Зелений, білий і чорний.",
+      "Чорний, червоний і жовтий.",
+      "Синій, білий і зелений."
+    ],
+    exp: "The Australian Aboriginal Flag is black, red and yellow. The black represents Aboriginal peoples, the red represents the earth and the yellow circle represents the sun. (Our Common Bond, Part 1)",
+    uaExp: "Прапор австралійських аборигенів має чорний, червоний і жовтий кольори. Чорний означає аборигенів, червоний - землю, а жовте коло - сонце. (Частина 1)"
+  },
+  {
+    cat: "🌏 Australia & Its People",
+    en: "Who can deliver a Welcome to Country?",
+    opts: [
+      "Anyone that lives on the land.",
+      "A Master of Ceremonies at an event on the land.",
+      "An Aboriginal or Torres Strait Islander custodian of the land."
+    ],
+    a: 2,
+    ua: "Хто може провести Welcome to Country?",
+    uaOpts: [
+      "Будь-хто, хто живе на цій землі.",
+      "Ведучий заходу на цій землі.",
+      "Абориген або житель островів Торресової протоки, який є хранителем цієї землі."
+    ],
+    exp: "A Welcome to Country is performed by an Aboriginal or Torres Strait Islander custodian of the local region to welcome visitors to their traditional land. (Our Common Bond, Part 1)",
+    uaExp: "Welcome to Country виконує абориген або житель островів Торресової протоки, який є хранителем місцевої території, щоб привітати відвідувачів на традиційній землі. (Частина 1)"
+  },
+  {
+    cat: "🌏 Australia & Its People",
+    en: "When did the separate colonies join together to become the Australian nation?",
+    opts: [
+      "1901.",
+      "2001.",
+      "1601."
+    ],
+    a: 0,
+    ua: "Коли окремі колонії об'єдналися, щоб стати австралійською нацією?",
+    uaOpts: [
+      "1901.",
+      "2001.",
+      "1601."
+    ],
+    exp: "On 1 January 1901, the separate colonies united as the Commonwealth of Australia under the Australian Constitution. (Our Common Bond, Part 1)",
+    uaExp: "1 січня 1901 року окремі колонії об'єдналися в Австралійський Союз відповідно до Конституції Австралії. (Частина 1)"
+  },
+  {
+    cat: "🌏 Australia & Its People",
+    en: "What is Australia's capital city?",
+    opts: [
+      "Perth.",
+      "Brisbane.",
+      "Canberra."
+    ],
+    a: 2,
+    ua: "Яка столиця Австралії?",
+    uaOpts: [
+      "Перт.",
+      "Брисбен.",
+      "Канберра."
+    ],
+    exp: "Canberra is Australia's capital city. It is located in the Australian Capital Territory between Sydney and Melbourne. (Our Common Bond, Part 1)",
+    uaExp: "Канберра - столиця Австралії. Вона розташована в Австралійській столичній території між Сіднеєм і Мельбурном. (Частина 1)"
+  },
+  {
+    cat: "🗳️ Democracy & Rights",
+    en: "By law, Australian citizens aged 18 or over must",
+    opts: [
+      "join the Australian Defence Force.",
+      "attend local council meetings.",
+      "vote in Australian elections."
+    ],
+    a: 2,
+    ua: "За законом громадяни Австралії віком від 18 років повинні",
+    uaOpts: [
+      "вступити до Австралійських сил оборони.",
+      "відвідувати засідання місцевої ради.",
+      "голосувати на австралійських виборах."
+    ],
+    exp: "Voting is compulsory for Australian citizens aged 18 years or over in federal and state or territory elections, and in referendums. (Our Common Bond, Part 2)",
+    uaExp: "Голосування є обов'язковим для громадян Австралії віком від 18 років на федеральних, штатних або територіальних виборах і референдумах. (Частина 2)"
+  },
+  {
+    cat: "🗳️ Democracy & Rights",
+    en: "In Australia, the government",
+    opts: [
+      "tells people which religion to follow.",
+      "is separate from any religion.",
+      "makes laws based on the official religion."
+    ],
+    a: 1,
+    ua: "В Австралії уряд",
+    uaOpts: [
+      "вказує людям, яку релігію сповідувати.",
+      "відокремлений від будь-якої релігії.",
+      "ухвалює закони на основі офіційної релігії."
+    ],
+    exp: "Australia has no official national religion. The government is secular, which means it operates separately from churches and other religious entities. (Our Common Bond, Part 2)",
+    uaExp: "В Австралії немає офіційної національної релігії. Уряд є світським, тобто діє окремо від церков та інших релігійних організацій. (Частина 2)"
+  },
+  {
+    cat: "🗳️ Democracy & Rights",
+    en: "Which is correct in Australian law?",
+    opts: [
+      "Women have more rights than men.",
+      "Men have more rights than women.",
+      "Men and women have equal rights."
+    ],
+    a: 2,
+    ua: "Що правильно за австралійським законом?",
+    uaOpts: [
+      "Жінки мають більше прав, ніж чоловіки.",
+      "Чоловіки мають більше прав, ніж жінки.",
+      "Чоловіки й жінки мають рівні права."
+    ],
+    exp: "Men and women have equal rights in Australia. It is against the law to discriminate against a person because of their gender. (Our Common Bond, Part 2)",
+    uaExp: "Чоловіки й жінки мають рівні права в Австралії. Дискримінація людини через стать є незаконною. (Частина 2)"
+  },
+  {
+    cat: "🗳️ Democracy & Rights",
+    en: "Which of the following is true?",
+    opts: [
+      "Australian citizens need a visa to enter Australia.",
+      "Permanent residents can get an Australian passport.",
+      "Australian citizens can get an Australian passport."
+    ],
+    a: 2,
+    ua: "Яке з наведених тверджень є правильним?",
+    uaOpts: [
+      "Громадянам Австралії потрібна віза для в'їзду в Австралію.",
+      "Постійні резиденти можуть отримати австралійський паспорт.",
+      "Громадяни Австралії можуть отримати австралійський паспорт."
+    ],
+    exp: "Applying for an Australian passport and re-entering Australia freely are privileges of Australian citizenship. (Our Common Bond, Part 2)",
+    uaExp: "Подання заявки на австралійський паспорт і вільне повернення до Австралії є привілеями австралійського громадянства. (Частина 2)"
+  },
+  {
+    cat: "🗳️ Democracy & Rights",
+    en: "Australians believe in freedom of speech. This means",
+    opts: [
+      "everyone must follow a religion.",
+      "people can say what they think about politics.",
+      "men have more legal rights than women."
+    ],
+    a: 1,
+    ua: "Австралійці вірять у свободу слова. Це означає, що",
+    uaOpts: [
+      "кожен повинен сповідувати релігію.",
+      "люди можуть говорити, що вони думають про політику.",
+      "чоловіки мають більше юридичних прав, ніж жінки."
+    ],
+    exp: "Freedom of speech means people can say and write what they think and discuss their ideas with others, within the law. This includes discussing politics and government. (Our Common Bond, Part 2)",
+    uaExp: "Свобода слова означає, що люди можуть говорити й писати те, що думають, та обговорювати свої ідеї з іншими в межах закону. Це включає обговорення політики й уряду. (Частина 2)"
+  },
+  {
+    cat: "🏛️ Government & Law",
+    en: "The Australian Constitution is a legal document that",
+    opts: [
+      "contains religious rules.",
+      "can never be changed.",
+      "contains rules of government."
+    ],
+    a: 2,
+    ua: "Конституція Австралії - це юридичний документ, який",
+    uaOpts: [
+      "містить релігійні правила.",
+      "ніколи не може бути змінений.",
+      "містить правила управління державою."
+    ],
+    exp: "The Australian Constitution is the legal document that sets out the basic rules for the government of Australia. It can be changed by referendum. (Our Common Bond, Part 3)",
+    uaExp: "Конституція Австралії - це юридичний документ, який встановлює основні правила управління Австралією. Її можна змінити шляхом референдуму. (Частина 3)"
+  },
+  {
+    cat: "🏛️ Government & Law",
+    en: "The Governor-General represents",
+    opts: [
+      "the current Prime Minister.",
+      "our head of state, the King of Australia.",
+      "the High Court of Australia."
+    ],
+    a: 1,
+    ua: "Генерал-губернатор представляє",
+    uaOpts: [
+      "чинного Прем'єр-міністра.",
+      "нашого главу держави, Короля Австралії.",
+      "Високий суд Австралії."
+    ],
+    exp: "Australia's head of state is the King of Australia. The Governor-General represents the King in Australia. (Our Common Bond, Part 3)",
+    uaExp: "Главою держави Австралії є Король Австралії. Генерал-губернатор представляє Короля в Австралії. (Частина 3)"
+  },
+  {
+    cat: "🏛️ Government & Law",
+    en: "In Australian elections,",
+    opts: [
+      "you must tell the police who you voted for.",
+      "you must write your name on your vote.",
+      "you are free and safe to vote for any candidate."
+    ],
+    a: 2,
+    ua: "На австралійських виборах",
+    uaOpts: [
+      "ви повинні сказати поліції, за кого проголосували.",
+      "ви повинні написати своє ім'я на бюлетені.",
+      "ви вільні й у безпеці голосувати за будь-якого кандидата."
+    ],
+    exp: "Voting in Australian elections is by secret ballot. This means no one is allowed to know who you voted for, and you are free and safe to vote for any candidate. (Our Common Bond, Part 3)",
+    uaExp: "Голосування на австралійських виборах є таємним. Це означає, що ніхто не має знати, за кого ви проголосували, і ви вільні та в безпеці голосувати за будь-якого кандидата. (Частина 3)"
+  },
+  {
+    cat: "🏛️ Government & Law",
+    en: "In Australia, the parliament",
+    opts: [
+      "is chosen by the Prime Minister.",
+      "makes and changes the laws.",
+      "is controlled by judges."
+    ],
+    a: 1,
+    ua: "В Австралії парламент",
+    uaOpts: [
+      "обирається Прем'єр-міністром.",
+      "ухвалює та змінює закони.",
+      "контролюється суддями."
+    ],
+    exp: "The Australian Parliament has the power to make and change laws in Australia to benefit the nation. (Our Common Bond, Part 3)",
+    uaExp: "Парламент Австралії має повноваження ухвалювати та змінювати закони Австралії на користь нації. (Частина 3)"
+  },
+  {
+    cat: "🏛️ Government & Law",
+    en: "In Australia, a referendum is a vote to change",
+    opts: [
+      "the Australian Government.",
+      "the Australian Constitution.",
+      "the Prime Minister."
+    ],
+    a: 1,
+    ua: "В Австралії референдум - це голосування за зміну",
+    uaOpts: [
+      "австралійського уряду.",
+      "Конституції Австралії.",
+      "Прем'єр-міністра."
+    ],
+    exp: "The Australian people can change the Australian Constitution by voting in a referendum. A double majority is needed for the change to pass. (Our Common Bond, Part 3)",
+    uaExp: "Австралійський народ може змінити Конституцію Австралії шляхом голосування на референдумі. Для ухвалення зміни потрібна подвійна більшість. (Частина 3)"
+  },
+  {
+    cat: "🇦🇺 Australian Values ⭐",
+    en: "In Australia, the use of violence against a person is",
+    opts: [
+      "acceptable if they are a different religion.",
+      "acceptable if they have a different opinion.",
+      "never acceptable and it is against the law."
+    ],
+    a: 2,
+    ua: "В Австралії застосування насильства проти людини є",
+    uaOpts: [
+      "прийнятним, якщо вона має іншу релігію.",
+      "прийнятним, якщо вона має іншу думку.",
+      "ніколи не прийнятним і є протизаконним."
+    ],
+    exp: "Violence of any kind, including verbal and physical abuse, is illegal in Australia. Australians believe in peaceful disagreement and the right to be safe from violence and intimidation. (Our Common Bond, Part 4)",
+    uaExp: "Будь-яке насильство, включно зі словесним і фізичним насильством, є незаконним в Австралії. Австралійці вірять у мирну незгоду та право бути в безпеці від насильства й залякування. (Частина 4)"
+  },
+  {
+    cat: "🇦🇺 Australian Values ⭐",
+    en: "In Australia, we believe in mutual respect and tolerance. This means you can",
+    opts: [
+      "physically fight someone when you disagree with them.",
+      "only agree with people from the same religion.",
+      "peacefully disagree with someone."
+    ],
+    a: 2,
+    ua: "В Австралії ми віримо у взаємну повагу й толерантність. Це означає, що ви можете",
+    uaOpts: [
+      "фізично битися з кимось, коли не погоджуєтеся.",
+      "погоджуватися лише з людьми тієї самої релігії.",
+      "мирно не погоджуватися з кимось."
+    ],
+    exp: "Mutual respect and tolerance mean listening to others and respecting their views and choices, even when you disagree. Australians believe in peaceful disagreement. (Our Common Bond, Part 4)",
+    uaExp: "Взаємна повага й толерантність означають слухати інших і поважати їхні погляди та вибір, навіть коли ви не погоджуєтеся. Австралійці вірять у мирну незгоду. (Частина 4)"
+  },
+  {
+    cat: "🇦🇺 Australian Values ⭐",
+    en: "In Australia, volunteering is important because",
+    opts: [
+      "it earns people lots of money.",
+      "we have to do it by law.",
+      "it strengthens our community."
+    ],
+    a: 2,
+    ua: "В Австралії волонтерство важливе, тому що",
+    uaOpts: [
+      "воно приносить людям багато грошей.",
+      "ми зобов'язані робити це за законом.",
+      "воно зміцнює нашу громаду."
+    ],
+    exp: "Volunteering and community service are valued in Australia because they help people support each other and strengthen the community. (Our Common Bond, Part 4)",
+    uaExp: "Волонтерство й служіння громаді цінуються в Австралії, бо вони допомагають людям підтримувати одне одного та зміцнюють громаду. (Частина 4)"
+  },
+  {
+    cat: "🇦🇺 Australian Values ⭐",
+    en: "Freedom of speech",
+    opts: [
+      "means people do not need to obey the law.",
+      "is not an Australian value.",
+      "underpins Australia’s democratic system."
+    ],
+    a: 2,
+    ua: "Свобода слова",
+    uaOpts: [
+      "означає, що людям не потрібно дотримуватися закону.",
+      "не є австралійською цінністю.",
+      "є основою демократичної системи Австралії."
+    ],
+    exp: "Freedom of speech is a core Australian value and underpins Australia's democratic system. It must be exercised within the law. (Our Common Bond, Parts 2 and 4)",
+    uaExp: "Свобода слова є ключовою австралійською цінністю та основою демократичної системи Австралії. Її потрібно здійснювати в межах закону. (Частини 2 і 4)"
+  },
+  {
+    cat: "🇦🇺 Australian Values ⭐",
+    en: "Why is it important for people living in Australia to learn English?",
+    opts: [
+      "Only native English speakers can become Australian citizens.",
+      "Speaking English helps people get an education and a job.",
+      "English is the only language spoken in Australian communities."
+    ],
+    a: 1,
+    ua: "Чому людям, які живуть в Австралії, важливо вивчати англійську мову?",
+    uaOpts: [
+      "Лише носії англійської мови можуть стати громадянами Австралії.",
+      "Знання англійської допомагає людям здобути освіту й роботу.",
+      "Англійська - єдина мова, якою говорять в австралійських громадах."
+    ],
+    exp: "English is Australia's national language and helps people fully participate in Australian society. Speaking English helps with education, employment and participation in the community. (Our Common Bond, Part 4)",
+    uaExp: "Англійська є національною мовою Австралії та допомагає людям повноцінно брати участь у житті суспільства. Знання англійської допомагає з освітою, роботою та участю в громаді. (Частина 4)"
   }
 ];
 
