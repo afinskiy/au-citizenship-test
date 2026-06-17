@@ -2436,14 +2436,14 @@ const ALL_Q = [
     cat: "🇦🇺 Australian Values ⭐",
     en: "Which is legal in Australia?",
     opts: [
-      "Ending a marriage.",
+      "Divorce.",
       "Forced marriage.",
       "Having several wives."
     ],
     a: 0,
     ua: "Що є законним в Австралії?",
     uaOpts: [
-      "Розірвати шлюб.",
+      "Розлучення.",
       "Примусовий шлюб.",
       "Мати кілька дружин."
     ],
