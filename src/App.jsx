@@ -4,165 +4,183 @@ import { useState, useEffect, useRef, useMemo } from "react";
 const ALL_Q = [
   {
     cat: "🌏 Australia & Its People",
-    en: "Who were the first inhabitants of Australia?",
+    en: "Who are Australia's first inhabitants?",
     opts: [
-      "Aboriginal and Torres Strait Islander peoples",
       "British settlers",
+      "Aboriginal and Torres Strait Islander peoples",
       "Dutch explorers"
     ],
-    a: 0,
-    ua: "Хто були першими жителями Австралії?",
+    a: 1,
+    ua: "Хто є першими жителями Австралії?",
     uaOpts: [
-      "Аборигени та жителі островів Торресової протоки",
       "Британські поселенці",
+      "Аборигени та жителі островів Торресової протоки",
       "Нідерландські дослідники"
     ],
-    exp: "Australia's first inhabitants are the Aboriginal and Torres Strait Islander peoples, who have the oldest continuous cultures and traditions in the world. (Our Common Bond, Part 1)",
-    uaExp: "Першими жителями Австралії є аборигени та жителі островів Торресової протоки — носії найдавніших безперервних культур у світі. (Частина 1)"
+    exp: "Australia's first inhabitants are the Aboriginal and Torres Strait Islander peoples, who have the oldest continuous cultures in the world. (Part 1)",
+    uaExp: "Першими жителями Австралії є аборигени та жителі островів Торресової протоки — носії найдавніших безперервних культур. (Частина 1)"
   },
   {
     cat: "🌏 Australia & Its People",
-    en: "How long ago did Aboriginal peoples arrive in Australia according to archaeological records?",
+    en: "When did European settlement of Australia begin?",
     opts: [
-      "Between 65,000 and 40,000 years ago",
-      "About 10,000 years ago",
-      "About 200 years ago"
+      "1901",
+      "1851",
+      "1788"
     ],
-    a: 0,
-    ua: "Скільки років тому, за даними археології, прибули аборигени до Австралії?",
+    a: 2,
+    ua: "Коли почалося європейське заселення Австралії?",
     uaOpts: [
-      "Між 65 000 і 40 000 років тому",
-      "Близько 10 000 років тому",
-      "Близько 200 років тому"
+      "1901",
+      "1851",
+      "1788"
     ],
-    exp: "The archaeological record indicates that Aboriginal peoples arrived in Australia between 65,000 and 40,000 years ago. (Our Common Bond, Part 1)",
-    uaExp: "Археологічні дані свідчать, що аборигени прибули до Австралії між 65 000 і 40 000 років тому. (Частина 1)"
+    exp: "European settlement started when the First Fleet arrived from Great Britain on 26 January 1788. (Part 1)",
+    uaExp: "Європейське заселення почалося з прибуттям Першого флоту 26 січня 1788 року. (Частина 1)"
   },
   {
     cat: "🌏 Australia & Its People",
-    en: "Where do Torres Strait Islander people come from?",
+    en: "Who was the first Governor of New South Wales?",
     opts: [
-      "Islands between the northern tip of Queensland and Papua New Guinea",
-      "The coast of Western Australia",
-      "Tasmania"
-    ],
-    a: 0,
-    ua: "Звідки походять жителі островів Торресової протоки?",
-    uaOpts: [
-      "Острови між північним краєм Квінсленду і Папуа Новою Гвінеєю",
-      "Узбережжя Західної Австралії",
-      "Тасманія"
-    ],
-    exp: "Torres Strait Islander people are from islands between the northern tip of Queensland and Papua New Guinea. (Our Common Bond, Part 1)",
-    uaExp: "Жителі Торресової протоки — з островів між північним краєм Квінсленду та Папуа Новою Гвінеєю. (Частина 1)"
-  },
-  {
-    cat: "🌏 Australia & Its People",
-    en: "When did European settlement begin in Australia?",
-    opts: [
-      "26 January 1788",
-      "1 January 1901",
-      "25 April 1915"
-    ],
-    a: 0,
-    ua: "Коли розпочалось європейське заселення Австралії?",
-    uaOpts: [
-      "26 січня 1788 року",
-      "1 січня 1901 року",
-      "25 квітня 1915 року"
-    ],
-    exp: "European settlement started when the first 11 convict ships (the First Fleet) arrived from Great Britain on 26 January 1788. (Our Common Bond, Part 1)",
-    uaExp: "Перший флот із 11 кораблів прибув з Великої Британії 26 січня 1788 року. (Частина 1)"
-  },
-  {
-    cat: "🌏 Australia & Its People",
-    en: "Who was the first Governor of the colony of New South Wales?",
-    opts: [
-      "Captain Arthur Phillip",
       "Captain James Cook",
-      "Governor John Hunter"
+      "Governor Lachlan Macquarie",
+      "Captain Arthur Phillip"
     ],
-    a: 0,
-    ua: "Хто був першим губернатором колонії Новий Південний Уельс?",
+    a: 2,
+    ua: "Хто був першим губернатором Нового Південного Уельсу?",
     uaOpts: [
-      "Капітан Артур Філліп",
       "Капітан Джеймс Кук",
-      "Губернатор Джон Хантер"
+      "Губернатор Лаклан Маккуорі",
+      "Капітан Артур Філліп"
     ],
-    exp: "The first Governor of the colony of New South Wales was Captain Arthur Phillip. (Our Common Bond, Part 1)",
+    exp: "The first Governor of the colony of New South Wales was Captain Arthur Phillip. (Part 1)",
     uaExp: "Першим губернатором колонії Новий Південний Уельс був капітан Артур Філліп. (Частина 1)"
   },
   {
     cat: "🌏 Australia & Its People",
-    en: "When did the gold rush begin in Australia?",
+    en: "In what year did the gold rush begin?",
     opts: [
-      "1851",
       "1788",
-      "1901"
+      "1901",
+      "1851"
     ],
-    a: 0,
-    ua: "Коли в Австралії розпочалась золота лихоманка?",
+    a: 2,
+    ua: "У якому році почалася золота лихоманка?",
     uaOpts: [
-      "1851",
       "1788",
-      "1901"
+      "1901",
+      "1851"
     ],
-    exp: "In 1851, a 'gold rush' began when gold was discovered in the colonies of New South Wales and Victoria. (Our Common Bond, Part 1)",
-    uaExp: "У 1851 році розпочалась золота лихоманка після відкриття золота в колоніях Новий Південний Уельс та Вікторія. (Частина 1)"
+    exp: "In 1851 a 'gold rush' began when gold was discovered in New South Wales and Victoria. (Part 1)",
+    uaExp: "У 1851 році почалася золота лихоманка після відкриття золота в Новому Південному Уельсі та Вікторії. (Частина 1)"
   },
   {
     cat: "🌏 Australia & Its People",
-    en: "When did Australia become a federation?",
+    en: "Who were the first large group of non-European migrants?",
     opts: [
-      "1 January 1901",
-      "26 January 1788",
-      "25 April 1915"
+      "Indians",
+      "Chinese",
+      "Greeks"
     ],
-    a: 0,
-    ua: "Коли Австралія стала федерацією?",
+    a: 1,
+    ua: "Хто був першою великою групою не-європейських мігрантів?",
     uaOpts: [
-      "1 січня 1901 року",
-      "26 січня 1788 року",
-      "25 квітня 1915 року"
+      "Індійці",
+      "Китайці",
+      "Греки"
     ],
-    exp: "In 1901, the separate colonies were united into a federation of states called the Commonwealth of Australia. (Our Common Bond, Part 1)",
-    uaExp: "У 1901 році окремі колонії об'єдналися у федерацію — Австралійський Союз. (Частина 1)"
+    exp: "Chinese people arriving during the gold rush were the first large group of migrants not from Europe. (Part 1)",
+    uaExp: "Китайці, що прибули під час золотої лихоманки, були першою великою групою мігрантів не з Європи. (Частина 1)"
   },
   {
     cat: "🌏 Australia & Its People",
-    en: "After which referendum were Aboriginal and Torres Strait Islander peoples included in official population estimates?",
+    en: "When did the colonies federate into the Commonwealth of Australia?",
     opts: [
-      "1967 Referendum",
-      "1901 Referendum",
-      "1948 Referendum"
+      "1901",
+      "1788",
+      "1851"
     ],
     a: 0,
-    ua: "Після якого референдуму аборигени були включені до офіційного підрахунку населення?",
+    ua: "Коли колонії об'єдналися в Австралійський Союз?",
     uaOpts: [
-      "Референдум 1967 року",
-      "Референдум 1901 року",
-      "Референдум 1948 року"
+      "1901",
+      "1788",
+      "1851"
     ],
-    exp: "It was not until after a Referendum in 1967 that Aboriginal and Torres Strait Islander peoples were included in official estimates of the Australian population. (Our Common Bond, Part 1)",
-    uaExp: "Лише після референдуму 1967 року аборигени були включені до офіційних підрахунків населення. (Частина 1)"
+    exp: "On 1 January 1901 the separate colonies were united into a federation called the Commonwealth of Australia. (Part 1)",
+    uaExp: "1 січня 1901 року окремі колонії об'єдналися у федерацію — Австралійський Союз. (Частина 1)"
+  },
+  {
+    cat: "🌏 Australia & Its People",
+    en: "After which referendum were Aboriginal peoples included in population counts?",
+    opts: [
+      "1901",
+      "1948",
+      "1967"
+    ],
+    a: 2,
+    ua: "Після якого референдуму аборигенів включили до підрахунку населення?",
+    uaOpts: [
+      "1901",
+      "1948",
+      "1967"
+    ],
+    exp: "It was not until after the 1967 Referendum that Aboriginal and Torres Strait Islander peoples were included in official population estimates. (Part 1)",
+    uaExp: "Лише після референдуму 1967 року аборигенів включили до офіційних підрахунків населення. (Частина 1)"
+  },
+  {
+    cat: "🌏 Australia & Its People",
+    en: "What is Australia's national language?",
+    opts: [
+      "There is no national language",
+      "Aboriginal English",
+      "English"
+    ],
+    a: 2,
+    ua: "Яка національна мова Австралії?",
+    uaOpts: [
+      "Національної мови немає",
+      "Аборигенна англійська",
+      "Англійська"
+    ],
+    exp: "Australia's national language is English. It is part of our national identity. (Part 1)",
+    uaExp: "Національна мова Австралії — англійська. Вона є частиною національної ідентичності. (Частина 1)"
   },
   {
     cat: "🌏 Australia & Its People",
     en: "How many states does Australia have?",
     opts: [
-      "6",
-      "7",
-      "5"
+      "Five",
+      "Seven",
+      "Six"
     ],
-    a: 0,
-    ua: "Скільки штатів має Австралія?",
+    a: 2,
+    ua: "Скільки штатів в Австралії?",
     uaOpts: [
-      "6",
-      "7",
-      "5"
+      "П'ять",
+      "Сім",
+      "Шість"
     ],
-    exp: "The Commonwealth of Australia is a federation of states and territories. There are six states and two mainland territories. (Our Common Bond, Part 1)",
-    uaExp: "Австралійський Союз — федерація з шести штатів та двох материкових територій. (Частина 1)"
+    exp: "The Commonwealth of Australia has six states and two mainland territories. (Part 1)",
+    uaExp: "Австралійський Союз має шість штатів і дві материкові території. (Частина 1)"
+  },
+  {
+    cat: "🌏 Australia & Its People",
+    en: "How many mainland territories does Australia have?",
+    opts: [
+      "One",
+      "Two",
+      "Three"
+    ],
+    a: 1,
+    ua: "Скільки материкових територій в Австралії?",
+    uaOpts: [
+      "Одна",
+      "Дві",
+      "Три"
+    ],
+    exp: "Australia has two mainland territories: the Australian Capital Territory and the Northern Territory. (Part 1)",
+    uaExp: "Австралія має дві материкові території: Австралійську столичну територію та Північну Територію. (Частина 1)"
   },
   {
     cat: "🌏 Australia & Its People",
@@ -179,224 +197,566 @@ const ALL_Q = [
       "Сідней",
       "Мельбурн"
     ],
-    exp: "Canberra is Australia's capital city. The Australian Capital Territory is located between Sydney and Melbourne, and is home to the nation's capital city, Canberra. (Our Common Bond, Part 1)",
-    uaExp: "Канберра — столиця Австралії, розташована між Сіднеєм і Мельбурном. (Частина 1)"
+    exp: "Canberra is Australia's capital city, located in the Australian Capital Territory between Sydney and Melbourne. (Part 1)",
+    uaExp: "Канберра — столиця Австралії, розташована в АСТ між Сіднеєм і Мельбурном. (Частина 1)"
   },
   {
     cat: "🌏 Australia & Its People",
-    en: "Which is the largest state in Australia?",
+    en: "What is the capital of New South Wales?",
     opts: [
-      "Western Australia",
+      "Newcastle",
+      "Canberra",
+      "Sydney"
+    ],
+    a: 2,
+    ua: "Яка столиця Нового Південного Уельсу?",
+    uaOpts: [
+      "Ньюкасл",
+      "Канберра",
+      "Сідней"
+    ],
+    exp: "Sydney is the capital city of New South Wales and the nation's largest city. (Part 1)",
+    uaExp: "Сідней — столиця Нового Південного Уельсу та найбільше місто країни. (Частина 1)"
+  },
+  {
+    cat: "🌏 Australia & Its People",
+    en: "What is the capital of Victoria?",
+    opts: [
+      "Melbourne",
+      "Geelong",
+      "Ballarat"
+    ],
+    a: 0,
+    ua: "Яка столиця Вікторії?",
+    uaOpts: [
+      "Мельбурн",
+      "Джілонг",
+      "Балларат"
+    ],
+    exp: "Victoria's capital city is Melbourne. (Part 1)",
+    uaExp: "Столиця Вікторії — Мельбурн. (Частина 1)"
+  },
+  {
+    cat: "🌏 Australia & Its People",
+    en: "What is the capital of Queensland?",
+    opts: [
+      "Cairns",
+      "Gold Coast",
+      "Brisbane"
+    ],
+    a: 2,
+    ua: "Яка столиця Квінсленду?",
+    uaOpts: [
+      "Кернс",
+      "Голд-Кост",
+      "Брісбен"
+    ],
+    exp: "Queensland's capital city is Brisbane. (Part 1)",
+    uaExp: "Столиця Квінсленду — Брісбен. (Частина 1)"
+  },
+  {
+    cat: "🌏 Australia & Its People",
+    en: "What is the capital of Western Australia?",
+    opts: [
+      "Perth",
+      "Fremantle",
+      "Broome"
+    ],
+    a: 0,
+    ua: "Яка столиця Західної Австралії?",
+    uaOpts: [
+      "Перт",
+      "Фрімантл",
+      "Брум"
+    ],
+    exp: "Perth is the capital city of Western Australia, the largest state. (Part 1)",
+    uaExp: "Перт — столиця Західної Австралії, найбільшого штату. (Частина 1)"
+  },
+  {
+    cat: "🌏 Australia & Its People",
+    en: "What is the capital of South Australia?",
+    opts: [
+      "Adelaide",
+      "Whyalla",
+      "Port Augusta"
+    ],
+    a: 0,
+    ua: "Яка столиця Південної Австралії?",
+    uaOpts: [
+      "Аделаїда",
+      "Уайалла",
+      "Порт-Огаста"
+    ],
+    exp: "Adelaide is the capital city of South Australia. (Part 1)",
+    uaExp: "Аделаїда — столиця Південної Австралії. (Частина 1)"
+  },
+  {
+    cat: "🌏 Australia & Its People",
+    en: "What is the capital of Tasmania?",
+    opts: [
+      "Launceston",
+      "Devonport",
+      "Hobart"
+    ],
+    a: 2,
+    ua: "Яка столиця Тасманії?",
+    uaOpts: [
+      "Лонсестон",
+      "Девонпорт",
+      "Гобарт"
+    ],
+    exp: "Tasmania's capital city is Hobart. (Part 1)",
+    uaExp: "Столиця Тасманії — Гобарт. (Частина 1)"
+  },
+  {
+    cat: "🌏 Australia & Its People",
+    en: "What is the capital of the Northern Territory?",
+    opts: [
+      "Katherine",
+      "Darwin",
+      "Alice Springs"
+    ],
+    a: 1,
+    ua: "Яка столиця Північної Території?",
+    uaOpts: [
+      "Кетрін",
+      "Дарвін",
+      "Аліс-Спрінгс"
+    ],
+    exp: "Darwin is the capital city of the Northern Territory. (Part 1)",
+    uaExp: "Дарвін — столиця Північної Території. (Частина 1)"
+  },
+  {
+    cat: "🌏 Australia & Its People",
+    en: "What is the capital of the Australian Capital Territory?",
+    opts: [
+      "Goulburn",
+      "Queanbeyan",
+      "Canberra"
+    ],
+    a: 2,
+    ua: "Яка столиця Австралійської столичної території?",
+    uaOpts: [
+      "Гулберн",
+      "Куінбіян",
+      "Канберра"
+    ],
+    exp: "The Australian Capital Territory is home to Canberra, the nation's capital. (Part 1)",
+    uaExp: "В Австралійській столичній території розташована Канберра — столиця країни. (Частина 1)"
+  },
+  {
+    cat: "🌏 Australia & Its People",
+    en: "Which is Australia's largest state?",
+    opts: [
+      "New South Wales",
       "Queensland",
+      "Western Australia"
+    ],
+    a: 2,
+    ua: "Який найбільший штат Австралії?",
+    uaOpts: [
+      "Новий Південний Уельс",
+      "Квінсленд",
+      "Західна Австралія"
+    ],
+    exp: "Western Australia is the largest state. (Part 1)",
+    uaExp: "Західна Австралія — найбільший штат. (Частина 1)"
+  },
+  {
+    cat: "🌏 Australia & Its People",
+    en: "Which is the second largest state?",
+    opts: [
+      "Queensland",
+      "Victoria",
       "New South Wales"
     ],
     a: 0,
-    ua: "Який найбільший штат Австралії?",
+    ua: "Який другий за розміром штат?",
     uaOpts: [
-      "Західна Австралія",
       "Квінсленд",
+      "Вікторія",
       "Новий Південний Уельс"
     ],
-    exp: "Western Australia is the largest state. Perth is its capital city. (Our Common Bond, Part 1)",
-    uaExp: "Західна Австралія — найбільший штат. Столиця — Перт. (Частина 1)"
+    exp: "Queensland is the second largest state. (Part 1)",
+    uaExp: "Квінсленд — другий за розміром штат. (Частина 1)"
   },
   {
     cat: "🌏 Australia & Its People",
-    en: "Which is the smallest mainland state in Australia?",
+    en: "Which is the smallest mainland state?",
     opts: [
-      "Victoria",
+      "South Australia",
       "Tasmania",
-      "South Australia"
+      "Victoria"
     ],
-    a: 0,
-    ua: "Який найменший материковий штат Австралії?",
+    a: 2,
+    ua: "Який найменший материковий штат?",
     uaOpts: [
-      "Вікторія",
+      "Південна Австралія",
       "Тасманія",
-      "Південна Австралія"
+      "Вікторія"
     ],
-    exp: "Victoria is the smallest of the mainland states. Victoria's capital city is Melbourne. (Our Common Bond, Part 1)",
-    uaExp: "Вікторія — найменший материковий штат, столиця — Мельбурн. (Частина 1)"
-  },
-  {
-    cat: "🌏 Australia & Its People",
-    en: "What is the capital city of the Northern Territory?",
-    opts: [
-      "Darwin",
-      "Alice Springs",
-      "Canberra"
-    ],
-    a: 0,
-    ua: "Яка столиця Північної Території?",
-    uaOpts: [
-      "Дарвін",
-      "Аліс Спрінгс",
-      "Канберра"
-    ],
-    exp: "The Northern Territory has a tropical environment in the north and dry red desert in the south. Darwin is its capital city. (Our Common Bond, Part 1)",
-    uaExp: "Столиця Північної Території — Дарвін. (Частина 1)"
+    exp: "Victoria is the smallest of the mainland states. (Part 1)",
+    uaExp: "Вікторія — найменший материковий штат. (Частина 1)"
   },
   {
     cat: "🌏 Australia & Its People",
     en: "Which state is separated from the mainland by Bass Strait?",
     opts: [
+      "Victoria",
       "Tasmania",
-      "South Australia",
-      "Victoria"
+      "South Australia"
     ],
-    a: 0,
+    a: 1,
     ua: "Який штат відокремлений від материка протокою Басса?",
     uaOpts: [
+      "Вікторія",
       "Тасманія",
-      "Південна Австралія",
-      "Вікторія"
+      "Південна Австралія"
     ],
-    exp: "Tasmania is the smallest state, separated from the mainland by the Bass Strait. Tasmania's capital city is Hobart. (Our Common Bond, Part 1)",
-    uaExp: "Тасманія — найменший штат, відокремлений від материка протокою Басса. Столиця — Гобарт. (Частина 1)"
+    exp: "Tasmania is the smallest state, separated from the mainland by the Bass Strait. (Part 1)",
+    uaExp: "Тасманія — найменший штат, відокремлений протокою Басса. (Частина 1)"
   },
   {
     cat: "🌏 Australia & Its People",
-    en: "What does Australia Day on 26 January commemorate?",
+    en: "Which national institutions are located in Canberra?",
     opts: [
-      "The anniversary of the arrival of the First Fleet in 1788",
-      "The federation of Australia",
-      "ANZAC Day"
+      "The Opera House and Harbour Bridge",
+      "Parliament House and the High Court",
+      "The Reserve Bank and Stock Exchange"
+    ],
+    a: 1,
+    ua: "Які національні установи розташовані в Канберрі?",
+    uaOpts: [
+      "Опера та міст Харбор-Брідж",
+      "Будинок Парламенту та Верховний суд",
+      "Резервний банк та Фондова біржа"
+    ],
+    exp: "Several national institutions are located in Canberra, including Parliament House and the High Court of Australia. (Part 1)",
+    uaExp: "У Канберрі розташовані Будинок Парламенту та Верховний суд Австралії. (Частина 1)"
+  },
+  {
+    cat: "🌏 Australia & Its People",
+    en: "What is a 'Welcome to Country'?",
+    opts: [
+      "A welcome by an Aboriginal or Torres Strait Islander custodian",
+      "A government citizenship ceremony",
+      "A national public holiday"
     ],
     a: 0,
-    ua: "Що відзначає День Австралії 26 січня?",
+    ua: "Що таке 'Welcome to Country'?",
     uaOpts: [
-      "Річниця прибуття Першого флоту у 1788 році",
-      "Федерація Австралії",
-      "День АНЗАК"
+      "Вітання від аборигенного хранителя землі",
+      "Урядова церемонія громадянства",
+      "Національне державне свято"
     ],
-    exp: "Australia Day on 26 January is a public holiday — the anniversary of the arrival of the First Fleet from Great Britain in 1788. (Our Common Bond, Part 1)",
-    uaExp: "День Австралії 26 січня відзначає річницю прибуття Першого флоту з Великої Британії у 1788 році. (Частина 1)"
+    exp: "A Welcome to Country is performed by an Aboriginal or Torres Strait Islander custodian of the local region, welcoming visitors to their traditional land. (Part 1)",
+    uaExp: "Welcome to Country виконує аборигенний хранитель місцевості, вітаючи гостей на традиційній землі. (Частина 1)"
   },
   {
     cat: "🌏 Australia & Its People",
-    en: "When is ANZAC Day commemorated?",
+    en: "Who can deliver an Acknowledgement of Country?",
+    opts: [
+      "Anyone",
+      "Only an Aboriginal Elder",
+      "Only a government official"
+    ],
+    a: 0,
+    ua: "Хто може виголосити Acknowledgement of Country?",
+    uaOpts: [
+      "Будь-хто",
+      "Лише старійшина аборигенів",
+      "Лише урядовець"
+    ],
+    exp: "Anyone can deliver an Acknowledgement of Country. At events this is generally done by the Chair or MC. (Part 1)",
+    uaExp: "Acknowledgement of Country може виголосити будь-хто. На заходах це зазвичай робить голова або ведучий. (Частина 1)"
+  },
+  {
+    cat: "🌏 Australia & Its People",
+    en: "What does Australia Day commemorate?",
+    opts: [
+      "Federation in 1901",
+      "The arrival of the First Fleet in 1788",
+      "The Gallipoli landing"
+    ],
+    a: 1,
+    ua: "Що відзначає День Австралії?",
+    uaOpts: [
+      "Федерацію 1901 року",
+      "Прибуття Першого флоту у 1788 році",
+      "Висадку в Галліполі"
+    ],
+    exp: "Australia Day on 26 January is the anniversary of the arrival of the First Fleet from Great Britain in 1788. (Part 1)",
+    uaExp: "День Австралії 26 січня — річниця прибуття Першого флоту з Великої Британії у 1788 році. (Частина 1)"
+  },
+  {
+    cat: "🌏 Australia & Its People",
+    en: "On what date is Australia Day?",
     opts: [
       "25 April",
       "26 January",
-      "11 November"
+      "1 January"
     ],
-    a: 0,
-    ua: "Коли відзначається День АНЗАК?",
+    a: 1,
+    ua: "Якого числа День Австралії?",
     uaOpts: [
       "25 квітня",
       "26 січня",
-      "11 листопада"
+      "1 січня"
     ],
-    exp: "ANZAC Day is commemorated on 25 April each year — named after the Australian and New Zealand Army Corps, which landed at Gallipoli in Türkiye during World War I on 25 April 1915. (Our Common Bond, Part 1)",
-    uaExp: "День АНЗАК відзначається 25 квітня — на честь австрало-новозеландського корпусу, що висадився у Галліполі 25 квітня 1915 року. (Частина 1)"
+    exp: "Australia Day is celebrated on 26 January each year. (Part 1)",
+    uaExp: "День Австралії відзначається 26 січня щороку. (Частина 1)"
+  },
+  {
+    cat: "🌏 Australia & Its People",
+    en: "What does the Prime Minister announce on Australia Day?",
+    opts: [
+      "The federal budget",
+      "The election date",
+      "The Australian of the Year Awards"
+    ],
+    a: 2,
+    ua: "Що оголошує прем'єр-міністр у День Австралії?",
+    uaOpts: [
+      "Федеральний бюджет",
+      "Дату виборів",
+      "Нагороду 'Австралієць року'"
+    ],
+    exp: "During Australia Day celebrations, the Prime Minister announces the Australian of the Year Awards in Canberra. (Part 1)",
+    uaExp: "Під час святкувань Дня Австралії прем'єр-міністр оголошує нагороду 'Австралієць року' в Канберрі. (Частина 1)"
+  },
+  {
+    cat: "🌏 Australia & Its People",
+    en: "On what date is Anzac Day?",
+    opts: [
+      "11 November",
+      "25 April",
+      "26 January"
+    ],
+    a: 1,
+    ua: "Якого числа День АНЗАК?",
+    uaOpts: [
+      "11 листопада",
+      "25 квітня",
+      "26 січня"
+    ],
+    exp: "Anzac Day is commemorated on 25 April each year. (Part 1)",
+    uaExp: "День АНЗАК відзначається 25 квітня щороку. (Частина 1)"
+  },
+  {
+    cat: "🌏 Australia & Its People",
+    en: "What does Anzac Day commemorate?",
+    opts: [
+      "The First Fleet's arrival",
+      "Federation",
+      "Australians who served and died in wars"
+    ],
+    a: 2,
+    ua: "Що відзначає День АНЗАК?",
+    uaOpts: [
+      "Прибуття Першого флоту",
+      "Федерацію",
+      "Австралійців, які служили й загинули у війнах"
+    ],
+    exp: "On Anzac Day we remember the sacrifice of all Australians who served and died in wars, conflicts and peacekeeping operations. (Part 1)",
+    uaExp: "У День АНЗАК ми вшановуємо жертву всіх австралійців, які служили й загинули у війнах та конфліктах. (Частина 1)"
+  },
+  {
+    cat: "🌏 Australia & Its People",
+    en: "Where did the Anzacs land on 25 April 1915?",
+    opts: [
+      "Gallipoli",
+      "Egypt",
+      "France"
+    ],
+    a: 0,
+    ua: "Де висадилися АНЗАКи 25 квітня 1915 року?",
+    uaOpts: [
+      "Галліполі",
+      "Єгипет",
+      "Франція"
+    ],
+    exp: "Anzac Day is named after the Australian and New Zealand Army Corps, which landed at Gallipoli in Türkiye on 25 April 1915. (Part 1)",
+    uaExp: "День АНЗАК названо на честь корпусу, що висадився у Галліполі (Туреччина) 25 квітня 1915 року. (Частина 1)"
   },
   {
     cat: "🌏 Australia & Its People",
     en: "What are the colours of the Australian National Flag?",
     opts: [
       "Blue, white and red",
-      "Green, gold and red",
-      "Black, red and yellow"
+      "Black, red and yellow",
+      "Green and gold"
     ],
     a: 0,
-    ua: "Які кольори Національного прапора Австралії?",
+    ua: "Якого кольору Національний прапор Австралії?",
     uaOpts: [
-      "Синій, білий та червоний",
-      "Зелений, золотий та червоний",
-      "Чорний, червоний та жовтий"
+      "Синій, білий і червоний",
+      "Чорний, червоний і жовтий",
+      "Зелений і золотий"
     ],
-    exp: "The Australian National Flag is blue, white and red. It features the Union Jack, the Commonwealth Star (seven points), and the Southern Cross. (Our Common Bond, Part 1)",
-    uaExp: "Національний прапор Австралії — синій, білий та червоний. Містить Юніон Джек, Зірку Співдружності (7 кінців) і Південний Хрест. (Частина 1)"
+    exp: "The Australian National Flag is blue, white and red. (Part 1)",
+    uaExp: "Національний прапор Австралії — синій, білий і червоний. (Частина 1)"
+  },
+  {
+    cat: "🌏 Australia & Its People",
+    en: "What does the Union Jack on the flag represent?",
+    opts: [
+      "The six states",
+      "The Southern Cross",
+      "British settlement history"
+    ],
+    a: 2,
+    ua: "Що символізує Юніон Джек на прапорі?",
+    uaOpts: [
+      "Шість штатів",
+      "Південний Хрест",
+      "Історію британського заселення"
+    ],
+    exp: "The Union Jack represents our history of British settlement and the laws and institutions we inherited. (Part 1)",
+    uaExp: "Юніон Джек символізує історію британського заселення та успадковані закони й інститути. (Частина 1)"
+  },
+  {
+    cat: "🌏 Australia & Its People",
+    en: "How many points does the Commonwealth Star have?",
+    opts: [
+      "Five",
+      "Seven",
+      "Six"
+    ],
+    a: 1,
+    ua: "Скільки кінців має Зірка Співдружності?",
+    uaOpts: [
+      "П'ять",
+      "Сім",
+      "Шість"
+    ],
+    exp: "The Commonwealth Star has seven points — one for each of the six states and one for the territories. (Part 1)",
+    uaExp: "Зірка Співдружності має сім кінців — по одному на кожен з шести штатів і один для територій. (Частина 1)"
   },
   {
     cat: "🌏 Australia & Its People",
     en: "What are the colours of the Australian Aboriginal Flag?",
     opts: [
       "Black, red and yellow",
-      "Green, gold and black",
+      "Green, blue and white",
       "Blue, white and red"
     ],
     a: 0,
-    ua: "Які кольори прапора австралійських аборигенів?",
+    ua: "Якого кольору прапор австралійських аборигенів?",
     uaOpts: [
-      "Чорний, червоний та жовтий",
-      "Зелений, золотий та чорний",
-      "Синій, білий та червоний"
+      "Чорний, червоний і жовтий",
+      "Зелений, синій і білий",
+      "Синій, білий і червоний"
     ],
-    exp: "The Australian Aboriginal Flag is black (top half, representing Aboriginal peoples), red (bottom half, representing the earth) and yellow (the sun). (Our Common Bond, Part 1)",
-    uaExp: "Прапор аборигенів: чорний верх (аборигени), червоний низ (земля), жовте коло (сонце). (Частина 1)"
+    exp: "The Australian Aboriginal Flag is black, red and yellow. (Part 1)",
+    uaExp: "Прапор австралійських аборигенів — чорний, червоний і жовтий. (Частина 1)"
   },
   {
     cat: "🌏 Australia & Its People",
-    en: "Which two animals appear on the Commonwealth Coat of Arms?",
+    en: "What does the yellow circle on the Aboriginal Flag represent?",
     opts: [
-      "A kangaroo and an emu",
+      "The earth",
+      "The sun",
+      "The people"
+    ],
+    a: 1,
+    ua: "Що символізує жовте коло на прапорі аборигенів?",
+    uaOpts: [
+      "Землю",
+      "Сонце",
+      "Народ"
+    ],
+    exp: "On the Aboriginal Flag the yellow circle represents the sun. (Part 1)",
+    uaExp: "На прапорі аборигенів жовте коло символізує сонце. (Частина 1)"
+  },
+  {
+    cat: "🌏 Australia & Its People",
+    en: "What are the colours of the Torres Strait Islander Flag?",
+    opts: [
+      "Black, red and yellow",
+      "Green, blue, black and white",
+      "Blue, white and red"
+    ],
+    a: 1,
+    ua: "Якого кольору прапор жителів Торресової протоки?",
+    uaOpts: [
+      "Чорний, червоний і жовтий",
+      "Зелений, синій, чорний і білий",
+      "Синій, білий і червоний"
+    ],
+    exp: "The Torres Strait Islander Flag is green, blue, black and white. (Part 1)",
+    uaExp: "Прапор жителів Торресової протоки — зелений, синій, чорний і білий. (Частина 1)"
+  },
+  {
+    cat: "🌏 Australia & Its People",
+    en: "Which two animals are on the Commonwealth Coat of Arms?",
+    opts: [
       "A kangaroo and a koala",
+      "A kangaroo and an emu",
       "An emu and a platypus"
     ],
-    a: 0,
-    ua: "Які два тварини зображені на Гербі Співдружності?",
+    a: 1,
+    ua: "Які дві тварини на Гербі Співдружності?",
     uaOpts: [
-      "Кенгуру та ему",
       "Кенгуру та коала",
+      "Кенгуру та ему",
       "Ему та качконіс"
     ],
-    exp: "The Commonwealth Coat of Arms features a shield supported by a kangaroo and an emu — both native Australian animals. A gold Commonwealth Star sits above the shield and the background is the golden wattle. (Our Common Bond, Part 1)",
-    uaExp: "На гербі Співдружності — щит, який підтримують кенгуру та ему. Над щитом — золота Зірка Співдружності, фон — золота акація. (Частина 1)"
+    exp: "A kangaroo and an emu support the shield on the Commonwealth Coat of Arms. Both are native Australian animals. (Part 1)",
+    uaExp: "Кенгуру та ему підтримують щит на Гербі Співдружності. Обидві — корінні австралійські тварини. (Частина 1)"
   },
   {
     cat: "🌏 Australia & Its People",
     en: "What is Australia's national flower?",
     opts: [
-      "Golden wattle",
-      "Waratah",
-      "Banksia"
+      "The kangaroo paw",
+      "The waratah",
+      "The golden wattle"
     ],
-    a: 0,
+    a: 2,
     ua: "Яка національна квітка Австралії?",
     uaOpts: [
-      "Золота акація",
+      "Лапа кенгуру",
       "Варата",
-      "Банксія"
+      "Золота акація"
     ],
-    exp: "Australia's national flower is the golden wattle. This small tree grows mainly in south-eastern Australia, with bright green leaves and golden yellow flowers in spring. Australia's national colours (green and gold) reflect the colours of the golden wattle. (Our Common Bond, Part 1)",
-    uaExp: "Національна квітка Австралії — золота акація. Національні кольори (зелений і золотий) відображають її кольори. (Частина 1)"
+    exp: "Australia's national flower is the golden wattle. (Part 1)",
+    uaExp: "Національна квітка Австралії — золота акація. (Частина 1)"
   },
   {
     cat: "🌏 Australia & Its People",
     en: "What are Australia's national colours?",
     opts: [
       "Green and gold",
-      "Blue and gold",
-      "Red and gold"
+      "Red and gold",
+      "Blue and white"
     ],
     a: 0,
     ua: "Які національні кольори Австралії?",
     uaOpts: [
-      "Зелений та золотий",
-      "Синій та золотий",
-      "Червоний та золотий"
+      "Зелений і золотий",
+      "Червоний і золотий",
+      "Синій і білий"
     ],
-    exp: "Australia's national colours are green and gold — the colours of the golden wattle. The uniforms of our national sports teams are usually green and gold. (Our Common Bond, Part 1)",
-    uaExp: "Національні кольори Австралії — зелений та золотий, кольори золотої акації. (Частина 1)"
+    exp: "Australia's national colours are green and gold — the colours of the golden wattle. (Part 1)",
+    uaExp: "Національні кольори Австралії — зелений і золотий, кольори золотої акації. (Частина 1)"
   },
   {
     cat: "🌏 Australia & Its People",
     en: "What is Australia's national gemstone?",
     opts: [
-      "Opal",
-      "Diamond",
-      "Sapphire"
+      "The diamond",
+      "The opal",
+      "The sapphire"
     ],
-    a: 0,
+    a: 1,
     ua: "Який національний дорогоцінний камінь Австралії?",
     uaOpts: [
-      "Опал",
       "Діамант",
+      "Опал",
       "Сапфір"
     ],
-    exp: "The opal is Australia's national gemstone. According to Aboriginal legend, a rainbow touched the earth and created the colours of the opal. (Our Common Bond, Part 1)",
-    uaExp: "Опал — національний дорогоцінний камінь Австралії. За легендою аборигенів, веселка торкнулась землі і створила його кольори. (Частина 1)"
+    exp: "The opal is Australia's national gemstone. (Part 1)",
+    uaExp: "Опал — національний дорогоцінний камінь Австралії. (Частина 1)"
   },
   {
     cat: "🌏 Australia & Its People",
@@ -413,314 +773,458 @@ const ALL_Q = [
       "Waltzing Matilda",
       "God Save the King"
     ],
-    exp: "'Advance Australia Fair' is Australia's national anthem. It is sung at citizenship ceremonies and major sporting events. (Our Common Bond, Part 1)",
-    uaExp: "'Advance Australia Fair' — національний гімн Австралії, виконується на церемоніях громадянства та спортивних подіях. (Частина 1)"
+    exp: "'Advance Australia Fair' is Australia's national anthem. (Part 1)",
+    uaExp: "'Advance Australia Fair' — національний гімн Австралії. (Частина 1)"
   },
   {
     cat: "🌏 Australia & Its People",
-    en: "What is Australia's national language?",
+    en: "Which heritage had a major influence on Australia's culture and politics?",
     opts: [
-      "English",
-      "Aboriginal",
-      "French"
+      "French and Dutch",
+      "Spanish and Portuguese",
+      "British and Irish"
     ],
-    a: 0,
-    ua: "Яка національна мова Австралії?",
+    a: 2,
+    ua: "Яка спадщина суттєво вплинула на культуру й політику Австралії?",
     uaOpts: [
-      "Англійська",
-      "Мова аборигенів",
-      "Французька"
+      "Французька та нідерландська",
+      "Іспанська та португальська",
+      "Британська та ірландська"
     ],
-    exp: "Australia's national language is English. It is part of our national identity. Migrants should learn and use English to help them participate in Australian society. (Our Common Bond, Part 1)",
-    uaExp: "Національна мова Австралії — англійська. Мігрантам рекомендується вивчати англійську для участі у суспільному житті. (Частина 1)"
+    exp: "Early free settlers came from Great Britain and Ireland, and this heritage has had a major influence on Australia's history, culture and politics. (Part 1)",
+    uaExp: "Перші вільні поселенці прибули з Британії та Ірландії, і ця спадщина суттєво вплинула на історію, культуру й політику. (Частина 1)"
   },
   {
     cat: "🌏 Australia & Its People",
-    en: "What does the 'Welcome to Country' involve?",
+    en: "How many distinct Aboriginal and Torres Strait Islander languages exist?",
     opts: [
-      "A cultural practice by an Aboriginal or Torres Strait Islander custodian welcoming visitors to their traditional land",
-      "A government welcome letter for new migrants",
-      "An official ceremony for new citizens"
+      "About 50",
+      "About 20",
+      "More than 100"
     ],
-    a: 0,
-    ua: "Що таке 'Welcome to Country'?",
+    a: 2,
+    ua: "Скільки існує окремих аборигенних мов та мов Торресової протоки?",
     uaOpts: [
-      "Культурна практика, де абориген вітає відвідувачів на традиційній землі",
-      "Урядовий лист привітання для мігрантів",
-      "Офіційна церемонія для нових громадян"
+      "Близько 50",
+      "Близько 20",
+      "Понад 100"
     ],
-    exp: "A Welcome to Country is a cultural practice performed by an Aboriginal or Torres Strait Islander custodian of the local region, welcoming visitors to their traditional land. It can take place through songs, dances, smoking ceremonies or speeches. (Our Common Bond, Part 1)",
-    uaExp: "Welcome to Country — культурна практика аборигена або жителя Торресової протоки, що вітає гостей на традиційній землі через пісні, танці, церемонії чи промови. (Частина 1)"
+    exp: "Other languages are valued in Australia, including more than 100 distinct Aboriginal and Torres Strait Islander languages. (Part 1)",
+    uaExp: "В Австралії цінують й інші мови, включно з понад 100 окремими аборигенними мовами та мовами Торресової протоки. (Частина 1)"
   },
   {
     cat: "🌏 Australia & Its People",
-    en: "How many points does the Commonwealth Star on the Australian flag have?",
+    en: "Where are Torres Strait Islander people from?",
     opts: [
-      "7",
-      "5",
-      "6"
+      "Islands north of Queensland",
+      "Tasmania",
+      "The central desert"
     ],
     a: 0,
-    ua: "Скільки кінців має Зірка Співдружності на австралійському прапорі?",
+    ua: "Звідки походять жителі Торресової протоки?",
     uaOpts: [
-      "7",
-      "5",
-      "6"
+      "Острови на північ від Квінсленду",
+      "Тасманія",
+      "Центральна пустеля"
     ],
-    exp: "The Commonwealth Star has seven points — each point representing one of the six states and one point for the territories. (Our Common Bond, Part 1)",
-    uaExp: "Зірка Співдружності має 7 кінців: по одному на кожен з 6 штатів і один — для територій. (Частина 1)"
+    exp: "Torres Strait Islander people are from islands between the northern tip of Queensland and Papua New Guinea. (Part 1)",
+    uaExp: "Жителі Торресової протоки походять з островів між північним краєм Квінсленду та Папуа Новою Гвінеєю. (Частина 1)"
   },
   {
     cat: "🗳️ Democracy & Rights",
-    en: "What type of government system does Australia have?",
+    en: "What type of government does Australia have?",
     opts: [
-      "Parliamentary democracy",
-      "Presidential democracy",
-      "Constitutional monarchy with no parliament"
+      "Presidential republic",
+      "Absolute monarchy",
+      "Parliamentary democracy"
     ],
-    a: 0,
-    ua: "Яку систему правління має Австралія?",
+    a: 2,
+    ua: "Який тип уряду в Австралії?",
     uaOpts: [
-      "Парламентська демократія",
-      "Президентська демократія",
-      "Конституційна монархія без парламенту"
+      "Президентська республіка",
+      "Абсолютна монархія",
+      "Парламентська демократія"
     ],
-    exp: "Australia's system of government is a parliamentary democracy. The power of government comes from the Australian people because citizens vote for people to represent them in parliament. (Our Common Bond, Part 2)",
-    uaExp: "Австралія має парламентську демократію. Влада уряду виходить від народу через вибори. (Частина 2)"
+    exp: "Australia's system of government is a parliamentary democracy. (Part 2)",
+    uaExp: "Австралія має парламентську демократію. (Частина 2)"
   },
   {
     cat: "🗳️ Democracy & Rights",
-    en: "What does the Rule of Law mean in Australia?",
+    en: "Where does the power of government come from?",
     opts: [
-      "No person or group is above the law, including those in positions of power",
-      "The government can make any laws it wants",
-      "Police are above the law"
+      "The Australian people",
+      "The King",
+      "The Governor-General"
     ],
     a: 0,
-    ua: "Що означає верховенство права в Австралії?",
+    ua: "Звідки походить влада уряду?",
     uaOpts: [
-      "Жодна особа чи група не є вищою за закон, навіть ті, хто при владі",
-      "Уряд може ухвалювати будь-які закони",
-      "Поліція стоїть вище закону"
+      "Від австралійського народу",
+      "Від Короля",
+      "Від Генерал-губернатора"
     ],
-    exp: "The Rule of Law means that no person, group or religious rule is above the law. Everyone, including government, community and religious leaders, as well as business people and the police, must obey Australia's laws. (Our Common Bond, Part 2)",
-    uaExp: "Верховенство права означає: жодна особа чи група не є вищою за закон. Усі — включаючи уряд, релігійних лідерів і поліцію — зобов'язані дотримуватись законів. (Частина 2)"
+    exp: "The power of the government comes from the Australian people, because citizens vote for people to represent them in parliament. (Part 2)",
+    uaExp: "Влада уряду походить від австралійського народу, бо громадяни обирають представників до парламенту. (Частина 2)"
   },
   {
     cat: "🗳️ Democracy & Rights",
-    en: "How do Australians believe change in society should occur?",
+    en: "What does the Rule of Law mean?",
     opts: [
-      "Through discussion, peaceful persuasion and the democratic process",
-      "Through revolution and violence if necessary",
-      "Only through decisions made by the government"
+      "Police are above the law",
+      "The King can change any law",
+      "No one is above the law"
     ],
-    a: 0,
-    ua: "Як, на думку австралійців, повинні відбуватися зміни у суспільстві?",
+    a: 2,
+    ua: "Що означає верховенство права?",
     uaOpts: [
-      "Через обговорення, мирне переконання та демократичний процес",
-      "Через революцію та насилля при необхідності",
-      "Лише через рішення уряду"
+      "Поліція стоїть вище закону",
+      "Король може змінити будь-який закон",
+      "Ніхто не стоїть вище закону"
     ],
-    exp: "Australians believe that change should occur through discussion, peaceful persuasion, and the democratic process. We reject violence as a way to change a person's mind or the law. (Our Common Bond, Part 2)",
-    uaExp: "Австралійці вважають, що зміни мають відбуватись через обговорення, мирне переконання та демократичний процес. Насилля відкидається. (Частина 2)"
+    exp: "The Rule of Law means no person, group or religious rule is above the law. Everyone must obey Australia's laws. (Part 2)",
+    uaExp: "Верховенство права означає, що ніхто не стоїть вище закону. Усі мають дотримуватись законів Австралії. (Частина 2)"
   },
   {
     cat: "🗳️ Democracy & Rights",
-    en: "What does freedom of speech allow people to do in Australia?",
+    en: "How do Australians believe change should occur?",
     opts: [
-      "Say and write what they think, and criticise the government, within the law",
-      "Say anything without any limits whatsoever",
-      "Only speak positively about the government"
+      "Through peaceful, democratic means",
+      "Only through the courts",
+      "Through violence if needed"
     ],
     a: 0,
-    ua: "Що дозволяє свобода слова в Австралії?",
+    ua: "Як, на думку австралійців, мають відбуватися зміни?",
     uaOpts: [
-      "Говорити та писати те, що думаєш, критикувати уряд в межах закону",
-      "Говорити будь-що без жодних обмежень",
-      "Лише позитивно висловлюватись про уряд"
+      "Мирним, демократичним шляхом",
+      "Лише через суди",
+      "Насиллям за потреби"
     ],
-    exp: "Freedom of speech means people can say and write what they think, and discuss their ideas with others. For example, people can criticise the government, protest peacefully and campaign to change laws — but must always obey Australian laws. (Our Common Bond, Part 2)",
-    uaExp: "Свобода слова дозволяє говорити і писати те, що думаєш, критикувати уряд та мирно протестувати — але завжди в межах закону. (Частина 2)"
+    exp: "Australians believe change should occur through discussion, peaceful persuasion and the democratic process. We reject violence. (Part 2)",
+    uaExp: "Австралійці вважають, що зміни мають відбуватися через обговорення, мирне переконання та демократичний процес. Насилля відкидається. (Частина 2)"
   },
   {
     cat: "🗳️ Democracy & Rights",
-    en: "Does Australia have an official national religion?",
+    en: "What does freedom of speech allow?",
     opts: [
-      "No, Australia has no official national religion",
-      "Yes, Christianity is the official religion",
-      "Yes, the Church of England is official"
+      "Only praising the government",
+      "Saying anything with no limits",
+      "Saying and writing what you think, within the law"
     ],
-    a: 0,
-    ua: "Чи має Австралія офіційну національну релігію?",
+    a: 2,
+    ua: "Що дозволяє свобода слова?",
     uaOpts: [
-      "Ні, Австралія не має офіційної національної релігії",
-      "Так, офіційна релігія — християнство",
-      "Так, офіційна — Церква Англії"
+      "Лише хвалити уряд",
+      "Говорити будь-що без обмежень",
+      "Говорити й писати, що думаєш, у межах закону"
     ],
-    exp: "Australia has no official national religion. The government in Australia is secular, which means it operates separately from churches or other religious entities. People in Australia are free to follow any religion they choose, or no religion at all. (Our Common Bond, Part 2)",
-    uaExp: "Австралія не має офіційної національної релігії. Уряд є світським. Люди вільні сповідувати будь-яку релігію або не сповідувати жодної. (Частина 2)"
-  },
-  {
-    cat: "🗳️ Democracy & Rights",
-    en: "What happens if there is a conflict between Australian law and a religious practice?",
-    opts: [
-      "Australian law prevails",
-      "Religious practice prevails",
-      "It depends on the religion"
-    ],
-    a: 0,
-    ua: "Що відбувається при конфлікті між австралійським законом і релігійною практикою?",
-    uaOpts: [
-      "Австралійський закон має пріоритет",
-      "Релігійна практика має пріоритет",
-      "Залежить від релігії"
-    ],
-    exp: "Where there is a conflict between an Australian law and a religious practice, Australian law prevails. At all times, even while engaging in religious practices, the laws of Australia must be obeyed. (Our Common Bond, Part 2)",
-    uaExp: "У разі конфлікту між австралійським законом і релігійною практикою — австралійський закон має пріоритет. (Частина 2)"
-  },
-  {
-    cat: "🗳️ Democracy & Rights",
-    en: "What does 'gender equality' mean in Australia?",
-    opts: [
-      "Men and women have equal rights and it is against the law to discriminate based on gender",
-      "Women earn more than men",
-      "Men have more legal rights"
-    ],
-    a: 0,
-    ua: "Що означає 'гендерна рівність' в Австралії?",
-    uaOpts: [
-      "Чоловіки та жінки мають рівні права і дискримінація за статтю незаконна",
-      "Жінки заробляють більше за чоловіків",
-      "Чоловіки мають більше юридичних прав"
-    ],
-    exp: "Men and women have equal rights in Australia. It is against the law to discriminate against a person because of their gender. (Our Common Bond, Part 2)",
-    uaExp: "Чоловіки та жінки мають рівні права. Дискримінація за статтю є незаконною. (Частина 2)"
-  },
-  {
-    cat: "🗳️ Democracy & Rights",
-    en: "What is the concept of a 'fair go' in Australia?",
-    opts: [
-      "What someone achieves in life should be due to their talents and effort, not wealth or background",
-      "Everyone should receive equal wages",
-      "The government provides everyone with a job"
-    ],
-    a: 0,
-    ua: "Що означає концепція 'fair go' в Австралії?",
-    uaOpts: [
-      "Досягнення в житті мають залежати від таланту та зусиль, а не багатства чи походження",
-      "Всі повинні отримувати однакову зарплату",
-      "Уряд надає всім роботу"
-    ],
-    exp: "Australians value equal opportunity — what is often called a 'fair go'. This means that what someone achieves in life should be as a result of their talents, work and effort, rather than their wealth or background. (Our Common Bond, Part 2)",
-    uaExp: "'Fair go' означає, що досягнення людини мають залежати від її талантів та зусиль, а не від багатства чи походження. (Частина 2)"
-  },
-  {
-    cat: "🗳️ Democracy & Rights",
-    en: "Which of the following is a RESPONSIBILITY of Australian citizenship?",
-    opts: [
-      "Voting in federal and state/territory elections",
-      "Applying for an Australian passport",
-      "Asking for consular assistance overseas"
-    ],
-    a: 0,
-    ua: "Що є ОБОВ'ЯЗКОМ громадянства Австралії?",
-    uaOpts: [
-      "Голосування на федеральних і штатних/територіальних виборах",
-      "Подання заявки на австралійський паспорт",
-      "Звернення за консульською допомогою за кордоном"
-    ],
-    exp: "As an Australian citizen you must: obey the laws, vote in federal and state/territory elections and referendums, defend Australia should the need arise, and serve on a jury if called. Applying for a passport and consular assistance are privileges, not responsibilities. (Our Common Bond, Part 2)",
-    uaExp: "Обов'язки громадянина: дотримуватись законів, голосувати на виборах і референдумах, захищати Австралію при необхідності, засідати в журі. Паспорт та консульська допомога — це привілеї. (Частина 2)"
-  },
-  {
-    cat: "🗳️ Democracy & Rights",
-    en: "Is voting in federal elections compulsory for Australian citizens?",
-    opts: [
-      "Yes, it is compulsory for citizens aged 18 and over",
-      "No, it is optional",
-      "Only for citizens born in Australia"
-    ],
-    a: 0,
-    ua: "Чи є голосування на федеральних виборах обов'язковим?",
-    uaOpts: [
-      "Так, обов'язково для громадян від 18 років",
-      "Ні, добровільно",
-      "Лише для тих, хто народився в Австралії"
-    ],
-    exp: "Voting is compulsory in federal and state or territory elections for Australian citizens aged 18 years or over. It may not be compulsory to vote in local government elections in some states. (Our Common Bond, Part 2)",
-    uaExp: "Голосування на федеральних та штатних виборах є обов'язковим для громадян від 18 років. На місцевих виборах у деяких штатах воно може бути необов'язковим. (Частина 2)"
-  },
-  {
-    cat: "🗳️ Democracy & Rights",
-    en: "What is a jury?",
-    opts: [
-      "A group of ordinary Australians who decide if a person is guilty or not guilty",
-      "A group of judges",
-      "A panel of government lawyers"
-    ],
-    a: 0,
-    ua: "Що таке журі присяжних?",
-    uaOpts: [
-      "Група звичайних австралійців, які вирішують, винна людина чи ні",
-      "Група суддів",
-      "Панель державних адвокатів"
-    ],
-    exp: "A jury is a group of ordinary Australian men and women who listen to the evidence in a court case and decide if a person is guilty or not guilty. Jury service helps ensure the court system is open and fair. (Our Common Bond, Part 2)",
-    uaExp: "Журі — група звичайних австралійців, які слухають докази та вирішують, винна особа чи ні. Це забезпечує відкритість і справедливість судової системи. (Частина 2)"
-  },
-  {
-    cat: "🗳️ Democracy & Rights",
-    en: "Who can seek election to parliament in Australia?",
-    opts: [
-      "Australian citizens aged 18 and over who are not dual citizens",
-      "Any permanent resident",
-      "Any Australian resident regardless of age"
-    ],
-    a: 0,
-    ua: "Хто може балотуватися на виборах до парламенту Австралії?",
-    uaOpts: [
-      "Громадяни Австралії від 18 років без подвійного громадянства",
-      "Будь-який постійний резидент",
-      "Будь-який житель Австралії незалежно від віку"
-    ],
-    exp: "Australian citizens who are aged 18 years or over, and who are not dual citizens, can seek election to parliament at the federal, state or territory level. (Our Common Bond, Part 2)",
-    uaExp: "Балотуватись у парламент можуть громадяни Австралії від 18 років, які не мають подвійного громадянства. (Частина 2)"
+    exp: "Freedom of speech means people can say and write what they think and criticise the government, so long as they obey Australian laws. (Part 2)",
+    uaExp: "Свобода слова дозволяє говорити й писати, що думаєш, і критикувати уряд, дотримуючись законів. (Частина 2)"
   },
   {
     cat: "🗳️ Democracy & Rights",
     en: "What is freedom of association?",
     opts: [
-      "The right to form and join legal organisations such as political parties or trade unions",
-      "The right to meet secretly without government knowledge",
-      "The right to form illegal organisations"
+      "The right to form illegal groups",
+      "The right to force others to join",
+      "The right to join or leave any legal group"
     ],
-    a: 0,
+    a: 2,
     ua: "Що таке свобода об'єднань?",
     uaOpts: [
-      "Право створювати та вступати до законних організацій: партій, профспілок",
-      "Право зустрічатися таємно",
-      "Право створювати незаконні організації"
+      "Право створювати незаконні групи",
+      "Право змушувати інших вступати",
+      "Право вступати чи виходити з будь-якої законної групи"
     ],
-    exp: "Freedom of association is the right to form and join associations to pursue common goals — for example, joining a political party, trade union, religious, cultural or social group. At all times, Australian laws must be obeyed. (Our Common Bond, Part 2)",
-    uaExp: "Свобода об'єднань — право вступати до законних організацій (партій, профспілок, соціальних груп). Всі зібрання мають бути мирними та в межах закону. (Частина 2)"
+    exp: "Freedom of association is the right to form and join legal organisations. People cannot be forced to join or leave. (Part 2)",
+    uaExp: "Свобода об'єднань — право створювати й вступати до законних організацій. Нікого не можна змусити вступити чи вийти. (Частина 2)"
+  },
+  {
+    cat: "🗳️ Democracy & Rights",
+    en: "Does Australia have an official national religion?",
+    opts: [
+      "No",
+      "Yes, Christianity",
+      "Yes, the Church of England"
+    ],
+    a: 0,
+    ua: "Чи має Австралія офіційну національну релігію?",
+    uaOpts: [
+      "Ні",
+      "Так, християнство",
+      "Так, Англіканську церкву"
+    ],
+    exp: "Australia has no official national religion. The government is secular and people are free to follow any religion or none. (Part 2)",
+    uaExp: "Австралія не має офіційної релігії. Уряд світський, люди вільні сповідувати будь-яку релігію або жодну. (Частина 2)"
+  },
+  {
+    cat: "🗳️ Democracy & Rights",
+    en: "If a religious practice conflicts with Australian law, which prevails?",
+    opts: [
+      "Australian law",
+      "The religious practice",
+      "Whichever the person chooses"
+    ],
+    a: 0,
+    ua: "Якщо релігійна практика суперечить австралійському закону, що має перевагу?",
+    uaOpts: [
+      "Австралійський закон",
+      "Релігійна практика",
+      "Те, що обере людина"
+    ],
+    exp: "Where there is a conflict between Australian law and a religious practice, Australian law prevails. (Part 2)",
+    uaExp: "У разі конфлікту між австралійським законом і релігійною практикою перевагу має закон. (Частина 2)"
+  },
+  {
+    cat: "🗳️ Democracy & Rights",
+    en: "What does gender equality mean in Australia?",
+    opts: [
+      "Men and women have equal rights",
+      "Men have more rights",
+      "Women must obey men"
+    ],
+    a: 0,
+    ua: "Що означає гендерна рівність в Австралії?",
+    uaOpts: [
+      "Чоловіки й жінки мають рівні права",
+      "Чоловіки мають більше прав",
+      "Жінки мають коритися чоловікам"
+    ],
+    exp: "Men and women have equal rights in Australia. It is against the law to discriminate because of gender. (Part 2)",
+    uaExp: "Чоловіки й жінки мають рівні права. Дискримінація за статтю незаконна. (Частина 2)"
+  },
+  {
+    cat: "🗳️ Democracy & Rights",
+    en: "What does a 'fair go' mean?",
+    opts: [
+      "Only the wealthy succeed",
+      "Success comes from effort, not background",
+      "Everyone earns the same"
+    ],
+    a: 1,
+    ua: "Що означає 'fair go'?",
+    uaOpts: [
+      "Успіху досягають лише багаті",
+      "Успіх залежить від зусиль, а не походження",
+      "Усі заробляють однаково"
+    ],
+    exp: "A 'fair go' means what someone achieves should result from their talents and effort, not their wealth or background. (Part 2)",
+    uaExp: "'Fair go' означає, що досягнення мають залежати від таланту й зусиль, а не багатства чи походження. (Частина 2)"
+  },
+  {
+    cat: "🗳️ Democracy & Rights",
+    en: "Which is a responsibility of Australian citizens?",
+    opts: [
+      "Asking for consular help",
+      "Applying for a passport",
+      "Voting in elections"
+    ],
+    a: 2,
+    ua: "Що є обов'язком громадян Австралії?",
+    uaOpts: [
+      "Звернення за консульською допомогою",
+      "Подання на паспорт",
+      "Голосування на виборах"
+    ],
+    exp: "Responsibilities include obeying laws, voting, defending Australia if needed, and jury service. A passport and consular help are privileges. (Part 2)",
+    uaExp: "Обов'язки: дотримання законів, голосування, оборона за потреби, служба в журі. Паспорт і консульська допомога — привілеї. (Частина 2)"
+  },
+  {
+    cat: "🗳️ Democracy & Rights",
+    en: "Which is a privilege of Australian citizenship?",
+    opts: [
+      "Obeying the law",
+      "Defending Australia",
+      "Applying for an Australian passport"
+    ],
+    a: 2,
+    ua: "Що є привілеєм громадянства Австралії?",
+    uaOpts: [
+      "Дотримання закону",
+      "Оборона Австралії",
+      "Подання на австралійський паспорт"
+    ],
+    exp: "Privileges include applying for a passport, seeking election, and consular help. Obeying the law and defending Australia are responsibilities. (Part 2)",
+    uaExp: "Привілеї: подання на паспорт, балотування, консульська допомога. Дотримання закону й оборона — обов'язки. (Частина 2)"
+  },
+  {
+    cat: "🗳️ Democracy & Rights",
+    en: "Is voting compulsory in federal elections?",
+    opts: [
+      "No",
+      "Only for people born in Australia",
+      "Yes"
+    ],
+    a: 2,
+    ua: "Чи обов'язкове голосування на федеральних виборах?",
+    uaOpts: [
+      "Ні",
+      "Лише для народжених в Австралії",
+      "Так"
+    ],
+    exp: "Voting is compulsory in federal and state or territory elections for citizens aged 18 or over. (Part 2)",
+    uaExp: "Голосування на федеральних і штатних виборах обов'язкове для громадян від 18 років. (Частина 2)"
+  },
+  {
+    cat: "🗳️ Democracy & Rights",
+    en: "What is a jury?",
+    opts: [
+      "A group of judges",
+      "Ordinary citizens who decide guilt in court",
+      "A panel of lawyers"
+    ],
+    a: 1,
+    ua: "Що таке журі присяжних?",
+    uaOpts: [
+      "Група суддів",
+      "Звичайні громадяни, що вирішують винність у суді",
+      "Колегія адвокатів"
+    ],
+    exp: "A jury is a group of ordinary Australian citizens who listen to evidence and decide if a person is guilty or not guilty. (Part 2)",
+    uaExp: "Журі — група звичайних громадян, які слухають докази й вирішують, винна особа чи ні. (Частина 2)"
+  },
+  {
+    cat: "🗳️ Democracy & Rights",
+    en: "Who can serve on a jury?",
+    opts: [
+      "Citizens aged 18 or over on the electoral roll",
+      "Any resident",
+      "Only lawyers"
+    ],
+    a: 0,
+    ua: "Хто може засідати в журі?",
+    uaOpts: [
+      "Громадяни від 18 років у виборчому списку",
+      "Будь-який мешканець",
+      "Лише юристи"
+    ],
+    exp: "Australian citizens aged 18 or over who are on the electoral roll can be called to serve on a jury. (Part 2)",
+    uaExp: "Громадяни від 18 років, внесені до виборчого списку, можуть бути викликані до журі. (Частина 2)"
+  },
+  {
+    cat: "🗳️ Democracy & Rights",
+    en: "Who can seek election to parliament?",
+    opts: [
+      "Any permanent resident",
+      "Citizens aged 18+ who are not dual citizens",
+      "Anyone aged 16 or over"
+    ],
+    a: 1,
+    ua: "Хто може балотуватися до парламенту?",
+    uaOpts: [
+      "Будь-який постійний резидент",
+      "Громадяни від 18 років без подвійного громадянства",
+      "Будь-хто від 16 років"
+    ],
+    exp: "Australian citizens aged 18 or over who are not dual citizens can seek election to parliament. (Part 2)",
+    uaExp: "Балотуватися можуть громадяни від 18 років без подвійного громадянства. (Частина 2)"
+  },
+  {
+    cat: "🗳️ Democracy & Rights",
+    en: "Is paying tax required in Australia?",
+    opts: [
+      "Yes, it is required by law",
+      "Only businesses pay tax",
+      "No, it is voluntary"
+    ],
+    a: 0,
+    ua: "Чи обов'язкова сплата податків в Австралії?",
+    uaOpts: [
+      "Так, це вимагається законом",
+      "Податки платять лише підприємства",
+      "Ні, це добровільно"
+    ],
+    exp: "Paying tax is required by law and is an important way you contribute to the community. It is collected by the ATO. (Part 2)",
+    uaExp: "Сплата податків вимагається законом і є важливим внеском у суспільство. Збирає їх ATO. (Частина 2)"
+  },
+  {
+    cat: "🗳️ Democracy & Rights",
+    en: "Which body collects taxes in Australia?",
+    opts: [
+      "The Australian Taxation Office (ATO)",
+      "The Australian Electoral Commission",
+      "The Reserve Bank"
+    ],
+    a: 0,
+    ua: "Який орган збирає податки в Австралії?",
+    uaOpts: [
+      "Австралійське податкове управління (ATO)",
+      "Австралійська виборча комісія",
+      "Резервний банк"
+    ],
+    exp: "Tax is collected by the Australian Taxation Office (ATO) from both businesses and individuals. (Part 2)",
+    uaExp: "Податки збирає Австралійське податкове управління (ATO) з підприємств і приватних осіб. (Частина 2)"
+  },
+  {
+    cat: "🗳️ Democracy & Rights",
+    en: "What are taxes used to pay for?",
+    opts: [
+      "Healthcare, education, roads and defence",
+      "Only politicians' salaries",
+      "Only the royal family"
+    ],
+    a: 0,
+    ua: "На що витрачаються податки?",
+    uaOpts: [
+      "Охорона здоров'я, освіта, дороги й оборона",
+      "Лише зарплати політиків",
+      "Лише королівська родина"
+    ],
+    exp: "Taxes are spent on services including healthcare, education, defence, roads and railways, and social security. (Part 2)",
+    uaExp: "Податки витрачаються на охорону здоров'я, освіту, оборону, дороги й соціальне забезпечення. (Частина 2)"
+  },
+  {
+    cat: "🗳️ Democracy & Rights",
+    en: "Who must obey Australia's laws?",
+    opts: [
+      "Only ordinary citizens",
+      "Everyone, including leaders and police",
+      "Only non-citizens"
+    ],
+    a: 1,
+    ua: "Хто має дотримуватися законів Австралії?",
+    uaOpts: [
+      "Лише звичайні громадяни",
+      "Усі, включно з лідерами й поліцією",
+      "Лише негромадяни"
+    ],
+    exp: "Everyone, including government, community and religious leaders, business people and the police, must obey Australia's laws. (Part 2)",
+    uaExp: "Усі — уряд, лідери громад і релігій, бізнесмени й поліція — мають дотримуватись законів. (Частина 2)"
+  },
+  {
+    cat: "🗳️ Democracy & Rights",
+    en: "Can you ask for help from an Australian official while overseas?",
+    opts: [
+      "No, never",
+      "Yes, consular assistance",
+      "Only if you pay a fee"
+    ],
+    a: 1,
+    ua: "Чи можна просити допомоги в австралійського чиновника за кордоном?",
+    uaOpts: [
+      "Ні, ніколи",
+      "Так, консульська допомога",
+      "Лише за плату"
+    ],
+    exp: "While overseas, Australian citizens can ask for consular assistance from an Australian official in times of need. (Part 2)",
+    uaExp: "За кордоном громадяни можуть звертатися за консульською допомогою до австралійського чиновника. (Частина 2)"
   },
   {
     cat: "🏛️ Government & Law",
-    en: "Who is the head of state of Australia?",
+    en: "Who is Australia's Head of State?",
     opts: [
-      "The King of Australia (King Charles III)",
+      "The King of Australia",
       "The Prime Minister",
       "The Governor-General"
     ],
     a: 0,
     ua: "Хто є главою держави Австралії?",
     uaOpts: [
-      "Король Австралії (Король Чарльз III)",
+      "Король Австралії",
       "Прем'єр-міністр",
       "Генерал-губернатор"
     ],
-    exp: "Australia's head of state is the King of Australia (currently King Charles III). The King is represented in Australia by the Governor-General. (Our Common Bond, Part 3)",
-    uaExp: "Главою держави Австралії є Король Австралії (зараз Король Чарльз III). Його представляє в Австралії Генерал-губернатор. (Частина 3)"
+    exp: "Australia's Head of State is the King of Australia, His Majesty King Charles III. (Part 3)",
+    uaExp: "Главою держави Австралії є Король Австралії, Його Величність Король Чарльз III. (Частина 3)"
   },
   {
     cat: "🏛️ Government & Law",
@@ -728,1853 +1232,1295 @@ const ALL_Q = [
     opts: [
       "The Governor-General",
       "The Prime Minister",
-      "The Speaker of the House"
+      "The Chief Justice"
     ],
     a: 0,
     ua: "Хто представляє Короля в Австралії?",
     uaOpts: [
       "Генерал-губернатор",
       "Прем'єр-міністр",
-      "Спікер палати"
+      "Головний суддя"
     ],
-    exp: "The Governor-General is the representative of the King in Australia. Each state also has a Governor who represents the King at the state level. (Our Common Bond, Part 3)",
-    uaExp: "Генерал-губернатор є представником Короля в Австралії. Кожен штат також має губернатора. (Частина 3)"
+    exp: "The King appoints the Governor-General as his representative in Australia, on the advice of the Prime Minister. (Part 3)",
+    uaExp: "Король призначає Генерал-губернатора своїм представником в Австралії за порадою прем'єр-міністра. (Частина 3)"
+  },
+  {
+    cat: "🏛️ Government & Law",
+    en: "What kind of monarchy is Australia?",
+    opts: [
+      "An elected monarchy",
+      "An absolute monarchy",
+      "A constitutional monarchy"
+    ],
+    a: 2,
+    ua: "Якою монархією є Австралія?",
+    uaOpts: [
+      "Виборною монархією",
+      "Абсолютною монархією",
+      "Конституційною монархією"
+    ],
+    exp: "Australia is a constitutional monarchy: the King is Head of State but must act in accordance with the Constitution. (Part 3)",
+    uaExp: "Австралія — конституційна монархія: Король є главою держави, але має діяти згідно з Конституцією. (Частина 3)"
+  },
+  {
+    cat: "🏛️ Government & Law",
+    en: "Who is the leader of the Australian Government?",
+    opts: [
+      "The Governor-General",
+      "The Prime Minister",
+      "The King"
+    ],
+    a: 1,
+    ua: "Хто є лідером австралійського уряду?",
+    uaOpts: [
+      "Генерал-губернатор",
+      "Прем'єр-міністр",
+      "Король"
+    ],
+    exp: "In the Australian system, the leader of the Australian Government is the Prime Minister. (Part 3)",
+    uaExp: "В австралійській системі лідером уряду є прем'єр-міністр. (Частина 3)"
+  },
+  {
+    cat: "🏛️ Government & Law",
+    en: "How is the Prime Minister chosen?",
+    opts: [
+      "Directly elected by all voters",
+      "Leader of the majority party in the House of Representatives",
+      "Appointed by the King"
+    ],
+    a: 1,
+    ua: "Як обирають прем'єр-міністра?",
+    uaOpts: [
+      "Прямо обирається всіма виборцями",
+      "Лідер партії більшості в Палаті представників",
+      "Призначається Королем"
+    ],
+    exp: "The Government is formed by the party or coalition with the majority in the House of Representatives, and its leader becomes Prime Minister. (Part 3)",
+    uaExp: "Уряд формує партія чи коаліція з більшістю в Палаті представників, а її лідер стає прем'єр-міністром. (Частина 3)"
   },
   {
     cat: "🏛️ Government & Law",
     en: "What are the two houses of the Australian Parliament?",
     opts: [
-      "The Senate and the House of Representatives",
-      "The House of Lords and House of Commons",
-      "The Upper House and Lower Assembly"
+      "House of Representatives and Senate",
+      "House of Commons and House of Lords",
+      "Upper Court and Lower Court"
     ],
     a: 0,
     ua: "Які дві палати австралійського парламенту?",
     uaOpts: [
-      "Сенат та Палата представників",
-      "Палата лордів та Палата громад",
-      "Верхня палата та Нижня асамблея"
+      "Палата представників і Сенат",
+      "Палата громад і Палата лордів",
+      "Верхній суд і Нижній суд"
     ],
-    exp: "The Australian Parliament consists of two houses: the Senate (upper house) and the House of Representatives (lower house). Both houses must agree for a bill to become law. (Our Common Bond, Part 3)",
-    uaExp: "Австралійський парламент складається з Сенату (верхня палата) та Палати представників (нижня палата). Обидві палати мають погодитися, щоб закон був прийнятий. (Частина 3)"
+    exp: "The Australian Parliament consists of the House of Representatives and the Senate. (Part 3)",
+    uaExp: "Австралійський парламент складається з Палати представників і Сенату. (Частина 3)"
   },
   {
     cat: "🏛️ Government & Law",
-    en: "How many senators does each Australian state elect?",
+    en: "How many senators are there in total?",
     opts: [
-      "12",
+      "72",
+      "76",
+      "150"
+    ],
+    a: 1,
+    ua: "Скільки всього сенаторів?",
+    uaOpts: [
+      "72",
+      "76",
+      "150"
+    ],
+    exp: "There is a total of 76 senators. Each state elects 12, and the ACT and NT elect two each. (Part 3)",
+    uaExp: "Усього 76 сенаторів. Кожен штат обирає 12, а АСТ і ПТ — по два. (Частина 3)"
+  },
+  {
+    cat: "🏛️ Government & Law",
+    en: "How many senators does each state elect?",
+    opts: [
       "6",
-      "8"
-    ],
-    a: 0,
-    ua: "Скільки сенаторів обирає кожен штат Австралії?",
-    uaOpts: [
       "12",
+      "2"
+    ],
+    a: 1,
+    ua: "Скільки сенаторів обирає кожен штат?",
+    uaOpts: [
       "6",
-      "8"
+      "12",
+      "2"
     ],
-    exp: "Each of the six Australian states elects 12 senators to the Senate. The territories elect 2 senators each. (Our Common Bond, Part 3)",
-    uaExp: "Кожен із 6 штатів Австралії обирає 12 сенаторів. Кожна територія — по 2 сенатори. (Частина 3)"
+    exp: "Each state elects 12 senators to the Senate, regardless of its size or population. (Part 3)",
+    uaExp: "Кожен штат обирає 12 сенаторів незалежно від розміру чи населення. (Частина 3)"
   },
   {
     cat: "🏛️ Government & Law",
-    en: "Who becomes the Prime Minister of Australia?",
+    en: "How many senators does each mainland territory elect?",
     opts: [
-      "The leader of the party with majority support in the House of Representatives",
-      "The leader of the party with majority support in the Senate",
-      "The person appointed by the King"
+      "2",
+      "12",
+      "6"
     ],
     a: 0,
-    ua: "Хто стає прем'єр-міністром Австралії?",
+    ua: "Скільки сенаторів обирає кожна материкова територія?",
     uaOpts: [
-      "Лідер партії з більшістю в Палаті представників",
-      "Лідер партії з більшістю в Сенаті",
-      "Особа, призначена Королем"
+      "2",
+      "12",
+      "6"
     ],
-    exp: "The leader of the political party (or coalition) that has majority support in the House of Representatives becomes the Prime Minister. The Prime Minister leads the Cabinet and the federal government. (Our Common Bond, Part 3)",
-    uaExp: "Прем'єр-міністром стає лідер партії (або коаліції) з більшістю в Палаті представників. Він очолює кабінет та федеральний уряд. (Частина 3)"
+    exp: "The Australian Capital Territory and the Northern Territory elect two senators each. (Part 3)",
+    uaExp: "АСТ і Північна Територія обирають по два сенатори. (Частина 3)"
   },
   {
     cat: "🏛️ Government & Law",
-    en: "What are the three levels of government in Australia?",
+    en: "How many members are in the House of Representatives?",
     opts: [
-      "Federal, state/territory, and local",
-      "Federal, state, and city",
-      "National, regional, and council"
+      "About 76",
+      "Over 150",
+      "About 50"
     ],
-    a: 0,
-    ua: "Які три рівні урядування в Австралії?",
+    a: 1,
+    ua: "Скільки членів у Палаті представників?",
     uaOpts: [
-      "Федеральний, штатний/територіальний та місцевий",
-      "Федеральний, штатний та міський",
-      "Національний, регіональний та рада"
+      "Близько 76",
+      "Понад 150",
+      "Близько 50"
     ],
-    exp: "Australia has three levels of government: the federal (national) government, state and territory governments, and local governments (councils). Each level has different responsibilities. (Our Common Bond, Part 3)",
-    uaExp: "В Австралії три рівні управління: федеральний (національний) уряд, уряди штатів і територій, та місцеве самоврядування (ради). (Частина 3)"
+    exp: "Overall, there are over 150 members elected to the House of Representatives. (Part 3)",
+    uaExp: "Загалом до Палати представників обрано понад 150 членів. (Частина 3)"
   },
   {
     cat: "🏛️ Government & Law",
-    en: "Which level of government is responsible for defence and immigration?",
+    en: "What is another name for the House of Representatives?",
     opts: [
-      "Federal (national) government",
-      "State and territory governments",
-      "Local councils"
+      "The House of Review",
+      "The States' House",
+      "The Lower House"
     ],
-    a: 0,
-    ua: "Який рівень урядування відповідає за оборону та імміграцію?",
+    a: 2,
+    ua: "Яка інша назва Палати представників?",
     uaOpts: [
-      "Федеральний (національний) уряд",
-      "Уряди штатів та територій",
-      "Місцеві ради"
+      "Ревізійна палата",
+      "Палата штатів",
+      "Нижня палата"
     ],
-    exp: "The federal government is responsible for national matters including defence, foreign affairs, immigration, trade, and social security. (Our Common Bond, Part 3)",
-    uaExp: "Федеральний уряд відповідає за оборону, зовнішню політику, імміграцію, торгівлю та соціальне забезпечення. (Частина 3)"
+    exp: "Other names for the House of Representatives are the Lower House or the People's House. (Part 3)",
+    uaExp: "Інші назви Палати представників — Нижня палата або Палата народу. (Частина 3)"
   },
   {
     cat: "🏛️ Government & Law",
-    en: "Which level of government is responsible for hospitals and schools?",
+    en: "What is another name for the Senate?",
     opts: [
-      "State and territory governments",
-      "Federal government",
-      "Local councils"
+      "The People's House",
+      "The Lower House",
+      "The Upper House"
+    ],
+    a: 2,
+    ua: "Яка інша назва Сенату?",
+    uaOpts: [
+      "Палата народу",
+      "Нижня палата",
+      "Верхня палата"
+    ],
+    exp: "The Senate is sometimes called the Upper House, the House of Review or the States' House. (Part 3)",
+    uaExp: "Сенат іноді називають Верхньою палатою, Ревізійною палатою або Палатою штатів. (Частина 3)"
+  },
+  {
+    cat: "🏛️ Government & Law",
+    en: "What are the three levels of government?",
+    opts: [
+      "Federal, state/territory and local",
+      "Federal, regional and city",
+      "National, county and town"
     ],
     a: 0,
-    ua: "Який рівень урядування відповідає за лікарні та школи?",
+    ua: "Які три рівні урядування?",
     uaOpts: [
-      "Уряди штатів та територій",
+      "Федеральний, штатний/територіальний і місцевий",
+      "Федеральний, регіональний і міський",
+      "Національний, окружний і селищний"
+    ],
+    exp: "Australia has three levels of government: federal, state/territory and local. (Part 3)",
+    uaExp: "Австралія має три рівні урядування: федеральний, штатний/територіальний і місцевий. (Частина 3)"
+  },
+  {
+    cat: "🏛️ Government & Law",
+    en: "Which level is responsible for defence and immigration?",
+    opts: [
+      "Local councils",
+      "The federal government",
+      "State governments"
+    ],
+    a: 1,
+    ua: "Який рівень відповідає за оборону й імміграцію?",
+    uaOpts: [
+      "Місцеві ради",
       "Федеральний уряд",
-      "Місцеві ради"
+      "Уряди штатів"
     ],
-    exp: "State and territory governments are responsible for matters including hospitals and health services, schools and education, roads and public transport, and police. (Our Common Bond, Part 3)",
-    uaExp: "Уряди штатів і територій відповідають за лікарні, школи, дороги, транспорт та поліцію. (Частина 3)"
+    exp: "The Australian (federal) Government is responsible for matters such as defence, immigration, taxation and foreign affairs. (Part 3)",
+    uaExp: "Федеральний уряд відповідає за оборону, імміграцію, податки й зовнішні справи. (Частина 3)"
   },
   {
     cat: "🏛️ Government & Law",
-    en: "What is the role of local government (councils)?",
+    en: "Which level is responsible for hospitals and schools?",
     opts: [
-      "Manage local services like rubbish collection, local roads and parks",
-      "Pass national laws",
-      "Control immigration"
+      "Local councils",
+      "The federal government",
+      "State and territory governments"
     ],
-    a: 0,
-    ua: "Яка роль місцевого самоврядування?",
+    a: 2,
+    ua: "Який рівень відповідає за лікарні та школи?",
     uaOpts: [
-      "Управляти місцевими послугами: збір сміття, місцеві дороги, парки",
-      "Ухвалювати національні закони",
-      "Контролювати імміграцію"
+      "Місцеві ради",
+      "Федеральний уряд",
+      "Уряди штатів і територій"
     ],
-    exp: "Local governments (councils) manage local community needs such as rubbish collection, local roads, parks, libraries and local planning. (Our Common Bond, Part 3)",
-    uaExp: "Місцеве самоврядування керує місцевими потребами: збором сміття, місцевими дорогами, парками, бібліотеками та місцевим плануванням. (Частина 3)"
+    exp: "State and territory governments are responsible for hospitals, schools, police, roads and public transport. (Part 3)",
+    uaExp: "Уряди штатів і територій відповідають за лікарні, школи, поліцію, дороги й транспорт. (Частина 3)"
   },
   {
     cat: "🏛️ Government & Law",
-    en: "What is a referendum in Australia?",
+    en: "Which level is responsible for rubbish collection and local roads?",
     opts: [
-      "A vote to change the Australian Constitution",
-      "A vote to elect the Prime Minister",
-      "A vote to elect senators"
+      "The federal government",
+      "Local government",
+      "State government"
     ],
-    a: 0,
-    ua: "Що таке референдум в Австралії?",
+    a: 1,
+    ua: "Який рівень відповідає за збір сміття й місцеві дороги?",
     uaOpts: [
-      "Голосування за зміну Конституції Австралії",
-      "Голосування за обрання прем'єр-міністра",
-      "Голосування за обрання сенаторів"
+      "Федеральний уряд",
+      "Місцеве самоврядування",
+      "Уряд штату"
     ],
-    exp: "A referendum is a vote to change the Australian Constitution. Australian citizens have a say in how Australia is governed by voting in elections and referendums. (Our Common Bond, Part 2 & 3)",
-    uaExp: "Референдум — голосування за зміну Конституції Австралії. Громадяни беруть участь в управлінні країною через вибори та референдуми. (Частини 2 і 3)"
+    exp: "Local governments are responsible for local roads, rubbish collection, parks, libraries and building permits. (Part 3)",
+    uaExp: "Місцеве самоврядування відповідає за місцеві дороги, збір сміття, парки, бібліотеки й дозволи на будівництво. (Частина 3)"
   },
   {
     cat: "🏛️ Government & Law",
-    en: "What is the High Court of Australia?",
+    en: "What is the leader of a state government called?",
     opts: [
-      "The highest court in Australia that interprets the Constitution",
-      "The court that handles criminal cases only",
-      "The state-level court"
+      "The Prime Minister",
+      "The Chief Minister",
+      "The Premier"
     ],
-    a: 0,
-    ua: "Що таке Верховний суд Австралії?",
+    a: 2,
+    ua: "Як називається лідер уряду штату?",
     uaOpts: [
-      "Найвищий суд Австралії, що тлумачить Конституцію",
-      "Суд, що розглядає лише кримінальні справи",
-      "Суд на рівні штату"
+      "Прем'єр-міністр",
+      "Головний міністр",
+      "Прем'єр (Premier)"
     ],
-    exp: "The High Court of Australia is the highest court in the land. It is located in Canberra, along with Parliament House and other national institutions. It interprets the Australian Constitution. (Our Common Bond, Part 3)",
-    uaExp: "Верховний суд — найвищий суд Австралії, розташований у Канберрі. Він тлумачить Конституцію. (Частина 3)"
+    exp: "The leader of a state government is the Premier. (Part 3)",
+    uaExp: "Лідер уряду штату — Прем'єр (Premier). (Частина 3)"
   },
   {
     cat: "🏛️ Government & Law",
-    en: "What is the Australian Defence Force made up of?",
+    en: "What is the leader of a territory government called?",
     opts: [
-      "The Army, Navy and Air Force",
-      "The Army and Police",
-      "The Navy and Border Force"
+      "The Premier",
+      "The Chief Minister",
+      "The Governor"
     ],
-    a: 0,
-    ua: "З чого складаються Збройні сили Австралії?",
+    a: 1,
+    ua: "Як називається лідер уряду території?",
     uaOpts: [
-      "Армія, Військово-морський флот та Повітряні сили",
-      "Армія та поліція",
-      "Флот та Прикордонна служба"
+      "Прем'єр (Premier)",
+      "Головний міністр (Chief Minister)",
+      "Губернатор"
     ],
-    exp: "Australian citizens have the right to apply for a job in the Australian Defence Force (the Army, Navy and Air Force). (Our Common Bond, Part 2)",
-    uaExp: "Громадяни Австралії мають право подавати заявки на роботу в Збройних силах — Армії, Військово-морському флоті та Повітряних силах. (Частина 2)"
-  },
-  {
-    cat: "🇦🇺 Australian Values ⭐",
-    en: "Which of the following best describes an Australian value?",
-    opts: [
-      "Respect for the equal worth, dignity and freedom of the individual",
-      "Placing your own cultural practices above Australian law",
-      "Following only your community's rules"
-    ],
-    a: 0,
-    ua: "Що найкраще описує австралійську цінність?",
-    uaOpts: [
-      "Повага до рівної цінності, гідності та свободи особистості",
-      "Ставлення власних культурних практик вище австралійського закону",
-      "Дотримання лише правил своєї громади"
-    ],
-    exp: "Australians believe in shared values such as the dignity and freedom of each person, equal opportunity for men and women, and the Rule of Law. Australian citizenship is about living out these values in everyday life. (Our Common Bond, Part 4)",
-    uaExp: "Австралійці вірять у спільні цінності: гідність і свободу особистості, рівні можливості для чоловіків і жінок, та верховенство права. (Частина 4)"
-  },
-  {
-    cat: "🇦🇺 Australian Values ⭐",
-    en: "How should Australians treat each other regardless of their background?",
-    opts: [
-      "With dignity and respect",
-      "According to their wealth and status",
-      "Based on their country of origin"
-    ],
-    a: 0,
-    ua: "Як австралійці повинні ставитися один до одного незалежно від походження?",
-    uaOpts: [
-      "З гідністю та повагою",
-      "Відповідно до їхнього багатства та статусу",
-      "Залежно від країни походження"
-    ],
-    exp: "All Australians are expected to treat each other with dignity and respect, regardless of their race, country of origin, gender, sexual orientation, marital status, age, disability, heritage, culture, politics, wealth or religion. (Our Common Bond, Part 2)",
-    uaExp: "Всі австралійці мають ставитись один до одного з гідністю та повагою — незалежно від раси, статі, віку, релігії, культури чи статку. (Частина 2)"
-  },
-  {
-    cat: "🇦🇺 Australian Values ⭐",
-    en: "In Australia, is it acceptable to use violence to change laws or government policy?",
-    opts: [
-      "No, Australians reject violence as a way to change laws or minds",
-      "Yes, if it is for a good cause",
-      "Yes, if enough people agree"
-    ],
-    a: 0,
-    ua: "Чи прийнятно в Австралії використовувати насилля для зміни законів?",
-    uaOpts: [
-      "Ні, австралійці відкидають насилля як спосіб змін",
-      "Так, якщо це заради доброї справи",
-      "Так, якщо достатньо людей погоджуються"
-    ],
-    exp: "We reject violence as a way to change a person's mind or the law. Australians believe that change should occur through discussion, peaceful persuasion, and the democratic process. (Our Common Bond, Part 2)",
-    uaExp: "Австралійці відкидають насилля як засіб змін. Зміни мають відбуватися через обговорення, мирне переконання та демократичний процес. (Частина 2)"
-  },
-  {
-    cat: "🇦🇺 Australian Values ⭐",
-    en: "Freedom of religion in Australia means:",
-    opts: [
-      "People are free to follow any religion or no religion, within the law",
-      "Everyone must follow a religion",
-      "Only Christian religions are permitted"
-    ],
-    a: 0,
-    ua: "Свобода віросповідання в Австралії означає:",
-    uaOpts: [
-      "Люди вільні сповідувати будь-яку релігію або жодну, в межах закону",
-      "Кожен повинен сповідувати релігію",
-      "Дозволені лише християнські релігії"
-    ],
-    exp: "People in Australia are free to follow any religion they choose. They may also not choose to follow a religion. At all times, even while engaging in religious practices, the laws of Australia must be obeyed. (Our Common Bond, Part 2)",
-    uaExp: "В Австралії люди вільні сповідувати будь-яку релігію або жодної. При цьому закони Австралії завжди мають дотримуватись. (Частина 2)"
-  },
-  {
-    cat: "🇦🇺 Australian Values ⭐",
-    en: "Is the Australian government secular?",
-    opts: [
-      "Yes, it operates separately from churches and religious entities",
-      "No, it is guided by Christian principles",
-      "No, the King is head of the church and government"
-    ],
-    a: 0,
-    ua: "Чи є австралійський уряд світським?",
-    uaOpts: [
-      "Так, він діє окремо від церков та релігійних організацій",
-      "Ні, він керується християнськими принципами",
-      "Ні, Король є главою церкви та уряду"
-    ],
-    exp: "The government in Australia is secular, which means it operates separately from churches or other religious entities. There is no official national religion. (Our Common Bond, Part 2)",
-    uaExp: "Австралійський уряд є світським — він діє окремо від церков. Офіційної релігії немає. (Частина 2)"
-  },
-  {
-    cat: "🇦🇺 Australian Values ⭐",
-    en: "What does the Australian Citizenship Pledge include a promise to do?",
-    opts: [
-      "Share democratic beliefs, respect rights and liberties, and uphold and obey Australian laws",
-      "Only pay taxes and speak English",
-      "Only give up all other citizenships"
-    ],
-    a: 0,
-    ua: "Що включає Клятва громадянства Австралії?",
-    uaOpts: [
-      "Поділяти демократичні переконання, поважати права та свободи, дотримуватися законів",
-      "Лише платити податки та розмовляти англійською",
-      "Лише відмовитись від інших громадянств"
-    ],
-    exp: "The Australian Citizenship Pledge: 'I pledge my loyalty to Australia and its people, whose democratic beliefs I share, whose rights and liberties I respect, and whose laws I will uphold and obey.' (Our Common Bond, Introduction)",
-    uaExp: "Клятва громадянства: 'Присягаю на вірність Австралії та її народу, поділяю демократичні переконання, поважаю права та свободи, і дотримуватимусь законів.' (Вступ)"
-  },
-  {
-    cat: "🇦🇺 Australian Values ⭐",
-    en: "Which statement reflects Australian values about cultural practices?",
-    opts: [
-      "Cultural practices within Australian law are respected, but no cultural practice can override the law",
-      "All cultural practices are allowed regardless of Australian law",
-      "Only Australian-born cultural practices are accepted"
-    ],
-    a: 0,
-    ua: "Яке твердження відображає цінності Австралії щодо культурних практик?",
-    uaOpts: [
-      "Культурні практики в межах закону поважаються, але жодна не може порушувати закон",
-      "Будь-які культурні практики дозволені незалежно від закону",
-      "Лише практики народжених в Австралії приймаються"
-    ],
-    exp: "Australians respect the differences between people but within Australian law. Where there is a conflict between Australian law and a cultural or religious practice, Australian law prevails. (Our Common Bond, Parts 2 & 4)",
-    uaExp: "Австралійці поважають культурні відмінності, але в межах закону. У разі конфлікту між культурною практикою та австралійським законом — закон має пріоритет. (Частини 2 і 4)"
-  },
-  {
-    cat: "🇦🇺 Australian Values ⭐",
-    en: "What makes Australia a successful multicultural nation?",
-    opts: [
-      "Combining cultural diversity with national unity and shared values",
-      "Forcing everyone to adopt the same culture",
-      "Limiting immigration to only certain countries"
-    ],
-    a: 0,
-    ua: "Що робить Австралію успішною багатокультурною нацією?",
-    uaOpts: [
-      "Поєднання культурного різноманіття з національною єдністю та спільними цінностями",
-      "Примус всіх прийняти однакову культуру",
-      "Обмеження імміграції лише з певних країн"
-    ],
-    exp: "Australia successfully combines ethnic and cultural diversity with national unity. While we celebrate the diversity of Australia's people, we also aim to build a cohesive and unified nation. (Our Common Bond, Part 1)",
-    uaExp: "Австралія успішно поєднує культурне різноманіття з національною єдністю. Різноманіття цінується, але метою є також єдина та згуртована нація. (Частина 1)"
-  },
-  {
-    cat: "🇦🇺 Australian Values ⭐",
-    en: "When does a person officially become an Australian citizen at a citizenship ceremony?",
-    opts: [
-      "When they make the Australian Citizenship Pledge",
-      "When they receive their certificate",
-      "When they enter the ceremony venue"
-    ],
-    a: 0,
-    ua: "Коли людина офіційно стає громадянином Австралії?",
-    uaOpts: [
-      "Коли вони виголошують Клятву громадянства",
-      "Коли вони отримують свідоцтво",
-      "Коли вони входять до місця церемонії"
-    ],
-    exp: "You do not become an Australian citizen until you have made your pledge of commitment to Australia — the Australian Citizenship Pledge. This is the most important part of the ceremony. (Our Common Bond, Introduction)",
-    uaExp: "Ви не стаєте громадянином Австралії до того, як виголосите Клятву громадянства — це найважливіша частина церемонії. (Вступ)"
-  },
-  {
-    cat: "🇦🇺 Australian Values ⭐",
-    en: "Which of the following is NOT a shared Australian value?",
-    opts: [
-      "Placing family laws above Australian law",
-      "Respect for the law",
-      "Freedom of speech"
-    ],
-    a: 0,
-    ua: "Що з наведеного НЕ є спільною австралійською цінністю?",
-    uaOpts: [
-      "Ставлення сімейних законів вище австралійського закону",
-      "Повага до закону",
-      "Свобода слова"
-    ],
-    exp: "Australian law prevails over any other set of rules — including family, cultural or religious rules. Respect for the law, freedom of speech, and equality of opportunity ARE Australian values. (Our Common Bond, Parts 2 & 4)",
-    uaExp: "Австралійський закон має пріоритет над будь-якими іншими правилами — сімейними, культурними чи релігійними. Повага до закону, свобода слова та рівність можливостей — це австралійські цінності. (Частини 2 і 4)"
-  },
-  {
-    cat: "🇦🇺 Australian Values ⭐",
-    en: "Which of the following is a shared value in Australian society?",
-    opts: [
-      "Respect for the law",
-      "Obedience to government at all times",
-      "Prioritising your own culture above others"
-    ],
-    a: 0,
-    ua: "Яка з наведених є спільною цінністю австралійського суспільства?",
-    uaOpts: [
-      "Повага до закону",
-      "Беззаперечна слухняність уряду",
-      "Пріоритет власної культури над іншими"
-    ],
-    exp: "Respect for the law is a core Australian value. The Rule of Law means everyone must obey Australia's laws — but this does not mean blind obedience; it means all are equal before the law. (Our Common Bond, Parts 2 & 4)",
-    uaExp: "Повага до закону — ключова австралійська цінність. Верховенство права означає, що всі рівні перед законом. (Частини 2 і 4)"
-  },
-  {
-    cat: "🇦🇺 Australian Values ⭐",
-    en: "In Australia, men and women have equal rights. Which statement is consistent with this value?",
-    opts: [
-      "Women and men have the same legal rights and freedoms",
-      "Men have more legal rights than women",
-      "Women must obey their husbands by law"
-    ],
-    a: 0,
-    ua: "В Австралії чоловіки та жінки мають рівні права. Яке твердження відповідає цій цінності?",
-    uaOpts: [
-      "Жінки та чоловіки мають однакові юридичні права та свободи",
-      "Чоловіки мають більше юридичних прав",
-      "За законом жінки повинні підкорятися чоловікам"
-    ],
-    exp: "Men and women have equal rights in Australia. It is against the law to discriminate against a person because of their gender. This is a fundamental Australian value. (Our Common Bond, Parts 2 & 4)",
-    uaExp: "Чоловіки та жінки мають рівні права. Дискримінація за статтю є незаконною — це фундаментальна австралійська цінність. (Частини 2 і 4)"
-  },
-  {
-    cat: "🌏 Australia & Its People",
-    en: "What is the capital city of New South Wales?",
-    opts: [
-      "Sydney",
-      "Canberra",
-      "Newcastle"
-    ],
-    a: 0,
-    ua: "Яка столиця Нового Південного Уельсу?",
-    uaOpts: [
-      "Сідней",
-      "Канберра",
-      "Ньюкасл"
-    ],
-    exp: "New South Wales was the first colony established by the British. Sydney is the capital city of New South Wales and is the nation's largest city. (Our Common Bond, Part 1)",
-    uaExp: "Новий Південний Уельс — перша британська колонія. Сідней є його столицею та найбільшим містом країни. (Частина 1)"
-  },
-  {
-    cat: "🌏 Australia & Its People",
-    en: "What is the capital city of Victoria?",
-    opts: [
-      "Melbourne",
-      "Geelong",
-      "Ballarat"
-    ],
-    a: 0,
-    ua: "Яка столиця Вікторії?",
-    uaOpts: [
-      "Мельбурн",
-      "Джілонг",
-      "Балларат"
-    ],
-    exp: "Victoria is the smallest of the mainland states. Victoria's capital city is Melbourne. Many fine buildings in Victoria were built from the wealth created by the gold rush of the 1850s. (Our Common Bond, Part 1)",
-    uaExp: "Вікторія — найменший материковий штат. Столиця — Мельбурн. Багато будівель збудовані з доходів від золотої лихоманки 1850-х. (Частина 1)"
-  },
-  {
-    cat: "🌏 Australia & Its People",
-    en: "What is the capital city of South Australia?",
-    opts: [
-      "Adelaide",
-      "Port Augusta",
-      "Mount Gambier"
-    ],
-    a: 0,
-    ua: "Яка столиця Південної Австралії?",
-    uaOpts: [
-      "Аделаїда",
-      "Порт-Огаста",
-      "Маунт-Гамб'є"
-    ],
-    exp: "South Australia has a rugged coastline and many famous wine regions. Adelaide, the capital city, has many examples of fine colonial architecture. (Our Common Bond, Part 1)",
-    uaExp: "Південна Австралія має скелясте узбережжя та знамениті винні регіони. Столиця — Аделаїда з прикладами чудової колоніальної архітектури. (Частина 1)"
-  },
-  {
-    cat: "🌏 Australia & Its People",
-    en: "What is the capital city of Tasmania?",
-    opts: [
-      "Hobart",
-      "Launceston",
-      "Devonport"
-    ],
-    a: 0,
-    ua: "Яка столиця Тасманії?",
-    uaOpts: [
-      "Гобарт",
-      "Лонсестон",
-      "Девонпорт"
-    ],
-    exp: "Tasmania is the smallest state, separated from the mainland by the Bass Strait. Tasmania's capital city is Hobart. Much of the island has unspoilt wilderness landscapes. (Our Common Bond, Part 1)",
-    uaExp: "Тасманія — найменший штат, відокремлений протокою Басса. Столиця — Гобарт. Більша частина острова — незаймана природа. (Частина 1)"
-  },
-  {
-    cat: "🌏 Australia & Its People",
-    en: "What is the capital city of the Australian Capital Territory?",
-    opts: [
-      "Canberra",
-      "Sydney",
-      "Queanbeyan"
-    ],
-    a: 0,
-    ua: "Яка столиця Австралійської столичної території?",
-    uaOpts: [
-      "Канберра",
-      "Сідней",
-      "Куінбіян"
-    ],
-    exp: "The Australian Capital Territory is located between Sydney and Melbourne. It is home to the nation's capital city, Canberra. Several national institutions are located in Canberra, including Parliament House and the High Court. (Our Common Bond, Part 1)",
-    uaExp: "Австралійська столична територія розташована між Сіднеєм і Мельбурном. Тут знаходиться столиця країни — Канберра з Будинком Парламенту та Верховним судом. (Частина 1)"
-  },
-  {
-    cat: "🌏 Australia & Its People",
-    en: "Which is the second largest state in Australia?",
-    opts: [
-      "Queensland is the second largest state",
-      "Queensland is the largest state",
-      "Queensland is the third largest state"
-    ],
-    a: 0,
-    ua: "Який штат є другим за розміром в Австралії?",
-    uaOpts: [
-      "Квінсленд — другий за розміром штат",
-      "Квінсленд — найбільший штат",
-      "Квінсленд — третій за розміром штат"
-    ],
-    exp: "Queensland is the second largest state. Queensland's capital city is Brisbane. The Torres Strait Islands lie to the north of the state and the world-famous Great Barrier Reef runs along its eastern coast. (Our Common Bond, Part 1)",
-    uaExp: "Квінсленд — другий за розміром штат. Столиця — Брісбен. На північ — острови Торресової протоки, на сході — Великий Бар'єрний риф. (Частина 1)"
-  },
-  {
-    cat: "🌏 Australia & Its People",
-    en: "What iconic landmarks are associated with South Australia?",
-    opts: [
-      "The Barossa Valley and the Flinders Ranges",
-      "Uluru and Kings Canyon",
-      "The 12 Apostles and Great Ocean Road"
-    ],
-    a: 0,
-    ua: "Які знакові місця пов'язані з Південною Австралією?",
-    uaOpts: [
-      "Долина Бароса та гори Флінерс",
-      "Улуру та Кінгс Каньон",
-      "12 апостолів та Грейт Оушен Роуд"
-    ],
-    exp: "South Australia's icons include the Barossa Valley and the Flinders Ranges. Adelaide, the capital city, has many examples of fine colonial architecture. (Our Common Bond, Part 1)",
-    uaExp: "Символи Південної Австралії: долина Бароса та гори Флінерс. Столиця Аделаїда славиться колоніальною архітектурою. (Частина 1)"
-  },
-  {
-    cat: "🌏 Australia & Its People",
-    en: "What iconic landmarks are associated with Tasmania?",
-    opts: [
-      "Cradle Mountain, Port Arthur, and the Bay of Fires",
-      "Uluru and Kata Tjuta",
-      "The 12 Apostles and Melbourne Cricket Ground"
-    ],
-    a: 0,
-    ua: "Які знакові місця пов'язані з Тасманією?",
-    uaOpts: [
-      "Гора Крейдл, Порт-Артур та Бухта Вогнів",
-      "Улуру та Ката Тьюта",
-      "12 апостолів та Мельбурнський крикетний стадіон"
-    ],
-    exp: "Tasmanian icons include Cradle Mountain, Port Arthur, and the Bay of Fires. Much of the island has unspoilt wilderness landscapes. (Our Common Bond, Part 1)",
-    uaExp: "Символи Тасманії: гора Крейдл, Порт-Артур та Бухта Вогнів. Більша частина острова — незаймана дика природа. (Частина 1)"
-  },
-  {
-    cat: "🌏 Australia & Its People",
-    en: "What iconic landmarks are associated with Western Australia?",
-    opts: [
-      "Ningaloo Coast, Margaret River, and the Kimberley region",
-      "The 12 Apostles and Great Ocean Road",
-      "Uluru and Kings Canyon"
-    ],
-    a: 0,
-    ua: "Які знакові місця пов'язані із Західною Австралією?",
-    uaOpts: [
-      "Узбережжя Нінгалу, Маргарет Рівер та регіон Кімберлі",
-      "12 апостолів та Грейт Оушен Роуд",
-      "Улуру та Кінгс Каньон"
-    ],
-    exp: "Western Australia is the largest state. Perth is the capital city. Western Australia's icons include the Ningaloo Coast, Margaret River, and the Kimberley region. (Our Common Bond, Part 1)",
-    uaExp: "Західна Австралія — найбільший штат, столиця — Перт. Символи: узбережжя Нінгалу, Маргарет Рівер та регіон Кімберлі. (Частина 1)"
+    exp: "The leader of a territory government is the Chief Minister. (Part 3)",
+    uaExp: "Лідер уряду території — Головний міністр (Chief Minister). (Частина 3)"
   },
   {
     cat: "🏛️ Government & Law",
-    en: "What is the total number of senators in the Australian Senate?",
+    en: "Who represents the King in each state?",
     opts: [
-      "76",
-      "72",
-      "100"
+      "An Administrator",
+      "A Premier",
+      "A Governor"
     ],
-    a: 0,
-    ua: "Яка загальна кількість сенаторів в австралійському Сенаті?",
+    a: 2,
+    ua: "Хто представляє Короля в кожному штаті?",
     uaOpts: [
-      "76",
-      "72",
-      "100"
+      "Адміністратор",
+      "Прем'єр",
+      "Губернатор"
     ],
-    exp: "There is a total of 76 senators. Each state elects 12 senators, and the Australian Capital Territory and Northern Territory elect two senators each. (Our Common Bond, Part 3)",
-    uaExp: "Загальна кількість сенаторів — 76. Кожен штат обирає 12, а АСТ та Північна Територія — по 2 сенатори. (Частина 3)"
+    exp: "In each state, a Governor represents the King of Australia. (Part 3)",
+    uaExp: "У кожному штаті Короля Австралії представляє губернатор. (Частина 3)"
   },
   {
     cat: "🏛️ Government & Law",
-    en: "How many senators does each territory (ACT and NT) elect?",
+    en: "What is the leader of a local government called?",
     opts: [
-      "2",
-      "12",
-      "6"
+      "Premier",
+      "Chief Minister",
+      "Mayor or Shire President"
     ],
-    a: 0,
-    ua: "Скільки сенаторів обирає кожна територія (АСТ та ПТ)?",
+    a: 2,
+    ua: "Як називається лідер місцевого самоврядування?",
     uaOpts: [
-      "2",
-      "12",
-      "6"
+      "Прем'єр",
+      "Головний міністр",
+      "Мер або голова округу"
     ],
-    exp: "Each state elects 12 senators. The Australian Capital Territory and Northern Territory each elect two senators. Total: 76 senators. (Our Common Bond, Part 3)",
-    uaExp: "Кожна територія (АСТ та Північна Територія) обирає по 2 сенатори. Кожен штат — 12 сенаторів. Всього: 76. (Частина 3)"
+    exp: "The leader of a local government is the Mayor or Shire President. (Part 3)",
+    uaExp: "Лідер місцевого самоврядування — мер або голова округу (Shire President). (Частина 3)"
   },
   {
     cat: "🏛️ Government & Law",
-    en: "What is the Australian Electoral Commission (AEC)?",
+    en: "What is the Australian Constitution?",
     opts: [
-      "An independent Commonwealth agency responsible for conducting federal elections and referendums",
-      "A department within the Prime Minister's office",
-      "A court that resolves election disputes"
+      "A list of all laws",
+      "The national anthem",
+      "The legal document setting out rules for government"
+    ],
+    a: 2,
+    ua: "Що таке Конституція Австралії?",
+    uaOpts: [
+      "Перелік усіх законів",
+      "Національний гімн",
+      "Правовий документ із правилами врядування"
+    ],
+    exp: "The Australian Constitution is the legal document that sets out the basic rules for the government of Australia. (Part 3)",
+    uaExp: "Конституція Австралії — правовий документ, що встановлює базові правила врядування. (Частина 3)"
+  },
+  {
+    cat: "🏛️ Government & Law",
+    en: "How can the Australian Constitution be changed?",
+    opts: [
+      "By the Prime Minister alone",
+      "By a referendum",
+      "By the High Court"
+    ],
+    a: 1,
+    ua: "Як можна змінити Конституцію Австралії?",
+    uaOpts: [
+      "Лише прем'єр-міністром",
+      "Через референдум",
+      "Верховним судом"
+    ],
+    exp: "The Australian people can change the Constitution by voting in a referendum. (Part 3)",
+    uaExp: "Австралійці можуть змінити Конституцію, проголосувавши на референдумі. (Частина 3)"
+  },
+  {
+    cat: "🏛️ Government & Law",
+    en: "What is needed for a referendum to succeed?",
+    opts: [
+      "A double majority",
+      "Approval by the King",
+      "A simple majority of voters"
     ],
     a: 0,
-    ua: "Що таке Австралійська виборча комісія (AEC)?",
+    ua: "Що потрібно для успіху референдуму?",
     uaOpts: [
-      "Незалежний федеральний орган, що проводить федеральні вибори та референдуми",
-      "Підрозділ офісу прем'єр-міністра",
-      "Суд, що вирішує виборчі спори"
+      "Подвійна більшість",
+      "Схвалення Короля",
+      "Проста більшість виборців"
     ],
-    exp: "The Australian Electoral Commission (AEC) is a Commonwealth agency responsible for conducting federal elections and referendums, and maintaining the Commonwealth electoral roll. The AEC is independent of the government. (Our Common Bond, Part 3)",
-    uaExp: "AEC — незалежний федеральний орган, відповідальний за проведення федеральних виборів і референдумів та ведення списку виборців. Він не залежить від уряду. (Частина 3)"
+    exp: "A referendum needs a 'double majority': a majority of voters nationally and a majority of voters in a majority of states. (Part 3)",
+    uaExp: "Референдуму потрібна подвійна більшість: більшість виборців по країні й більшість у більшості штатів. (Частина 3)"
+  },
+  {
+    cat: "🏛️ Government & Law",
+    en: "What is the highest court in Australia?",
+    opts: [
+      "The Federal Court",
+      "The Supreme Court",
+      "The High Court of Australia"
+    ],
+    a: 2,
+    ua: "Який найвищий суд в Австралії?",
+    uaOpts: [
+      "Федеральний суд",
+      "Вищий суд штату",
+      "Верховний суд Австралії"
+    ],
+    exp: "The High Court of Australia has the ultimate power to apply and interpret the laws of Australia. (Part 3)",
+    uaExp: "Верховний суд Австралії має найвищу владу застосовувати й тлумачити закони. (Частина 3)"
+  },
+  {
+    cat: "🏛️ Government & Law",
+    en: "Into which three powers does the Constitution divide government?",
+    opts: [
+      "Legislative, executive and judicial",
+      "Federal, state and local",
+      "King, Parliament and people"
+    ],
+    a: 0,
+    ua: "На які три влади Конституція ділить уряд?",
+    uaOpts: [
+      "Законодавчу, виконавчу й судову",
+      "Федеральну, штатну й місцеву",
+      "Короля, Парламент і народ"
+    ],
+    exp: "The Constitution divides power between the legislative (Parliament), executive (PM and Cabinet) and judicial (judges) powers. (Part 3)",
+    uaExp: "Конституція ділить владу між законодавчою (Парламент), виконавчою (прем'єр і Кабінет) і судовою (судді). (Частина 3)"
+  },
+  {
+    cat: "🏛️ Government & Law",
+    en: "What is legislative power?",
+    opts: [
+      "The power to make laws",
+      "The power to enforce laws",
+      "The power to interpret laws"
+    ],
+    a: 0,
+    ua: "Що таке законодавча влада?",
+    uaOpts: [
+      "Влада ухвалювати закони",
+      "Влада виконувати закони",
+      "Влада тлумачити закони"
+    ],
+    exp: "Legislative power is the power to make laws. Parliament has this power. (Part 3)",
+    uaExp: "Законодавча влада — це влада ухвалювати закони. Її має Парламент. (Частина 3)"
+  },
+  {
+    cat: "🏛️ Government & Law",
+    en: "What is executive power?",
+    opts: [
+      "The power to put laws into practice",
+      "The power to judge laws",
+      "The power to make laws"
+    ],
+    a: 0,
+    ua: "Що таке виконавча влада?",
+    uaOpts: [
+      "Влада втілювати закони в життя",
+      "Влада судити за законами",
+      "Влада ухвалювати закони"
+    ],
+    exp: "Executive power is the power to put laws into practice. It includes the Prime Minister, ministers and the Governor-General. (Part 3)",
+    uaExp: "Виконавча влада — це влада втілювати закони в життя. Включає прем'єра, міністрів і Генерал-губернатора. (Частина 3)"
+  },
+  {
+    cat: "🏛️ Government & Law",
+    en: "Who has judicial power?",
+    opts: [
+      "The Prime Minister",
+      "Parliament",
+      "Judges"
+    ],
+    a: 2,
+    ua: "Хто має судову владу?",
+    uaOpts: [
+      "Прем'єр-міністр",
+      "Парламент",
+      "Судді"
+    ],
+    exp: "Judges have judicial power: the power to interpret and apply the law. Courts are independent of parliament and government. (Part 3)",
+    uaExp: "Судді мають судову владу: тлумачити й застосовувати закон. Суди незалежні від парламенту й уряду. (Частина 3)"
+  },
+  {
+    cat: "🏛️ Government & Law",
+    en: "What does 'Royal Assent' mean?",
+    opts: [
+      "The King vetoes a law",
+      "Parliament votes on a Bill",
+      "The Governor-General signs a Bill into law"
+    ],
+    a: 2,
+    ua: "Що означає 'Королівська згода' (Royal Assent)?",
+    uaOpts: [
+      "Король накладає вето на закон",
+      "Парламент голосує за законопроект",
+      "Генерал-губернатор підписує законопроект у закон"
+    ],
+    exp: "The Governor-General signs a Bill so it becomes law — this is called Royal Assent. (Part 3)",
+    uaExp: "Генерал-губернатор підписує законопроект, і той стає законом — це Королівська згода. (Частина 3)"
+  },
+  {
+    cat: "🏛️ Government & Law",
+    en: "What is a proposed new law called before it is passed?",
+    opts: [
+      "A referendum",
+      "A Bill",
+      "An Act"
+    ],
+    a: 1,
+    ua: "Як називається запропонований новий закон до ухвалення?",
+    uaOpts: [
+      "Референдум",
+      "Законопроект (Bill)",
+      "Акт"
+    ],
+    exp: "If a member of Parliament proposes a new law or a change, the proposal is called a 'Bill'. (Part 3)",
+    uaExp: "Якщо член Парламенту пропонує новий закон, ця пропозиція називається законопроектом (Bill). (Частина 3)"
+  },
+  {
+    cat: "🏛️ Government & Law",
+    en: "Which body conducts federal elections?",
+    opts: [
+      "The High Court",
+      "The Australian Electoral Commission (AEC)",
+      "The Prime Minister's office"
+    ],
+    a: 1,
+    ua: "Який орган проводить федеральні вибори?",
+    uaOpts: [
+      "Верховний суд",
+      "Австралійська виборча комісія (AEC)",
+      "Офіс прем'єр-міністра"
+    ],
+    exp: "The Australian Electoral Commission (AEC) conducts federal elections and referendums and is independent of the government. (Part 3)",
+    uaExp: "Австралійська виборча комісія (AEC) проводить федеральні вибори й референдуми та незалежна від уряду. (Частина 3)"
   },
   {
     cat: "🏛️ Government & Law",
     en: "How is voting conducted in Australian elections?",
     opts: [
-      "By secret ballot — no one is allowed to know whom you voted for",
-      "By public declaration in front of officials",
-      "By a show of hands at polling stations"
-    ],
-    a: 0,
-    ua: "Як проводиться голосування на австралійських виборах?",
-    uaOpts: [
-      "Таємним бюлетенем — ніхто не має права знати, за кого ви голосували",
-      "Публічною декларацією перед чиновниками",
-      "Підняттям руки на виборчих дільницях"
-    ],
-    exp: "In Australia, voting in an election is by secret ballot, so you are free and safe to vote for any candidate. No one is allowed to know whom you have voted for, unless you choose to tell them. (Our Common Bond, Part 3)",
-    uaExp: "В Австралії голосування проводиться таємним бюлетенем. Ніхто не має права знати, за кого ви голосували, якщо ви самі не вирішите це розповісти. (Частина 3)"
-  },
-  {
-    cat: "🏛️ Government & Law",
-    en: "What happens if you do not vote in an Australian election without a good reason?",
-    opts: [
-      "You may have to pay a fine",
-      "You lose your citizenship",
-      "You are removed from the electoral roll"
-    ],
-    a: 0,
-    ua: "Що відбувається, якщо ви не голосуєте на виборах в Австралії без поважної причини?",
-    uaOpts: [
-      "Вам може бути виписаний штраф",
-      "Ви втрачаєте громадянство",
-      "Вас виключають із виборчого списку"
-    ],
-    exp: "If you do not vote in an election and do not have a good reason for not voting, you may have to pay a fine. Voting is compulsory in federal and state or territory elections. (Our Common Bond, Part 3)",
-    uaExp: "Якщо ви не голосуєте без поважної причини, вам може бути виписаний штраф. Голосування є обов'язковим на федеральних та штатних виборах. (Частина 3)"
-  },
-  {
-    cat: "🏛️ Government & Law",
-    en: "What is the name given to the leader of a state government?",
-    opts: [
-      "Premier",
-      "Prime Minister",
-      "Chief Minister"
-    ],
-    a: 0,
-    ua: "Як називається лідер уряду штату?",
-    uaOpts: [
-      "Прем'єр (Premier)",
-      "Прем'єр-міністр",
-      "Головний міністр"
-    ],
-    exp: "The leader of a state government is called the Premier. The leader of a territory government is called the Chief Minister. The leader of the Australian Government is the Prime Minister. (Our Common Bond, Part 3)",
-    uaExp: "Лідер уряду штату називається Прем'єром (Premier). Лідер уряду території — Головним міністром (Chief Minister). Лідер федерального уряду — Прем'єр-міністром. (Частина 3)"
-  },
-  {
-    cat: "🏛️ Government & Law",
-    en: "What is the name given to the leader of a territory government?",
-    opts: [
-      "Chief Minister",
-      "Premier",
-      "Governor"
-    ],
-    a: 0,
-    ua: "Як називається лідер уряду території?",
-    uaOpts: [
-      "Головний міністр (Chief Minister)",
-      "Прем'єр (Premier)",
-      "Губернатор"
-    ],
-    exp: "The leader of a territory government is called the Chief Minister. The leader of a state government is called the Premier. (Our Common Bond, Part 3)",
-    uaExp: "Лідер уряду території називається Головним міністром (Chief Minister). Лідер уряду штату — Прем'єром (Premier). (Частина 3)"
-  },
-  {
-    cat: "🏛️ Government & Law",
-    en: "What is the role of the Governor-General regarding Bills passed by Parliament?",
-    opts: [
-      "Signing all Bills passed by the Australian Parliament into law (Royal Assent)",
-      "Debating Bills in the Senate",
-      "Writing the Bills before Parliament sees them"
-    ],
-    a: 0,
-    ua: "Яка роль Генерал-губернатора щодо законопроектів, прийнятих Парламентом?",
-    uaOpts: [
-      "Підписання всіх законопроектів, прийнятих Парламентом, в закон (Королівська згода)",
-      "Дебати щодо законопроектів у Сенаті",
-      "Написання законопроектів до того, як їх побачить Парламент"
-    ],
-    exp: "The Governor-General's role includes signing all Bills passed by the Australian Parliament into law — this is called Royal Assent. The Governor-General also performs ceremonial duties and approves appointments. (Our Common Bond, Part 3)",
-    uaExp: "Роль Генерал-губернатора включає підписання всіх законопроектів Парламенту в закон (Королівська згода), виконання церемоніальних обов'язків та затвердження призначень. (Частина 3)"
-  },
-  {
-    cat: "🏛️ Government & Law",
-    en: "What must happen for the Australian Constitution to be changed?",
-    opts: [
-      "A referendum with a 'double majority' — majority of voters nationally AND majority in a majority of states",
-      "A simple majority vote in Parliament",
-      "A decision by the Governor-General"
-    ],
-    a: 0,
-    ua: "Що потрібно для зміни Конституції Австралії?",
-    uaOpts: [
-      "Референдум з 'подвійною більшістю' — більшість виборців по всій країні І більшість у більшості штатів",
-      "Проста більшість голосів у Парламенті",
-      "Рішення Генерал-губернатора"
-    ],
-    exp: "In a referendum, there needs to be a 'double majority' for the Australian Constitution to be changed — both the majority of voters in a majority of states AND a majority of voters across the nation must vote for the change. (Our Common Bond, Part 3)",
-    uaExp: "Для зміни Конституції потрібна 'подвійна більшість': більшість виборців по всій країні І більшість виборців у більшості штатів. (Частина 3)"
-  },
-  {
-    cat: "🏛️ Government & Law",
-    en: "What other name is given to the House of Representatives?",
-    opts: [
-      "The Lower House or the People's House",
-      "The Upper House or the States' House",
-      "The Review House"
-    ],
-    a: 0,
-    ua: "Яка інша назва Палати представників?",
-    uaOpts: [
-      "Нижня палата або Палата народу",
-      "Верхня палата або Палата штатів",
-      "Ревізійна палата"
-    ],
-    exp: "Other names for the House of Representatives are the Lower House or the People's House. The Senate is sometimes called the Upper House, the House of Review or the States' House. (Our Common Bond, Part 3)",
-    uaExp: "Інші назви Палати представників: Нижня палата або Палата народу. Сенат іноді називають Верхньою палатою, Ревізійною палатою або Палатою штатів. (Частина 3)"
-  },
-  {
-    cat: "🌏 Australia & Its People",
-    en: "How did immigration levels change in the early 1900s?",
-    opts: [
-      "They rose and then fell",
-      "They stayed the same",
-      "They slowly dropped"
-    ],
-    a: 0,
-    ua: "Як змінились рівні імміграції на початку 1900-х?",
-    uaOpts: [
-      "Зросли, а потім впали",
-      "Залишились незмінними",
-      "Повільно знижувались"
-    ],
-    exp: "Immigration rose due to British settlement programs but fell during global conflicts and the Great Depression. (Our Common Bond, Part 1)",
-    uaExp: "Імміграція зросла завдяки британським програмам, але впала під час світових конфліктів і Великої депресії. (Частина 1)"
-  },
-  {
-    cat: "🌏 Australia & Its People",
-    en: "From which countries did the first free settlers in Australia come?",
-    opts: [
-      "Britain and Ireland",
-      "China and India",
-      "France and Germany"
-    ],
-    a: 0,
-    ua: "З яких країн приїхали перші вільні поселенці в Австралії?",
-    uaOpts: [
-      "Велика Британія та Ірландія",
-      "Китай та Індія",
-      "Франція та Німеччина"
-    ],
-    exp: "The first free immigrants came from Britain and Ireland, deeply influencing Australian culture, law and language. (Our Common Bond, Part 1)",
-    uaExp: "Перші вільні іммігранти приїхали з Великої Британії та Ірландії, суттєво вплинувши на австралійську культуру та закон. (Частина 1)"
-  },
-  {
-    cat: "🌏 Australia & Its People",
-    en: "Which was the first large non-European group to migrate to Australia?",
-    opts: [
-      "Chinese",
-      "Indians",
-      "Sri Lankans"
-    ],
-    a: 0,
-    ua: "Яка була перша велика не-європейська група мігрантів в Австралії?",
-    uaOpts: [
-      "Китайці",
-      "Індійці",
-      "Шрі-ланкійці"
-    ],
-    exp: "Chinese migrants arrived in large numbers during the 1850s gold rush, making them the first major non-European migrant group in Australia. (Our Common Bond, Part 1)",
-    uaExp: "Китайські мігранти масово приїхали під час золотої лихоманки 1850-х і стали першою великою не-європейською групою мігрантів. (Частина 1)"
-  },
-  {
-    cat: "🌏 Australia & Its People",
-    en: "When do Aboriginal creation stories begin?",
-    opts: [
-      "At the beginning of time",
-      "When the First Fleet arrived",
-      "200 years ago"
-    ],
-    a: 0,
-    ua: "Коли починаються aboriginal creation stories (Час Сновидінь)?",
-    uaOpts: [
-      "На початку часів",
-      "Коли прибув Перший флот",
-      "200 років тому"
-    ],
-    exp: "Aboriginal people believe their ancestors have been part of the land since the beginning of time — their creation stories begin with the beginning of time itself. (Our Common Bond, Part 1)",
-    uaExp: "Аборигени вірять, що їхні предки були частиною землі від початку часів. Їхні creation stories починаються з початку часів. (Частина 1)"
-  },
-  {
-    cat: "🌏 Australia & Its People",
-    en: "How do Indigenous Australians share their culture?",
-    opts: [
-      "Through stories, art, and dance",
-      "Through sports and technology",
-      "Through written books only"
-    ],
-    a: 0,
-    ua: "Як корінні австралійці передають свою культуру?",
-    uaOpts: [
-      "Через розповіді, мистецтво та танці",
-      "Через спорт та технології",
-      "Лише через письмові книги"
-    ],
-    exp: "Indigenous Australians use stories, art and dance to pass down their culture, traditions and connection to the land across generations. (Our Common Bond, Part 1)",
-    uaExp: "Корінні австралійці передають культуру, традиції та зв'язок із землею через розповіді, мистецтво та танці. (Частина 1)"
-  },
-  {
-    cat: "🌏 Australia & Its People",
-    en: "For which group did the British establish the first colony in Australia?",
-    opts: [
-      "Prisoners (convicts)",
-      "Free merchants",
-      "Military officers"
-    ],
-    a: 0,
-    ua: "Для якої групи британці заснували першу колонію в Австралії?",
-    uaOpts: [
-      "Ув'язнені (каторжники)",
-      "Вільні торговці",
-      "Військові офіцери"
-    ],
-    exp: "Britain established New South Wales as a penal colony for convicts to solve overcrowding in British jails. Free settlers arrived later. (Our Common Bond, Part 1)",
-    uaExp: "Велика Британія заснувала Новий Південний Уельс як каторжну колонію для ув'язнених через переповненість британських тюрем. (Частина 1)"
-  },
-  {
-    cat: "🗳️ Democracy & Rights",
-    en: "Who must obey Australia's laws?",
-    opts: [
-      "All people in Australia, including government officials and visitors",
-      "Only Australian citizens",
-      "Only permanent residents"
-    ],
-    a: 0,
-    ua: "Хто повинен дотримуватись законів Австралії?",
-    uaOpts: [
-      "Всі люди в Австралії, включаючи чиновників та відвідувачів",
-      "Лише громадяни Австралії",
-      "Лише постійні резиденти"
-    ],
-    exp: "The Rule of Law means all people — citizens, residents, visitors and even government officials — must obey Australia's laws. No one is above the law. (Our Common Bond, Part 2)",
-    uaExp: "Верховенство права означає, що всі — громадяни, резиденти, відвідувачі і навіть чиновники — повинні дотримуватись законів Австралії. (Частина 2)"
-  },
-  {
-    cat: "🗳️ Democracy & Rights",
-    en: "What must Australian citizens do when called for jury service?",
-    opts: [
-      "Attend and participate in jury service as instructed",
-      "Choose whether to attend or not",
-      "Ignore the summons"
-    ],
-    a: 0,
-    ua: "Що повинні робити громадяни Австралії, коли їх викликають до журі присяжних?",
-    uaOpts: [
-      "З'явитись та брати участь у засіданні журі",
-      "Вирішити самостійно, йти чи ні",
-      "Ігнорувати виклик"
-    ],
-    exp: "Jury service is a responsibility of Australian citizenship. Citizens must attend and participate in jury service when called upon. This helps ensure the court system is fair and open. (Our Common Bond, Part 2)",
-    uaExp: "Служба в журі — обов'язок громадянина. Коли тебе викликають, ти зобов'язаний з'явитись та брати участь. Це забезпечує справедливість судової системи. (Частина 2)"
-  },
-  {
-    cat: "🏛️ Government & Law",
-    en: "Who is responsible for conducting federal elections and referendums in Australia?",
-    opts: [
-      "The Australian Electoral Commission (AEC)",
-      "The Prime Minister's Office",
-      "The High Court of Australia"
-    ],
-    a: 0,
-    ua: "Хто відповідає за проведення федеральних виборів та референдумів в Австралії?",
-    uaOpts: [
-      "Австралійська виборча комісія (AEC)",
-      "Офіс прем'єр-міністра",
-      "Верховний суд Австралії"
-    ],
-    exp: "The Australian Electoral Commission (AEC) is an independent statutory authority responsible for conducting federal elections and referendums. (Our Common Bond, Part 3)",
-    uaExp: "Австралійська виборча комісія (AEC) — незалежний орган, відповідальний за проведення федеральних виборів та референдумів. (Частина 3)"
-  },
-  {
-    cat: "🏛️ Government & Law",
-    en: "Who exercises legislative power in Australia?",
-    opts: [
-      "The Parliament",
-      "The Prime Minister",
-      "The High Court"
-    ],
-    a: 0,
-    ua: "Хто здійснює законодавчу владу в Австралії?",
-    uaOpts: [
-      "Парламент",
-      "Прем'єр-міністр",
-      "Верховний суд"
-    ],
-    exp: "Legislative power — the power to make laws — is exercised by the Parliament (the Senate and the House of Representatives). (Our Common Bond, Part 3)",
-    uaExp: "Законодавча влада — право ухвалювати закони — належить Парламенту (Сенату та Палаті представників). (Частина 3)"
-  },
-  {
-    cat: "🏛️ Government & Law",
-    en: "What happens if you break the law in Australia?",
-    opts: [
-      "You may face legal consequences such as fines or imprisonment",
-      "You are only warned and never held accountable",
-      "You can choose your own punishment"
-    ],
-    a: 0,
-    ua: "Що відбувається, якщо ви порушуєте закон в Австралії?",
-    uaOpts: [
-      "Ви можете зіткнутися з правовими наслідками: штрафами або ув'язненням",
-      "Вас лише попереджають",
-      "Ви можете обрати власне покарання"
-    ],
-    exp: "If you break the law in Australia, you may face legal consequences. Australian law applies to everyone and consequences can include fines, community service or imprisonment. (Our Common Bond, Parts 2 & 3)",
-    uaExp: "Порушення закону в Австралії може призвести до правових наслідків: штрафів, громадських робіт або ув'язнення. Закон діє для всіх. (Частини 2 і 3)"
-  },
-  {
-    cat: "🇦🇺 Australian Values ⭐",
-    en: "What is the legal stance on violence in Australia?",
-    opts: [
-      "Violence of any kind, physical or verbal, is illegal",
-      "Physical violence is illegal but verbal threats are not",
-      "Violence is acceptable in self-defence only"
-    ],
-    a: 0,
-    ua: "Яка правова позиція щодо насилля в Австралії?",
-    uaOpts: [
-      "Будь-яке насилля — фізичне чи словесне — є незаконним",
-      "Фізичне насилля незаконне, але словесні погрози — ні",
-      "Насилля допустиме лише для самозахисту"
-    ],
-    exp: "Violence of any kind — physical or verbal — is unacceptable and illegal in Australia. Australians reject violence as a way to change a person's mind or the law. (Our Common Bond, Parts 2 & 4)",
-    uaExp: "Будь-яке насилля — фізичне чи словесне — є неприйнятним і незаконним в Австралії. Австралійці відкидають насилля як спосіб змінити чиюсь думку або закон. (Частини 2 і 4)"
-  },
-  {
-    cat: "🇦🇺 Australian Values ⭐",
-    en: "What are the core values that underpin Australian society?",
-    opts: [
-      "Respect for freedom, equality and the rule of law",
-      "Obedience to only one religion",
-      "Speaking only English is mandatory"
-    ],
-    a: 0,
-    ua: "Які основні цінності лежать в основі австралійського суспільства?",
-    uaOpts: [
-      "Повага до свободи, рівності та верховенства права",
-      "Послух лише одній релігії",
-      "Розмова лише англійською обов'язкова"
-    ],
-    exp: "The core values underpinning Australian society include respect for freedom, equality, the rule of law, and mutual respect and tolerance. (Our Common Bond, Parts 2 & 4)",
-    uaExp: "Основні цінності австралійського суспільства: повага до свободи, рівності, верховенства права та взаємна повага і толерантність. (Частини 2 і 4)"
-  },
-  {
-    cat: "🇦🇺 Australian Values ⭐",
-    en: "Why is it important to obey the law in Australia?",
-    opts: [
-      "Obeying the law ensures fairness and safety for everyone",
-      "So that you do not get deported",
-      "To earn tax refunds"
-    ],
-    a: 0,
-    ua: "Чому важливо дотримуватись закону в Австралії?",
-    uaOpts: [
-      "Дотримання закону забезпечує справедливість та безпеку для всіх",
-      "Щоб не бути депортованим",
-      "Щоб отримати повернення податків"
-    ],
-    exp: "Obeying the law is a fundamental responsibility in Australia. The Rule of Law ensures fairness, equality and safety for everyone in the community. (Our Common Bond, Parts 2 & 4)",
-    uaExp: "Дотримання закону — фундаментальний обов'язок в Австралії. Верховенство права забезпечує справедливість, рівність та безпеку для всіх. (Частини 2 і 4)"
-  },
-  {
-    cat: "🌏 Australia & Its People",
-    en: "What was the name of the first colony established by the British in Australia?",
-    opts: [
-      "New South Wales",
-      "Victoria",
-      "Queensland"
-    ],
-    a: 0,
-    ua: "Як називалась перша колонія, заснована британцями в Австралії?",
-    uaOpts: [
-      "Новий Південний Уельс",
-      "Вікторія",
-      "Квінсленд"
-    ],
-    exp: "New South Wales was the first colony established by the British. Sydney is its capital city and is the nation's largest city. (Our Common Bond, Part 1)",
-    uaExp: "Новий Південний Уельс — перша британська колонія. Сідней є її столицею та найбільшим містом країни. (Частина 1)"
-  },
-  {
-    cat: "🌏 Australia & Its People",
-    en: "What is Australia's largest city?",
-    opts: [
-      "Sydney",
-      "Melbourne",
-      "Brisbane"
-    ],
-    a: 0,
-    ua: "Яке найбільше місто Австралії?",
-    uaOpts: [
-      "Сідней",
-      "Мельбурн",
-      "Брісбен"
-    ],
-    exp: "Sydney is the capital city of New South Wales and is the nation's largest city. The Sydney Harbour Bridge and Opera House are national icons. (Our Common Bond, Part 1)",
-    uaExp: "Сідней — столиця Нового Південного Уельсу та найбільше місто країни. Міст Харбор-Брідж та Опера — національні символи. (Частина 1)"
-  },
-  {
-    cat: "🌏 Australia & Its People",
-    en: "Where are the Torres Strait Islands located?",
-    opts: [
-      "To the north of Queensland",
-      "To the south of Tasmania",
-      "Off the coast of Western Australia"
-    ],
-    a: 0,
-    ua: "Де розташовані острови Торресової протоки?",
-    uaOpts: [
-      "На північ від Квінсленду",
-      "На південь від Тасманії",
-      "Біля узбережжя Західної Австралії"
-    ],
-    exp: "The Torres Strait Islands lie to the north of Queensland and the world-famous Great Barrier Reef runs along its eastern coast. (Our Common Bond, Part 1)",
-    uaExp: "Острови Торресової протоки розташовані на північ від Квінсленду. Вздовж східного узбережжя проходить Великий Бар'єрний риф. (Частина 1)"
-  },
-  {
-    cat: "🌏 Australia & Its People",
-    en: "What icons are associated with Victoria?",
-    opts: [
-      "Melbourne Cricket Ground, the 12 Apostles, and the Royal Exhibition Building",
-      "Sydney Opera House and Harbour Bridge",
-      "Uluru and Kings Canyon"
-    ],
-    a: 0,
-    ua: "Які символи пов'язані з Вікторією?",
-    uaOpts: [
-      "Мельбурнський крикетний стадіон, 12 апостолів та Королівська виставкова будівля",
-      "Сіднейська опера та міст Харбор-Брідж",
-      "Улуру та Кінгс Каньон"
-    ],
-    exp: "Victoria's icons include the Melbourne Cricket Ground, the 12 Apostles, and the Royal Exhibition Building. Many fine buildings in Victoria were built from the wealth created by the gold rush of the 1850s. (Our Common Bond, Part 1)",
-    uaExp: "Символи Вікторії: Мельбурнський крикетний стадіон, 12 апостолів та Королівська виставкова будівля. Багато будівель збудовані на кошти від золотої лихоманки 1850-х. (Частина 1)"
-  },
-  {
-    cat: "🌏 Australia & Its People",
-    en: "What iconic landmarks are found in the Northern Territory?",
-    opts: [
-      "Uluru, Kata Tjuta and Kings Canyon",
-      "The 12 Apostles and Great Ocean Road",
-      "The Barossa Valley and Flinders Ranges"
-    ],
-    a: 0,
-    ua: "Які знакові місця є в Північній Території?",
-    uaOpts: [
-      "Улуру, Ката Тьюта та Кінгс Каньон",
-      "12 апостолів та Грейт Оушен Роуд",
-      "Долина Бароса та гори Флінерс"
-    ],
-    exp: "Northern Territory icons include Uluru, Kata Tjuta and Kings Canyon. The Northern Territory has a tropical environment in the north and dry red desert in the south. (Our Common Bond, Part 1)",
-    uaExp: "Символи Північної Території: Улуру, Ката Тьюта та Кінгс Каньон. На півночі — тропіки, на півдні — червона пустеля. (Частина 1)"
-  },
-  {
-    cat: "🌏 Australia & Its People",
-    en: "What does the black top half of the Aboriginal Flag represent?",
-    opts: [
-      "The Aboriginal peoples of Australia",
-      "The night sky",
-      "Coal and mining"
-    ],
-    a: 0,
-    ua: "Що символізує чорна верхня половина прапора аборигенів?",
-    uaOpts: [
-      "Аборигенний народ Австралії",
-      "Нічне небо",
-      "Вугілля та видобуток"
-    ],
-    exp: "On the Aboriginal Flag, the top half is black and represents the Aboriginal peoples of Australia. The bottom half is red representing the earth, and the yellow circle represents the sun. (Our Common Bond, Part 1)",
-    uaExp: "Чорний верх прапора аборигенів символізує абор. народ. Червоний низ — землю. Жовте коло — сонце. (Частина 1)"
-  },
-  {
-    cat: "🌏 Australia & Its People",
-    en: "What does the green on the Torres Strait Islander Flag represent?",
-    opts: [
-      "The land",
-      "The sea",
-      "The Torres Strait Islander people"
-    ],
-    a: 0,
-    ua: "Що символізує зелений колір на прапорі жителів Торресової протоки?",
-    uaOpts: [
-      "Землю",
-      "Море",
-      "Народ Торресової протоки"
-    ],
-    exp: "On the Torres Strait Islander Flag, the green stripes represent the land. The blue panel represents the sea, the black lines represent the Torres Strait Islander people, and white symbolises peace. (Our Common Bond, Part 1)",
-    uaExp: "На прапорі Торресової протоки зелений — земля, синій — море, чорний — народ, білий — мир. (Частина 1)"
-  },
-  {
-    cat: "🌏 Australia & Its People",
-    en: "What large wave of non-British migration came to Australia after World War II?",
-    opts: [
-      "Large numbers of Europeans came to build a new life",
-      "Chinese migrants during the gold rush",
-      "American soldiers who stayed after the war"
-    ],
-    a: 0,
-    ua: "Яка велика хвиля не-британської міграції прийшла до Австралії після Другої світової війни?",
-    uaOpts: [
-      "Велика кількість європейців приїхала будувати нове життя",
-      "Китайські мігранти під час золотої лихоманки",
-      "Американські солдати, які залишились після війни"
-    ],
-    exp: "A wave of non-British migration came after World War II, when millions of people in Europe had to leave their homelands. Large numbers of Europeans came to Australia to build a new life. (Our Common Bond, Part 1)",
-    uaExp: "Після Другої світової війни велика кількість європейців, змушених залишити батьківщину, приїхала до Австралії будувати нове життя. (Частина 1)"
-  },
-  {
-    cat: "🌏 Australia & Its People",
-    en: "People from how many countries have made Australia their home?",
-    opts: [
-      "More than 200",
-      "More than 50",
-      "More than 100"
-    ],
-    a: 0,
-    ua: "Люди з якої кількості країн зробили Австралію своїм домом?",
-    uaOpts: [
-      "Більше 200",
-      "Більше 50",
-      "Більше 100"
-    ],
-    exp: "People from more than 200 countries have made Australia their home. As a result, our society is one of the most diverse in the world. (Our Common Bond, Part 1)",
-    uaExp: "Люди з більш ніж 200 країн зробили Австралію своїм домом, що робить австралійське суспільство одним з найрізноманітніших у світі. (Частина 1)"
-  },
-  {
-    cat: "🗳️ Democracy & Rights",
-    en: "What is freedom of expression in Australia?",
-    opts: [
-      "The right to express views through art, film, music and literature",
-      "The right to say anything without legal consequences",
-      "The right to ignore copyright laws"
-    ],
-    a: 0,
-    ua: "Що таке свобода самовираження в Австралії?",
-    uaOpts: [
-      "Право висловлювати погляди через мистецтво, кіно, музику та літературу",
-      "Право говорити будь-що без правових наслідків",
-      "Право ігнорувати авторське право"
-    ],
-    exp: "Freedom of expression means people can express their views, including through art, film, music and literature. People are free to meet in public or private places for social or political discussion. (Our Common Bond, Part 2)",
-    uaExp: "Свобода самовираження — право висловлювати погляди через мистецтво, кіно, музику та літературу, а також збиратися для обговорення. (Частина 2)"
-  },
-  {
-    cat: "🗳️ Democracy & Rights",
-    en: "Which of the following is a privilege ONLY available to Australian citizens (not permanent residents)?",
-    opts: [
-      "Applying for an Australian passport",
-      "Working in Australia",
-      "Using Medicare"
-    ],
-    a: 0,
-    ua: "Що є привілеєм ЛИШЕ громадян Австралії (не постійних резидентів)?",
-    uaOpts: [
-      "Подання заявки на австралійський паспорт",
-      "Робота в Австралії",
-      "Використання Medicare"
-    ],
-    exp: "As an Australian citizen you can apply for an Australian passport and re-enter Australia freely. This privilege is not available to permanent residents. (Our Common Bond, Part 2)",
-    uaExp: "Лише громадяни Австралії можуть отримати австралійський паспорт і вільно повертатися до Австралії без візи. (Частина 2)"
-  },
-  {
-    cat: "🗳️ Democracy & Rights",
-    en: "What can Australian citizens do if they are in trouble overseas?",
-    opts: [
-      "Ask for consular assistance from an Australian official",
-      "Only contact their home country's embassy",
-      "Call the Australian police"
-    ],
-    a: 0,
-    ua: "Що можуть робити громадяни Австралії, якщо вони потрапили у скруту за кордоном?",
-    uaOpts: [
-      "Звернутися за консульською допомогою до австралійського чиновника",
-      "Лише контактувати з посольством рідної країни",
-      "Зателефонувати австралійській поліції"
-    ],
-    exp: "Australian citizens can ask for consular assistance from an Australian official while overseas. Australian officials can help with emergency passports, and support in case of accident, serious illness or death. (Our Common Bond, Part 2)",
-    uaExp: "Громадяни Австралії можуть звертатися за консульською допомогою за кордоном — з питань надзвичайних паспортів, нещасних випадків, хвороби чи смерті. (Частина 2)"
-  },
-  {
-    cat: "🗳️ Democracy & Rights",
-    en: "Which of the following is NOT a responsibility of Australian citizenship?",
-    opts: [
-      "Applying for an Australian passport",
-      "Voting in federal elections",
-      "Serving on a jury if called"
-    ],
-    a: 0,
-    ua: "Що з наведеного НЕ є обов'язком громадянства Австралії?",
-    uaOpts: [
-      "Подання заявки на австралійський паспорт",
-      "Голосування на федеральних виборах",
-      "Засідання в журі присяжних"
-    ],
-    exp: "Applying for an Australian passport is a privilege, not a responsibility. Responsibilities include: obeying laws, voting, defending Australia if needed, and serving on a jury. (Our Common Bond, Part 2)",
-    uaExp: "Отримання австралійського паспорту — це привілей, а не обов'язок. Обов'язки: дотримання законів, голосування, оборона країни, участь у журі. (Частина 2)"
-  },
-  {
-    cat: "🗳️ Democracy & Rights",
-    en: "Who is eligible to serve on a jury in Australia?",
-    opts: [
-      "Australian citizens aged 18 and over who are on the electoral roll",
-      "Any resident of Australia",
-      "Only lawyers and legal professionals"
-    ],
-    a: 0,
-    ua: "Хто має право засідати в журі присяжних в Австралії?",
-    uaOpts: [
-      "Громадяни Австралії від 18 років, які є у виборчих списках",
-      "Будь-який житель Австралії",
-      "Лише юристи та правові спеціалісти"
-    ],
-    exp: "Jury service is a responsibility for Australian citizens aged 18 years or over. Australian citizens who are on the electoral roll can be called to serve on a jury. (Our Common Bond, Part 2)",
-    uaExp: "Засідати в журі можуть громадяни Австралії від 18 років, які внесені до виборчих списків. (Частина 2)"
-  },
-  {
-    cat: "🗳️ Democracy & Rights",
-    en: "What does Australia's parliamentary democracy mean for elected representatives?",
-    opts: [
-      "They must answer to the people through elections for the decisions they make",
-      "They can make any decision without accountability",
-      "They serve for life once elected"
-    ],
-    a: 0,
-    ua: "Що означає парламентська демократія Австралії для обраних представників?",
-    uaOpts: [
-      "Вони повинні звітувати перед народом через вибори за свої рішення",
-      "Вони можуть приймати будь-які рішення без відповідальності",
-      "Вони служать довічно після обрання"
-    ],
-    exp: "The representatives in parliament must answer to the people, through elections, for the decisions they make. The power of the government comes from the Australian people because citizens vote for people to represent them. (Our Common Bond, Part 2)",
-    uaExp: "Представники в парламенті мають звітувати перед народом через вибори. Влада уряду виходить від громадян, які голосують. (Частина 2)"
-  },
-  {
-    cat: "🗳️ Democracy & Rights",
-    en: "Can Australian citizens apply for jobs in the Australian Public Service?",
-    opts: [
-      "Yes, this is a privilege of Australian citizenship",
-      "No, only permanent residents can apply",
-      "Yes, but only if born in Australia"
-    ],
-    a: 0,
-    ua: "Чи можуть громадяни Австралії подавати заявки на роботу в державних службах?",
-    uaOpts: [
-      "Так, це привілей австралійського громадянства",
-      "Ні, лише постійні резиденти можуть подавати заявки",
-      "Так, але лише народжені в Австралії"
-    ],
-    exp: "A privilege of Australian citizenship is to apply for a job in the Australian Public Service, for example in Services Australia or the Australian Taxation Office (ATO). (Our Common Bond, Part 2)",
-    uaExp: "Привілей громадянства — право подавати заявки на роботу в державних службах, наприклад у Services Australia або Податковому офісі (ATO). (Частина 2)"
-  },
-  {
-    cat: "🏛️ Government & Law",
-    en: "What document sets out the rules for governing Australia?",
-    opts: [
-      "The Australian Constitution",
-      "The Bill of Rights",
-      "The Federation Charter"
-    ],
-    a: 0,
-    ua: "Який документ встановлює правила управління Австралією?",
-    uaOpts: [
-      "Конституція Австралії",
-      "Білль про права",
-      "Хартія федерації"
-    ],
-    exp: "In 1901, the colonies were united into a federation and national democratic institutions were established under the new Australian Constitution. The Constitution is the legal foundation of Australia's government. (Our Common Bond, Part 1 & 3)",
-    uaExp: "У 1901 році під новою Конституцією Австралії були засновані національні демократичні інститути. Конституція — правова основа уряду. (Частини 1 і 3)"
-  },
-  {
-    cat: "🏛️ Government & Law",
-    en: "What role does the Governor play in each Australian state?",
-    opts: [
-      "The Governor represents the King in each state",
-      "The Governor is the elected head of state government",
-      "The Governor makes all state laws"
-    ],
-    a: 0,
-    ua: "Яку роль відіграє губернатор у кожному австралійському штаті?",
-    uaOpts: [
-      "Губернатор представляє Короля в кожному штаті",
-      "Губернатор є виборним главою уряду штату",
-      "Губернатор ухвалює всі закони штату"
-    ],
-    exp: "Each state also has a Governor who represents the King at the state level, just as the Governor-General represents the King at the national level. (Our Common Bond, Part 3)",
-    uaExp: "Кожен штат має губернатора, який представляє Короля на рівні штату — так само, як Генерал-губернатор представляє Короля на національному рівні. (Частина 3)"
-  },
-  {
-    cat: "🏛️ Government & Law",
-    en: "What is the role of the Senate in the Australian Parliament?",
-    opts: [
-      "To review and approve laws passed by the House of Representatives",
-      "To elect the Prime Minister",
-      "To appoint the Governor-General"
-    ],
-    a: 0,
-    ua: "Яка роль Сенату в австралійському парламенті?",
-    uaOpts: [
-      "Перегляд та затвердження законів, прийнятих Палатою представників",
-      "Обрання прем'єр-міністра",
-      "Призначення Генерал-губернатора"
-    ],
-    exp: "The Australian Parliament consists of the Senate and the House of Representatives. Both houses must agree for a bill to become law — the Senate reviews legislation passed by the House of Representatives. (Our Common Bond, Part 3)",
-    uaExp: "Парламент складається з Сенату та Палати представників. Обидві палати мають погодитися, щоб закон набув чинності. Сенат переглядає законодавство. (Частина 3)"
-  },
-  {
-    cat: "🏛️ Government & Law",
-    en: "Which level of government is responsible for police services?",
-    opts: [
-      "State and territory governments",
-      "Federal government",
-      "Local councils"
-    ],
-    a: 0,
-    ua: "Який рівень урядування відповідає за поліцейські служби?",
-    uaOpts: [
-      "Уряди штатів та територій",
-      "Федеральний уряд",
-      "Місцеві ради"
-    ],
-    exp: "State and territory governments are responsible for matters including police, hospitals, schools, roads and public transport. (Our Common Bond, Part 3)",
-    uaExp: "Уряди штатів і територій відповідають за поліцію, лікарні, школи, дороги та громадський транспорт. (Частина 3)"
-  },
-  {
-    cat: "🏛️ Government & Law",
-    en: "What are the three arms (branches) of Australian government?",
-    opts: [
-      "Legislature, Executive and Judiciary",
-      "Federal, State and Local",
-      "Parliament, Senate and Courts"
-    ],
-    a: 0,
-    ua: "Які три гілки австралійського уряду?",
-    uaOpts: [
-      "Законодавча, виконавча та судова",
-      "Федеральна, штатна та місцева",
-      "Парламент, сенат та суди"
-    ],
-    exp: "The separation of powers divides government into three branches: the Legislature (parliament makes laws), the Executive (government implements laws), and the Judiciary (courts interpret laws). (Our Common Bond, Part 3)",
-    uaExp: "Розподіл влад: законодавча (парламент ухвалює закони), виконавча (уряд виконує закони), судова (суди тлумачать закони). (Частина 3)"
-  },
-  {
-    cat: "🏛️ Government & Law",
-    en: "What is the primary role of the House of Representatives?",
-    opts: [
-      "To form government and pass laws that affect all Australians",
-      "To represent only the states",
-      "To manage foreign policy exclusively"
-    ],
-    a: 0,
-    ua: "Яка основна роль Палати представників?",
-    uaOpts: [
-      "Формувати уряд та ухвалювати закони, що стосуються всіх австралійців",
-      "Представляти лише штати",
-      "Виключно управляти зовнішньою політикою"
-    ],
-    exp: "The House of Representatives is where government is formed. The leader of the party with majority support in the House becomes Prime Minister. The House passes laws that affect all Australians. (Our Common Bond, Part 3)",
-    uaExp: "У Палаті представників формується уряд. Лідер партії більшості стає прем'єром. Палата ухвалює закони для всіх австралійців. (Частина 3)"
-  },
-  {
-    cat: "🏛️ Government & Law",
-    en: "Which government level manages planning and building regulations locally?",
-    opts: [
-      "Local government (councils)",
-      "State government",
-      "Federal government"
-    ],
-    a: 0,
-    ua: "Який рівень управління відповідає за місцеве планування та будівельні норми?",
-    uaOpts: [
-      "Місцеве самоврядування (ради)",
-      "Уряд штату",
-      "Федеральний уряд"
-    ],
-    exp: "Local governments (councils) manage local community needs such as rubbish collection, local roads, parks, libraries and local planning regulations. (Our Common Bond, Part 3)",
-    uaExp: "Місцеві ради управляють місцевими потребами: збором сміття, дорогами, парками, бібліотеками та місцевим плануванням. (Частина 3)"
-  },
-  {
-    cat: "🏛️ Government & Law",
-    en: "What is the role of the Australian Federal Police?",
-    opts: [
-      "To enforce federal laws and protect national interests",
-      "To enforce state traffic laws only",
-      "To manage immigration at airports"
-    ],
-    a: 0,
-    ua: "Яка роль Австралійської федеральної поліції?",
-    uaOpts: [
-      "Забезпечення виконання федеральних законів та захист національних інтересів",
-      "Лише виконання законів штату про дорожній рух",
-      "Управління імміграцією в аеропортах"
-    ],
-    exp: "The federal government is responsible for national matters including law enforcement at the federal level through the Australian Federal Police, which enforces federal laws and protects national interests. (Our Common Bond, Part 3)",
-    uaExp: "Федеральна поліція Австралії забезпечує виконання федеральних законів та захищає національні інтереси на федеральному рівні. (Частина 3)"
-  },
-  {
-    cat: "🇦🇺 Australian Values ⭐",
-    en: "Which of the following best describes how Australians view diversity?",
-    opts: [
-      "We celebrate diversity while striving for a unified and harmonious nation",
-      "Everyone must give up their culture to become Australian",
-      "Only Anglo-Australian culture is valued"
-    ],
-    a: 0,
-    ua: "Як австралійці ставляться до різноманіття?",
-    uaOpts: [
-      "Ми святкуємо різноманіття, прагнучи до єдиної та гармонійної нації",
-      "Кожен повинен відмовитись від своєї культури",
-      "Лише англо-австралійська культура цінується"
-    ],
-    exp: "We celebrate our diversity, and at the same time strive for a unified and harmonious nation. Australia successfully combines ethnic and cultural diversity with national unity. (Our Common Bond, Introduction & Part 1)",
-    uaExp: "Австралійці святкують різноманіття, прагнучи водночас до єдиної та гармонійної нації. Різноманіття поєднується з національною єдністю. (Вступ і Частина 1)"
-  },
-  {
-    cat: "🇦🇺 Australian Values ⭐",
-    en: "What is the significance of the Australian Citizenship Pledge?",
-    opts: [
-      "It is the moment you officially become an Australian citizen and commit to Australia's values",
-      "It is just a formality with no legal significance",
-      "It replaces the need to pass the citizenship test"
-    ],
-    a: 0,
-    ua: "Яке значення Клятви громадянства Австралії?",
-    uaOpts: [
-      "Це момент, коли ви офіційно стаєте громадянином та берете на себе зобов'язання перед цінностями Австралії",
-      "Це лише формальність без юридичного значення",
-      "Вона замінює необхідність складати тест"
-    ],
-    exp: "The Australian Citizenship Pledge is the most important part of the ceremony. You do not become an Australian citizen until you have made your pledge of commitment to Australia. It is a public commitment to Australia and its values. (Our Common Bond, Introduction)",
-    uaExp: "Клятва громадянства — найважливіша частина церемонії. Ви не стаєте громадянином до її виголошення. Це публічне зобов'язання перед Австралією та її цінностями. (Вступ)"
-  },
-  {
-    cat: "🇦🇺 Australian Values ⭐",
-    en: "In Australia, which of the following best describes the relationship between different cultures and Australian law?",
-    opts: [
-      "All people must obey Australian law regardless of their cultural background",
-      "Cultural background determines which laws apply to you",
-      "Religious leaders can exempt followers from Australian law"
-    ],
-    a: 0,
-    ua: "В Австралії що найкраще описує стосунки між різними культурами та австралійським законом?",
-    uaOpts: [
-      "Всі люди повинні дотримуватись австралійського закону незалежно від культурного походження",
-      "Культурне походження визначає, які закони до вас застосовуються",
-      "Релігійні лідери можуть звільняти послідовників від австралійського закону"
-    ],
-    exp: "The Rule of Law means that no person, group or religious rule is above the law. Everyone must obey Australia's laws regardless of their background, culture or religion. Australian law prevails over cultural or religious practices. (Our Common Bond, Parts 2 & 4)",
-    uaExp: "Верховенство права: жодна особа, група чи релігійне правило не є вищим за закон. Всі повинні дотримуватись законів Австралії незалежно від культури чи релігії. (Частини 2 і 4)"
-  },
-  {
-    cat: "🌏 Australia & Its People",
-    en: "On Anzac Day, we remember",
-    opts: [
-      "the arrival of the First Fleet from Great Britain.",
-      "the creation of an independent Australian nation.",
-      "all Australians who have fought and died in wars."
-    ],
-    a: 2,
-    ua: "У День АНЗАК ми згадуємо",
-    uaOpts: [
-      "прибуття Першого флоту з Великої Британії.",
-      "створення незалежної австралійської нації.",
-      "усіх австралійців, які воювали й загинули у війнах."
-    ],
-    exp: "Anzac Day is commemorated on 25 April. It is a solemn day when Australians remember the service and sacrifice of all Australians who have served and died in wars, conflicts and peacekeeping operations. (Our Common Bond, Part 1)",
-    uaExp: "День АНЗАК відзначають 25 квітня. Це день пам'яті про службу й жертву австралійців, які служили та загинули у війнах, конфліктах і миротворчих операціях. (Частина 1)"
-  },
-  {
-    cat: "🌏 Australia & Its People",
-    en: "What are the colours of the Australian Aboriginal Flag?",
-    opts: [
-      "Green, white and black.",
-      "Black, red and yellow.",
-      "Blue, white and green."
+      "By a show of hands",
+      "By secret ballot",
+      "By public declaration"
     ],
     a: 1,
-    ua: "Які кольори прапора австралійських аборигенів?",
+    ua: "Як проводиться голосування на виборах в Австралії?",
     uaOpts: [
-      "Зелений, білий і чорний.",
-      "Чорний, червоний і жовтий.",
-      "Синій, білий і зелений."
+      "Підняттям рук",
+      "Таємним бюлетенем",
+      "Публічною заявою"
     ],
-    exp: "The Australian Aboriginal Flag is black, red and yellow. The black represents Aboriginal peoples, the red represents the earth and the yellow circle represents the sun. (Our Common Bond, Part 1)",
-    uaExp: "Прапор австралійських аборигенів має чорний, червоний і жовтий кольори. Чорний означає аборигенів, червоний - землю, а жовте коло - сонце. (Частина 1)"
+    exp: "Voting is by secret ballot, so no one is allowed to know whom you voted for unless you tell them. (Part 3)",
+    uaExp: "Голосування таємне, тож ніхто не має права знати, за кого ви голосували, якщо ви самі не скажете. (Частина 3)"
   },
   {
-    cat: "🌏 Australia & Its People",
-    en: "Who can deliver a Welcome to Country?",
+    cat: "🏛️ Government & Law",
+    en: "What may happen if you don't vote without a good reason?",
     opts: [
-      "Anyone that lives on the land.",
-      "A Master of Ceremonies at an event on the land.",
-      "An Aboriginal or Torres Strait Islander custodian of the land."
+      "You lose citizenship",
+      "Nothing",
+      "You may have to pay a fine"
     ],
     a: 2,
-    ua: "Хто може провести Welcome to Country?",
+    ua: "Що може статися, якщо не проголосувати без поважної причини?",
     uaOpts: [
-      "Будь-хто, хто живе на цій землі.",
-      "Ведучий заходу на цій землі.",
-      "Абориген або житель островів Торресової протоки, який є хранителем цієї землі."
+      "Втрата громадянства",
+      "Нічого",
+      "Можливо, доведеться сплатити штраф"
     ],
-    exp: "A Welcome to Country is performed by an Aboriginal or Torres Strait Islander custodian of the local region to welcome visitors to their traditional land. (Our Common Bond, Part 1)",
-    uaExp: "Welcome to Country виконує абориген або житель островів Торресової протоки, який є хранителем місцевої території, щоб привітати відвідувачів на традиційній землі. (Частина 1)"
+    exp: "If you do not vote and do not have a good reason, you may have to pay a fine. (Part 3)",
+    uaExp: "Якщо не проголосувати без поважної причини, можливо, доведеться сплатити штраф. (Частина 3)"
   },
   {
-    cat: "🌏 Australia & Its People",
-    en: "When did the separate colonies join together to become the Australian nation?",
+    cat: "🏛️ Government & Law",
+    en: "Are the courts in Australia independent?",
     opts: [
-      "1901.",
-      "2001.",
-      "1601."
+      "No, the government controls them",
+      "Yes",
+      "Only state courts are"
+    ],
+    a: 1,
+    ua: "Чи незалежні суди в Австралії?",
+    uaOpts: [
+      "Ні, ними керує уряд",
+      "Так",
+      "Лише суди штатів"
+    ],
+    exp: "The courts in Australia are independent. No one can tell a judge or magistrate what to decide. (Part 3)",
+    uaExp: "Суди в Австралії незалежні. Ніхто не може вказувати судді, що вирішувати. (Частина 3)"
+  },
+  {
+    cat: "🏛️ Government & Law",
+    en: "In Australia's court system, a person is considered:",
+    opts: [
+      "Guilty until proven innocent",
+      "Always guilty if charged",
+      "Innocent until proven guilty"
+    ],
+    a: 2,
+    ua: "У судовій системі Австралії особа вважається:",
+    uaOpts: [
+      "Винною, доки не доведено невинність",
+      "Завжди винною, якщо обвинувачено",
+      "Невинною, доки не доведено провину"
+    ],
+    exp: "In Australia's court system, people are considered innocent until they are found guilty in a court. (Part 3)",
+    uaExp: "У судовій системі Австралії особа вважається невинною, доки суд не визнає її винною. (Частина 3)"
+  },
+  {
+    cat: "🏛️ Government & Law",
+    en: "Are the police independent of the government?",
+    opts: [
+      "Only the federal police are",
+      "No, politicians direct them",
+      "Yes"
+    ],
+    a: 2,
+    ua: "Чи незалежна поліція від уряду?",
+    uaOpts: [
+      "Лише федеральна поліція",
+      "Ні, ними керують політики",
+      "Так"
+    ],
+    exp: "The police are independent of the government. They protect life and property and maintain order. (Part 3)",
+    uaExp: "Поліція незалежна від уряду. Вона захищає життя й майно та підтримує порядок. (Частина 3)"
+  },
+  {
+    cat: "🏛️ Government & Law",
+    en: "What is Australia's national police force called?",
+    opts: [
+      "The State Guard",
+      "The National Militia",
+      "The Australian Federal Police (AFP)"
+    ],
+    a: 2,
+    ua: "Як називається національна поліція Австралії?",
+    uaOpts: [
+      "Національна гвардія",
+      "Національна міліція",
+      "Австралійська федеральна поліція (AFP)"
+    ],
+    exp: "Australia has a national police force called the Australian Federal Police (AFP), which investigates crimes against federal laws. (Part 3)",
+    uaExp: "Австралія має національну поліцію — Австралійську федеральну поліцію (AFP), що розслідує злочини проти федеральних законів. (Частина 3)"
+  },
+  {
+    cat: "🏛️ Government & Law",
+    en: "Is it a crime to offer a bribe to police in Australia?",
+    opts: [
+      "Yes, it is a serious crime",
+      "Only if the police accept it",
+      "No, it is allowed"
     ],
     a: 0,
-    ua: "Коли окремі колонії об'єдналися, щоб стати австралійською нацією?",
+    ua: "Чи є злочином пропонувати хабар поліції в Австралії?",
     uaOpts: [
-      "1901.",
-      "2001.",
-      "1601."
+      "Так, це серйозний злочин",
+      "Лише якщо поліція візьме",
+      "Ні, це дозволено"
     ],
-    exp: "On 1 January 1901, the separate colonies united as the Commonwealth of Australia under the Australian Constitution. (Our Common Bond, Part 1)",
-    uaExp: "1 січня 1901 року окремі колонії об'єдналися в Австралійський Союз відповідно до Конституції Австралії. (Частина 1)"
-  },
-  {
-    cat: "🌏 Australia & Its People",
-    en: "What is Australia's capital city?",
-    opts: [
-      "Perth.",
-      "Brisbane.",
-      "Canberra."
-    ],
-    a: 2,
-    ua: "Яка столиця Австралії?",
-    uaOpts: [
-      "Перт.",
-      "Брисбен.",
-      "Канберра."
-    ],
-    exp: "Canberra is Australia's capital city. It is located in the Australian Capital Territory between Sydney and Melbourne. (Our Common Bond, Part 1)",
-    uaExp: "Канберра - столиця Австралії. Вона розташована в Австралійській столичній території між Сіднеєм і Мельбурном. (Частина 1)"
-  },
-  {
-    cat: "🗳️ Democracy & Rights",
-    en: "By law, Australian citizens aged 18 or over must",
-    opts: [
-      "join the Australian Defence Force.",
-      "attend local council meetings.",
-      "vote in Australian elections."
-    ],
-    a: 2,
-    ua: "За законом громадяни Австралії віком від 18 років повинні",
-    uaOpts: [
-      "вступити до Австралійських сил оборони.",
-      "відвідувати засідання місцевої ради.",
-      "голосувати на австралійських виборах."
-    ],
-    exp: "Voting is compulsory for Australian citizens aged 18 years or over in federal and state or territory elections, and in referendums. (Our Common Bond, Part 2)",
-    uaExp: "Голосування є обов'язковим для громадян Австралії віком від 18 років на федеральних, штатних або територіальних виборах і референдумах. (Частина 2)"
-  },
-  {
-    cat: "🗳️ Democracy & Rights",
-    en: "In Australia, the government",
-    opts: [
-      "tells people which religion to follow.",
-      "is separate from any religion.",
-      "makes laws based on the official religion."
-    ],
-    a: 1,
-    ua: "В Австралії уряд",
-    uaOpts: [
-      "вказує людям, яку релігію сповідувати.",
-      "відокремлений від будь-якої релігії.",
-      "ухвалює закони на основі офіційної релігії."
-    ],
-    exp: "Australia has no official national religion. The government is secular, which means it operates separately from churches and other religious entities. (Our Common Bond, Part 2)",
-    uaExp: "В Австралії немає офіційної національної релігії. Уряд є світським, тобто діє окремо від церков та інших релігійних організацій. (Частина 2)"
-  },
-  {
-    cat: "🗳️ Democracy & Rights",
-    en: "Which is correct in Australian law?",
-    opts: [
-      "Women have more rights than men.",
-      "Men have more rights than women.",
-      "Men and women have equal rights."
-    ],
-    a: 2,
-    ua: "Що правильно за австралійським законом?",
-    uaOpts: [
-      "Жінки мають більше прав, ніж чоловіки.",
-      "Чоловіки мають більше прав, ніж жінки.",
-      "Чоловіки й жінки мають рівні права."
-    ],
-    exp: "Men and women have equal rights in Australia. It is against the law to discriminate against a person because of their gender. (Our Common Bond, Part 2)",
-    uaExp: "Чоловіки й жінки мають рівні права в Австралії. Дискримінація людини через стать є незаконною. (Частина 2)"
-  },
-  {
-    cat: "🗳️ Democracy & Rights",
-    en: "Which of the following is true?",
-    opts: [
-      "Australian citizens need a visa to enter Australia.",
-      "Permanent residents can get an Australian passport.",
-      "Australian citizens can get an Australian passport."
-    ],
-    a: 2,
-    ua: "Яке з наведених тверджень є правильним?",
-    uaOpts: [
-      "Громадянам Австралії потрібна віза для в'їзду в Австралію.",
-      "Постійні резиденти можуть отримати австралійський паспорт.",
-      "Громадяни Австралії можуть отримати австралійський паспорт."
-    ],
-    exp: "Applying for an Australian passport and re-entering Australia freely are privileges of Australian citizenship. (Our Common Bond, Part 2)",
-    uaExp: "Подання заявки на австралійський паспорт і вільне повернення до Австралії є привілеями австралійського громадянства. (Частина 2)"
-  },
-  {
-    cat: "🗳️ Democracy & Rights",
-    en: "Australians believe in freedom of speech. This means",
-    opts: [
-      "everyone must follow a religion.",
-      "people can say what they think about politics.",
-      "men have more legal rights than women."
-    ],
-    a: 1,
-    ua: "Австралійці вірять у свободу слова. Це означає, що",
-    uaOpts: [
-      "кожен повинен сповідувати релігію.",
-      "люди можуть говорити, що вони думають про політику.",
-      "чоловіки мають більше юридичних прав, ніж жінки."
-    ],
-    exp: "Freedom of speech means people can say and write what they think and discuss their ideas with others, within the law. This includes discussing politics and government. (Our Common Bond, Part 2)",
-    uaExp: "Свобода слова означає, що люди можуть говорити й писати те, що думають, та обговорювати свої ідеї з іншими в межах закону. Це включає обговорення політики й уряду. (Частина 2)"
+    exp: "In Australia it is a serious crime to bribe the police. It is a crime to even offer a bribe to a police officer. (Part 3)",
+    uaExp: "В Австралії хабар поліції — серйозний злочин. Навіть пропозиція хабаря є злочином. (Частина 3)"
   },
   {
     cat: "🏛️ Government & Law",
-    en: "The Australian Constitution is a legal document that",
+    en: "Is ignorance of the law an excuse in Australia?",
     opts: [
-      "contains religious rules.",
-      "can never be changed.",
-      "contains rules of government."
+      "Yes",
+      "Only for new migrants",
+      "No"
     ],
     a: 2,
-    ua: "Конституція Австралії - це юридичний документ, який",
+    ua: "Чи є незнання закону виправданням в Австралії?",
     uaOpts: [
-      "містить релігійні правила.",
-      "ніколи не може бути змінений.",
-      "містить правила управління державою."
+      "Так",
+      "Лише для нових мігрантів",
+      "Ні"
     ],
-    exp: "The Australian Constitution is the legal document that sets out the basic rules for the government of Australia. It can be changed by referendum. (Our Common Bond, Part 3)",
-    uaExp: "Конституція Австралії - це юридичний документ, який встановлює основні правила управління Австралією. Її можна змінити шляхом референдуму. (Частина 3)"
+    exp: "If you break a law you did not know about, you could still be charged — not knowing the law is no excuse. (Part 3)",
+    uaExp: "Якщо порушити закон, про який ви не знали, вас все одно можуть обвинуватити — незнання закону не виправдання. (Частина 3)"
+  },
+  {
+    cat: "🇦🇺 Australian Values ⭐",
+    en: "Under the Rule of Law, who is above the law?",
+    opts: [
+      "No one",
+      "The King",
+      "Religious leaders"
+    ],
+    a: 0,
+    ua: "За верховенством права, хто стоїть вище закону?",
+    uaOpts: [
+      "Ніхто",
+      "Король",
+      "Релігійні лідери"
+    ],
+    exp: "Under the Rule of Law, all Australians are equal and no person or group is above the law. (Part 4)",
+    uaExp: "За верховенством права всі австралійці рівні, і ніхто не стоїть вище закону. (Частина 4)"
+  },
+  {
+    cat: "🇦🇺 Australian Values ⭐",
+    en: "Should you follow the law even if no one is watching?",
+    opts: [
+      "Only in public",
+      "No",
+      "Yes"
+    ],
+    a: 2,
+    ua: "Чи слід дотримуватися закону, навіть коли ніхто не бачить?",
+    uaOpts: [
+      "Лише на людях",
+      "Ні",
+      "Так"
+    ],
+    exp: "In Australia, everybody should obey the law and not break it at any time. You should follow the law even if no one is watching. (Part 4)",
+    uaExp: "В Австралії кожен має дотримуватися закону завжди. Слід дотримуватися закону, навіть коли ніхто не бачить. (Частина 4)"
+  },
+  {
+    cat: "🇦🇺 Australian Values ⭐",
+    en: "Do Australian laws apply regardless of your background or culture?",
+    opts: [
+      "Only to citizens",
+      "Yes",
+      "No"
+    ],
+    a: 1,
+    ua: "Чи діють австралійські закони незалежно від походження чи культури?",
+    uaOpts: [
+      "Лише для громадян",
+      "Так",
+      "Ні"
+    ],
+    exp: "Australian laws apply to all people in Australia. Regardless of your background or culture, you must follow Australian laws. (Part 4)",
+    uaExp: "Австралійські закони діють для всіх в Австралії. Незалежно від походження чи культури, ви маєте їх дотримуватись. (Частина 4)"
+  },
+  {
+    cat: "🇦🇺 Australian Values ⭐",
+    en: "Is voting compulsory in Australia?",
+    opts: [
+      "No",
+      "Only in referendums",
+      "Yes"
+    ],
+    a: 2,
+    ua: "Чи обов'язкове голосування в Австралії?",
+    uaOpts: [
+      "Ні",
+      "Лише на референдумах",
+      "Так"
+    ],
+    exp: "Voting is compulsory in Australia. This shows the importance of participating in elections. (Part 4)",
+    uaExp: "Голосування в Австралії обов'язкове. Це показує важливість участі у виборах. (Частина 4)"
+  },
+  {
+    cat: "🇦🇺 Australian Values ⭐",
+    en: "Is it ever acceptable to promote violence against a group?",
+    opts: [
+      "No, never",
+      "Yes, if provoked",
+      "Yes, during protests"
+    ],
+    a: 0,
+    ua: "Чи прийнятно колись закликати до насилля проти групи людей?",
+    uaOpts: [
+      "Ні, ніколи",
+      "Так, якщо спровокували",
+      "Так, під час протестів"
+    ],
+    exp: "It is never acceptable to promote violence against another person or group, because it is against Australian values and law. (Part 4)",
+    uaExp: "Ніколи не прийнятно закликати до насилля проти людини чи групи — це проти австралійських цінностей і закону. (Частина 4)"
+  },
+  {
+    cat: "🇦🇺 Australian Values ⭐",
+    en: "Can Australians peacefully protest against the government?",
+    opts: [
+      "Yes",
+      "Only with police permission",
+      "No"
+    ],
+    a: 0,
+    ua: "Чи можуть австралійці мирно протестувати проти уряду?",
+    uaOpts: [
+      "Так",
+      "Лише з дозволу поліції",
+      "Ні"
+    ],
+    exp: "Australians are allowed to peacefully protest against the actions of the government, as tolerance of peaceful protest is essential to democracy. (Part 4)",
+    uaExp: "Австралійці можуть мирно протестувати проти дій уряду — толерантність до мирного протесту є невід'ємною частиною демократії. (Частина 4)"
+  },
+  {
+    cat: "🇦🇺 Australian Values ⭐",
+    en: "Can a person be forced to join an organisation in Australia?",
+    opts: [
+      "No",
+      "Only political parties",
+      "Yes"
+    ],
+    a: 0,
+    ua: "Чи можна змусити людину вступити до організації в Австралії?",
+    uaOpts: [
+      "Ні",
+      "Лише до партій",
+      "Так"
+    ],
+    exp: "Individuals cannot be compelled to join an organisation or forced to leave it. (Part 4)",
+    uaExp: "Нікого не можна примусити вступити до організації чи вийти з неї. (Частина 4)"
+  },
+  {
+    cat: "🇦🇺 Australian Values ⭐",
+    en: "Do religious laws have legal status in Australia?",
+    opts: [
+      "Yes",
+      "No",
+      "Only for that religion's followers"
+    ],
+    a: 1,
+    ua: "Чи мають релігійні закони юридичну силу в Австралії?",
+    uaOpts: [
+      "Так",
+      "Ні",
+      "Лише для вірян цієї релігії"
+    ],
+    exp: "Religious laws have no legal status in Australia. Australian law must be followed by everyone, even where it differs from religious laws. (Part 4)",
+    uaExp: "Релігійні закони не мають юридичної сили в Австралії. Австралійський закон обов'язковий для всіх, навіть якщо відрізняється від релігійних. (Частина 4)"
+  },
+  {
+    cat: "🇦🇺 Australian Values ⭐",
+    en: "Is polygamy legal in Australia?",
+    opts: [
+      "Yes",
+      "No, it is against the law",
+      "Only with consent"
+    ],
+    a: 1,
+    ua: "Чи легальне багатоженство в Австралії?",
+    uaOpts: [
+      "Так",
+      "Ні, це проти закону",
+      "Лише за згодою"
+    ],
+    exp: "Polygamy (being married to more than one person at the same time) is against the law in Australia and can result in severe penalties. (Part 4)",
+    uaExp: "Багатоженство (шлюб з кількома особами одночасно) є проти закону в Австралії й карається суворо. (Частина 4)"
+  },
+  {
+    cat: "🇦🇺 Australian Values ⭐",
+    en: "Is forced marriage legal in Australia?",
+    opts: [
+      "Only if arranged by family",
+      "Yes",
+      "No, it is against the law"
+    ],
+    a: 2,
+    ua: "Чи легальний примусовий шлюб в Австралії?",
+    uaOpts: [
+      "Лише якщо влаштований родиною",
+      "Так",
+      "Ні, це проти закону"
+    ],
+    exp: "Forced marriage is against the law in Australia and can result in severe legal penalties, including imprisonment. (Part 4)",
+    uaExp: "Примусовий шлюб є проти закону в Австралії й карається суворо, включно з ув'язненням. (Частина 4)"
+  },
+  {
+    cat: "🇦🇺 Australian Values ⭐",
+    en: "Is religious intolerance acceptable in Australia?",
+    opts: [
+      "No",
+      "Yes",
+      "Only against minority faiths"
+    ],
+    a: 0,
+    ua: "Чи прийнятна релігійна нетерпимість в Австралії?",
+    uaOpts: [
+      "Ні",
+      "Так",
+      "Лише проти меншин"
+    ],
+    exp: "Religious intolerance is not acceptable in Australian society. All people should have equal opportunity regardless of religion. (Part 4)",
+    uaExp: "Релігійна нетерпимість неприйнятна в австралійському суспільстві. Усі мають рівні можливості незалежно від релігії. (Частина 4)"
+  },
+  {
+    cat: "🇦🇺 Australian Values ⭐",
+    en: "Do men and women have equal rights in Australia?",
+    opts: [
+      "No",
+      "Only in some states",
+      "Yes"
+    ],
+    a: 2,
+    ua: "Чи мають чоловіки й жінки рівні права в Австралії?",
+    uaOpts: [
+      "Ні",
+      "Лише в деяких штатах",
+      "Так"
+    ],
+    exp: "Men and women have equal rights in Australia and equal access to education, employment, voting and the courts. (Part 4)",
+    uaExp: "Чоловіки й жінки мають рівні права в Австралії та рівний доступ до освіти, роботи, голосування й судів. (Частина 4)"
+  },
+  {
+    cat: "🇦🇺 Australian Values ⭐",
+    en: "Can two men or two women marry each other in Australia?",
+    opts: [
+      "No",
+      "Only with special permission",
+      "Yes"
+    ],
+    a: 2,
+    ua: "Чи можуть двоє чоловіків або двоє жінок одружитися в Австралії?",
+    uaOpts: [
+      "Ні",
+      "Лише з особливого дозволу",
+      "Так"
+    ],
+    exp: "Under Australian law, two people can marry each other, including marriage between two men or two women. (Part 4)",
+    uaExp: "За австралійським законом двоє людей можуть одружитися, включно зі шлюбом між двома чоловіками або двома жінками. (Частина 4)"
+  },
+  {
+    cat: "🇦🇺 Australian Values ⭐",
+    en: "Is divorce acceptable in Australia?",
+    opts: [
+      "Yes",
+      "No",
+      "Only if both spouses agree"
+    ],
+    a: 0,
+    ua: "Чи прийнятне розлучення в Австралії?",
+    uaOpts: [
+      "Так",
+      "Ні",
+      "Лише якщо обоє згодні"
+    ],
+    exp: "Divorce is acceptable in Australia. Either spouse may apply for a divorce, even if the other wishes to continue the marriage. (Part 4)",
+    uaExp: "Розлучення прийнятне в Австралії. Будь-хто з подружжя може подати на розлучення, навіть якщо інший хоче зберегти шлюб. (Частина 4)"
+  },
+  {
+    cat: "🇦🇺 Australian Values ⭐",
+    en: "Is physical violence against a partner ever acceptable?",
+    opts: [
+      "Only in private",
+      "Yes, sometimes",
+      "No, never"
+    ],
+    a: 2,
+    ua: "Чи прийнятне колись фізичне насилля над партнером?",
+    uaOpts: [
+      "Лише наодинці",
+      "Так, іноді",
+      "Ні, ніколи"
+    ],
+    exp: "Physical violence against a spouse or partner is never acceptable and is a criminal offence in Australia. (Part 4)",
+    uaExp: "Фізичне насилля над подружжям чи партнером ніколи не прийнятне й є злочином в Австралії. (Частина 4)"
+  },
+  {
+    cat: "🇦🇺 Australian Values ⭐",
+    en: "Is domestic and family violence against the law?",
+    opts: [
+      "Only if it causes injury",
+      "No",
+      "Yes"
+    ],
+    a: 2,
+    ua: "Чи є домашнє й сімейне насилля порушенням закону?",
+    uaOpts: [
+      "Лише якщо завдає травм",
+      "Ні",
+      "Так"
+    ],
+    exp: "Domestic and family violence is not accepted and is against the law. A person who commits it can go to jail, whether a man or a woman. (Part 4)",
+    uaExp: "Домашнє й сімейне насилля неприйнятне й проти закону. Винний може потрапити до в'язниці — чоловік чи жінка. (Частина 4)"
+  },
+  {
+    cat: "🇦🇺 Australian Values ⭐",
+    en: "Can a woman get a job ahead of a man in Australia?",
+    opts: [
+      "Only in certain jobs",
+      "Yes, if she has better skills",
+      "No, never"
+    ],
+    a: 1,
+    ua: "Чи може жінка отримати роботу попереду чоловіка в Австралії?",
+    uaOpts: [
+      "Лише на певних роботах",
+      "Так, якщо має кращі навички",
+      "Ні, ніколи"
+    ],
+    exp: "It is a right for a woman to get a job ahead of a man if she has better qualifications and skills. The law supports hiring the best person. (Part 4)",
+    uaExp: "Жінка має право отримати роботу попереду чоловіка, якщо має кращу кваліфікацію й навички. Закон підтримує вибір найкращого кандидата. (Частина 4)"
+  },
+  {
+    cat: "🇦🇺 Australian Values ⭐",
+    en: "What should a job be based on?",
+    opts: [
+      "Family connections",
+      "Gender and wealth",
+      "Skills and experience"
+    ],
+    a: 2,
+    ua: "На чому має ґрунтуватися працевлаштування?",
+    uaOpts: [
+      "Сімейні зв'язки",
+      "Стать і багатство",
+      "Навички та досвід"
+    ],
+    exp: "A person should get a job based on their skills and experience, not their gender, wealth or ethnicity. (Part 4)",
+    uaExp: "Людина має отримувати роботу за навичками й досвідом, а не за статтю, багатством чи етнічністю. (Частина 4)"
+  },
+  {
+    cat: "🇦🇺 Australian Values ⭐",
+    en: "Is verbal abuse considered violence in Australia?",
+    opts: [
+      "No, only physical abuse counts",
+      "Yes, it is illegal",
+      "Only if repeated"
+    ],
+    a: 1,
+    ua: "Чи вважається словесна образа насиллям в Австралії?",
+    uaOpts: [
+      "Ні, лише фізичне",
+      "Так, це незаконно",
+      "Лише якщо повторюється"
+    ],
+    exp: "Violence of any kind, including verbal and physical abuse, is illegal in Australia. (Part 4)",
+    uaExp: "Будь-яке насилля, включно зі словесною й фізичною образою, є незаконним в Австралії. (Частина 4)"
+  },
+  {
+    cat: "🇦🇺 Australian Values ⭐",
+    en: "Should you obey a lawful request from the police?",
+    opts: [
+      "No",
+      "Only if you agree with it",
+      "Yes"
+    ],
+    a: 2,
+    ua: "Чи слід виконувати законну вимогу поліції?",
+    uaOpts: [
+      "Ні",
+      "Лише якщо ви згодні",
+      "Так"
+    ],
+    exp: "You should obey a lawful request from the police, because all Australians commit to following the law. (Part 4)",
+    uaExp: "Слід виконувати законну вимогу поліції, бо всі австралійці зобов'язуються дотримуватись закону. (Частина 4)"
+  },
+  {
+    cat: "🇦🇺 Australian Values ⭐",
+    en: "What does mutual respect and tolerance mean?",
+    opts: [
+      "Agreeing with everyone",
+      "Ignoring other opinions",
+      "Respecting others' views even when you disagree"
+    ],
+    a: 2,
+    ua: "Що означає взаємна повага й толерантність?",
+    uaOpts: [
+      "Погоджуватися з усіма",
+      "Ігнорувати чужі думки",
+      "Поважати чужі погляди, навіть коли не згоден"
+    ],
+    exp: "Mutual respect and tolerance mean listening to others and respecting their views, even when they differ from your own. (Part 4)",
+    uaExp: "Взаємна повага й толерантність означають слухати інших і поважати їхні погляди, навіть коли вони відрізняються. (Частина 4)"
+  },
+  {
+    cat: "🇦🇺 Australian Values ⭐",
+    en: "Does racism have a place in Australia?",
+    opts: [
+      "Only as free speech",
+      "Yes",
+      "No"
+    ],
+    a: 2,
+    ua: "Чи є місце расизму в Австралії?",
+    uaOpts: [
+      "Лише як свобода слова",
+      "Так",
+      "Ні"
+    ],
+    exp: "Racism has no place in Australia. This includes sharing racially offensive material online or making racially abusive comments in public. (Part 4)",
+    uaExp: "Расизму немає місця в Австралії. Це включає поширення расистських матеріалів онлайн чи расистські висловлювання на людях. (Частина 4)"
+  },
+  {
+    cat: "🇦🇺 Australian Values ⭐",
+    en: "Why is learning English important in Australia?",
+    opts: [
+      "It helps with education, jobs and community life",
+      "Only native speakers can be citizens",
+      "It is required to enter the country"
+    ],
+    a: 0,
+    ua: "Чому важливо вивчати англійську в Австралії?",
+    uaOpts: [
+      "Це допомагає з освітою, роботою й життям у громаді",
+      "Лише носії можуть бути громадянами",
+      "Це потрібно для в'їзду в країну"
+    ],
+    exp: "Learning English helps to get an education, a job, and better integrate into the community. It is the national language. (Part 4)",
+    uaExp: "Знання англійської допомагає здобути освіту, роботу й краще інтегруватися в громаду. Це національна мова. (Частина 4)"
+  },
+  {
+    cat: "🇦🇺 Australian Values ⭐",
+    en: "What is the Australian value of 'mateship'?",
+    opts: [
+      "Keeping to yourself",
+      "Competing with neighbours",
+      "Helping each other in times of need"
+    ],
+    a: 2,
+    ua: "Що таке австралійська цінність 'mateship'?",
+    uaOpts: [
+      "Триматися осторонь",
+      "Змагатися із сусідами",
+      "Допомагати одне одному в скруті"
+    ],
+    exp: "Australians value 'mateship' — we help each other in times of need, through community service and volunteering. (Part 4)",
+    uaExp: "Австралійці цінують 'mateship' — ми допомагаємо одне одному в скруті через громадську службу й волонтерство. (Частина 4)"
+  },
+  {
+    cat: "🇦🇺 Australian Values ⭐",
+    en: "What should you do if you know a child is being abused?",
+    opts: [
+      "Ignore it",
+      "Handle it privately",
+      "Report it to the police"
+    ],
+    a: 2,
+    ua: "Що робити, якщо ви знаєте про насилля над дитиною?",
+    uaOpts: [
+      "Ігнорувати",
+      "Вирішити приватно",
+      "Повідомити поліцію"
+    ],
+    exp: "If a person sees or knows of a child being abused, they should report it to the police to investigate. (Part 4)",
+    uaExp: "Якщо людина бачить чи знає про насилля над дитиною, слід повідомити поліцію для розслідування. (Частина 4)"
+  },
+  {
+    cat: "🇦🇺 Australian Values ⭐",
+    en: "Can Australian citizens hold citizenship of another country?",
+    opts: [
+      "Only for those born overseas",
+      "Yes, dual citizenship is allowed",
+      "No, never"
+    ],
+    a: 1,
+    ua: "Чи можуть громадяни Австралії мати громадянство іншої країни?",
+    uaOpts: [
+      "Лише для народжених за кордоном",
+      "Так, подвійне громадянство дозволене",
+      "Ні, ніколи"
+    ],
+    exp: "Australian citizens may hold the citizenship of another country if those countries' laws allow — this is dual citizenship. (Part 4)",
+    uaExp: "Громадяни Австралії можуть мати громадянство іншої країни, якщо її закони це дозволяють — це подвійне громадянство. (Частина 4)"
+  },
+  {
+    cat: "🇦🇺 Australian Values ⭐",
+    en: "Even with dual citizenship, what must an Australian citizen do?",
+    opts: [
+      "Follow all Australian laws",
+      "Pay tax in both countries",
+      "Choose one citizenship"
+    ],
+    a: 0,
+    ua: "Навіть з подвійним громадянством, що має робити громадянин Австралії?",
+    uaOpts: [
+      "Дотримуватися всіх австралійських законів",
+      "Платити податки в обох країнах",
+      "Обрати одне громадянство"
+    ],
+    exp: "Even if also a citizen of another country, an Australian citizen within Australia must follow all Australian laws at all times. (Part 4)",
+    uaExp: "Навіть будучи громадянином іншої країни, громадянин Австралії в Австралії має завжди дотримуватись усіх законів. (Частина 4)"
+  },
+  {
+    cat: "🇦🇺 Australian Values ⭐",
+    en: "When do you officially become an Australian citizen?",
+    opts: [
+      "When you make the citizenship pledge",
+      "When you receive the letter",
+      "When you pass the test"
+    ],
+    a: 0,
+    ua: "Коли ви офіційно стаєте громадянином Австралії?",
+    uaOpts: [
+      "Коли виголошуєте клятву громадянства",
+      "Коли отримуєте лист",
+      "Коли складаєте тест"
+    ],
+    exp: "You do not become an Australian citizen until you have made your pledge of commitment at the ceremony. (Intro/Part 4)",
+    uaExp: "Ви не стаєте громадянином, доки не виголосите клятву відданості на церемонії. (Вступ/Частина 4)"
+  },
+  {
+    cat: "🇦🇺 Australian Values ⭐",
+    en: "What are Australian values based on?",
+    opts: [
+      "Freedom, respect, fairness and equality",
+      "One religion",
+      "Wealth and class"
+    ],
+    a: 0,
+    ua: "На чому ґрунтуються австралійські цінності?",
+    uaOpts: [
+      "Свобода, повага, справедливість і рівність",
+      "Одна релігія",
+      "Багатство і клас"
+    ],
+    exp: "Australian values are based on freedom, respect, fairness and equality of opportunity. (Part 4)",
+    uaExp: "Австралійські цінності ґрунтуються на свободі, повазі, справедливості й рівності можливостей. (Частина 4)"
+  },
+  {
+    cat: "🇦🇺 Australian Values ⭐",
+    en: "Which is legal in Australia?",
+    opts: [
+      "Ending a marriage.",
+      "Forced marriage.",
+      "Having several wives."
+    ],
+    a: 0,
+    ua: "Що є законним в Австралії?",
+    uaOpts: [
+      "Розірвати шлюб.",
+      "Примусовий шлюб.",
+      "Мати кілька дружин."
+    ],
+    exp: "Australian law protects equal rights and personal freedom. Divorce is legal, but forced marriage and polygamy are against the law. (Our Common Bond, Part 4)",
+    uaExp: "Австралійський закон захищає рівні права та особисту свободу. Розлучення є законним, але примусовий шлюб і полігамія є протизаконними. (Частина 4)"
+  },
+  {
+    cat: "🇦🇺 Australian Values ⭐",
+    en: "Religious or cultural practices must",
+    opts: [
+      "follow Australian law.",
+      "replace Australian law.",
+      "control the courts."
+    ],
+    a: 0,
+    ua: "Релігійні або культурні практики повинні",
+    uaOpts: [
+      "відповідати австралійському закону.",
+      "замінювати австралійський закон.",
+      "контролювати суди."
+    ],
+    exp: "Religious and cultural practices must not break Australian laws. Where they conflict with Australian law, Australian law must be followed. (Our Common Bond, Parts 2 and 4)",
+    uaExp: "Релігійні та культурні практики не повинні порушувати австралійські закони. Якщо вони суперечать австралійському закону, потрібно виконувати австралійський закон. (Частини 2 і 4)"
+  },
+  {
+    cat: "🇦🇺 Australian Values ⭐",
+    en: "If someone is in danger from violence, they should contact",
+    opts: [
+      "the police.",
+      "a political party.",
+      "the ATO."
+    ],
+    a: 0,
+    ua: "Якщо комусь загрожує насильство, потрібно звернутися до",
+    uaOpts: [
+      "поліції.",
+      "політичної партії.",
+      "ATO."
+    ],
+    exp: "No one should accept being treated badly or harmed. If you or someone you know is in danger, you should contact the police. (Our Common Bond, Part 3)",
+    uaExp: "Ніхто не повинен приймати погане поводження або шкоду. Якщо ви або хтось, кого ви знаєте, у небезпеці, потрібно звернутися до поліції. (Частина 3)"
+  },
+  {
+    cat: "🇦🇺 Australian Values ⭐",
+    en: "In Australia, a person can choose",
+    opts: [
+      "their partner.",
+      "another person's vote.",
+      "which laws apply."
+    ],
+    a: 0,
+    ua: "В Австралії людина може обирати",
+    uaOpts: [
+      "свого партнера.",
+      "голос іншої людини.",
+      "які закони застосовуються."
+    ],
+    exp: "Australian values include freedom, dignity and equality under the law. Forced marriage is illegal because people must be free to make their own choices. (Our Common Bond, Part 4)",
+    uaExp: "Австралійські цінності включають свободу, гідність і рівність перед законом. Примусовий шлюб незаконний, бо люди повинні мати свободу робити власний вибір. (Частина 4)"
   },
   {
     cat: "🏛️ Government & Law",
-    en: "The Governor-General represents",
+    en: "If someone breaks the law, they may",
     opts: [
-      "the current Prime Minister.",
-      "our head of state, the King of Australia.",
-      "the High Court of Australia."
+      "go to court.",
+      "choose the judge.",
+      "ignore police."
     ],
-    a: 1,
-    ua: "Генерал-губернатор представляє",
+    a: 0,
+    ua: "Якщо хтось порушує закон, він може",
     uaOpts: [
-      "чинного Прем'єр-міністра.",
-      "нашого главу держави, Короля Австралії.",
-      "Високий суд Австралії."
+      "постати перед судом.",
+      "обрати суддю.",
+      "ігнорувати поліцію."
     ],
-    exp: "Australia's head of state is the King of Australia. The Governor-General represents the King in Australia. (Our Common Bond, Part 3)",
-    uaExp: "Главою держави Австралії є Король Австралії. Генерал-губернатор представляє Короля в Австралії. (Частина 3)"
-  },
-  {
-    cat: "🏛️ Government & Law",
-    en: "In Australian elections,",
-    opts: [
-      "you must tell the police who you voted for.",
-      "you must write your name on your vote.",
-      "you are free and safe to vote for any candidate."
-    ],
-    a: 2,
-    ua: "На австралійських виборах",
-    uaOpts: [
-      "ви повинні сказати поліції, за кого проголосували.",
-      "ви повинні написати своє ім'я на бюлетені.",
-      "ви вільні й у безпеці голосувати за будь-якого кандидата."
-    ],
-    exp: "Voting in Australian elections is by secret ballot. This means no one is allowed to know who you voted for, and you are free and safe to vote for any candidate. (Our Common Bond, Part 3)",
-    uaExp: "Голосування на австралійських виборах є таємним. Це означає, що ніхто не має знати, за кого ви проголосували, і ви вільні та в безпеці голосувати за будь-якого кандидата. (Частина 3)"
-  },
-  {
-    cat: "🏛️ Government & Law",
-    en: "In Australia, the parliament",
-    opts: [
-      "is chosen by the Prime Minister.",
-      "makes and changes the laws.",
-      "is controlled by judges."
-    ],
-    a: 1,
-    ua: "В Австралії парламент",
-    uaOpts: [
-      "обирається Прем'єр-міністром.",
-      "ухвалює та змінює закони.",
-      "контролюється суддями."
-    ],
-    exp: "The Australian Parliament has the power to make and change laws in Australia to benefit the nation. (Our Common Bond, Part 3)",
-    uaExp: "Парламент Австралії має повноваження ухвалювати та змінювати закони Австралії на користь нації. (Частина 3)"
-  },
-  {
-    cat: "🏛️ Government & Law",
-    en: "In Australia, a referendum is a vote to change",
-    opts: [
-      "the Australian Government.",
-      "the Australian Constitution.",
-      "the Prime Minister."
-    ],
-    a: 1,
-    ua: "В Австралії референдум - це голосування за зміну",
-    uaOpts: [
-      "австралійського уряду.",
-      "Конституції Австралії.",
-      "Прем'єр-міністра."
-    ],
-    exp: "The Australian people can change the Australian Constitution by voting in a referendum. A double majority is needed for the change to pass. (Our Common Bond, Part 3)",
-    uaExp: "Австралійський народ може змінити Конституцію Австралії шляхом голосування на референдумі. Для ухвалення зміни потрібна подвійна більшість. (Частина 3)"
-  },
-  {
-    cat: "🇦🇺 Australian Values ⭐",
-    en: "In Australia, the use of violence against a person is",
-    opts: [
-      "acceptable if they are a different religion.",
-      "acceptable if they have a different opinion.",
-      "never acceptable and it is against the law."
-    ],
-    a: 2,
-    ua: "В Австралії застосування насильства проти людини є",
-    uaOpts: [
-      "прийнятним, якщо вона має іншу релігію.",
-      "прийнятним, якщо вона має іншу думку.",
-      "ніколи не прийнятним і є протизаконним."
-    ],
-    exp: "Violence of any kind, including verbal and physical abuse, is illegal in Australia. Australians believe in peaceful disagreement and the right to be safe from violence and intimidation. (Our Common Bond, Part 4)",
-    uaExp: "Будь-яке насильство, включно зі словесним і фізичним насильством, є незаконним в Австралії. Австралійці вірять у мирну незгоду та право бути в безпеці від насильства й залякування. (Частина 4)"
-  },
-  {
-    cat: "🇦🇺 Australian Values ⭐",
-    en: "In Australia, we believe in mutual respect and tolerance. This means you can",
-    opts: [
-      "physically fight someone when you disagree with them.",
-      "only agree with people from the same religion.",
-      "peacefully disagree with someone."
-    ],
-    a: 2,
-    ua: "В Австралії ми віримо у взаємну повагу й толерантність. Це означає, що ви можете",
-    uaOpts: [
-      "фізично битися з кимось, коли не погоджуєтеся.",
-      "погоджуватися лише з людьми тієї самої релігії.",
-      "мирно не погоджуватися з кимось."
-    ],
-    exp: "Mutual respect and tolerance mean listening to others and respecting their views and choices, even when you disagree. Australians believe in peaceful disagreement. (Our Common Bond, Part 4)",
-    uaExp: "Взаємна повага й толерантність означають слухати інших і поважати їхні погляди та вибір, навіть коли ви не погоджуєтеся. Австралійці вірять у мирну незгоду. (Частина 4)"
-  },
-  {
-    cat: "🇦🇺 Australian Values ⭐",
-    en: "In Australia, volunteering is important because",
-    opts: [
-      "it earns people lots of money.",
-      "we have to do it by law.",
-      "it strengthens our community."
-    ],
-    a: 2,
-    ua: "В Австралії волонтерство важливе, тому що",
-    uaOpts: [
-      "воно приносить людям багато грошей.",
-      "ми зобов'язані робити це за законом.",
-      "воно зміцнює нашу громаду."
-    ],
-    exp: "Volunteering and community service are valued in Australia because they help people support each other and strengthen the community. (Our Common Bond, Part 4)",
-    uaExp: "Волонтерство й служіння громаді цінуються в Австралії, бо вони допомагають людям підтримувати одне одного та зміцнюють громаду. (Частина 4)"
-  },
-  {
-    cat: "🇦🇺 Australian Values ⭐",
-    en: "Freedom of speech",
-    opts: [
-      "means people do not need to obey the law.",
-      "is not an Australian value.",
-      "underpins Australia’s democratic system."
-    ],
-    a: 2,
-    ua: "Свобода слова",
-    uaOpts: [
-      "означає, що людям не потрібно дотримуватися закону.",
-      "не є австралійською цінністю.",
-      "є основою демократичної системи Австралії."
-    ],
-    exp: "Freedom of speech is a core Australian value and underpins Australia's democratic system. It must be exercised within the law. (Our Common Bond, Parts 2 and 4)",
-    uaExp: "Свобода слова є ключовою австралійською цінністю та основою демократичної системи Австралії. Її потрібно здійснювати в межах закону. (Частини 2 і 4)"
-  },
-  {
-    cat: "🇦🇺 Australian Values ⭐",
-    en: "Why is it important for people living in Australia to learn English?",
-    opts: [
-      "Only native English speakers can become Australian citizens.",
-      "Speaking English helps people get an education and a job.",
-      "English is the only language spoken in Australian communities."
-    ],
-    a: 1,
-    ua: "Чому людям, які живуть в Австралії, важливо вивчати англійську мову?",
-    uaOpts: [
-      "Лише носії англійської мови можуть стати громадянами Австралії.",
-      "Знання англійської допомагає людям здобути освіту й роботу.",
-      "Англійська - єдина мова, якою говорять в австралійських громадах."
-    ],
-    exp: "English is Australia's national language and helps people fully participate in Australian society. Speaking English helps with education, employment and participation in the community. (Our Common Bond, Part 4)",
-    uaExp: "Англійська є національною мовою Австралії та допомагає людям повноцінно брати участь у житті суспільства. Знання англійської допомагає з освітою, роботою та участю в громаді. (Частина 4)"
+    exp: "People who break Australian laws may be arrested by police and have to go to court. (Our Common Bond, Part 3)",
+    uaExp: "Людей, які порушують австралійські закони, може заарештувати поліція, і вони можуть постати перед судом. (Частина 3)"
   }
 ];
 
