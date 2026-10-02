@@ -1,0 +1,918 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>KADR — мокап</title>
+<style>
+html,body{margin:0;background:#0c0b09;color:#e7e1d6;overflow-x:hidden;scrollbar-width:none}
+html::-webkit-scrollbar{display:none}
+#track{height:820vh}
+#hero,#stage,canvas{position:fixed;inset:0}
+#hero{z-index:0;overflow:hidden}
+#hero img{width:100%;height:100%;object-fit:cover;will-change:transform}
+#stage{z-index:1;pointer-events:none}
+canvas{z-index:2;width:100%;height:100%;display:block;pointer-events:none}
+.ui{position:fixed;z-index:4;font:500 10px/1.45 -apple-system,"Segoe UI",system-ui,sans-serif;letter-spacing:.24em;color:#e7e1d6;user-select:none}
+#brand{left:28px;top:22px;opacity:.7}
+#tc{right:28px;top:22px;font-variant-numeric:tabular-nums;letter-spacing:.16em;opacity:.55}
+#fs{left:50%;top:22px;transform:translateX(-50%);opacity:.7}
+#chapter{left:28px;top:64px;max-width:280px;letter-spacing:0}
+#chapter b{display:block;font-weight:500;letter-spacing:.28em;font-size:10px;color:#8d93a0}
+#chapter strong{display:block;margin-top:8px;font-weight:500;font-size:22px;letter-spacing:.04em}
+#chapter p{margin:10px 0 0;font-size:13px;line-height:1.45;letter-spacing:.01em;color:#a9adb6;max-width:26em}
+#hint{left:50%;bottom:22px;transform:translateX(-50%);opacity:.4;white-space:nowrap}
+#metric{left:28px;top:170px;color:#e2a14a;letter-spacing:.2em}
+#metric b{display:block;font-size:26px;font-weight:500;letter-spacing:0;margin-bottom:6px}
+#rail{left:28px;bottom:26px;display:flex;flex-direction:column;gap:6px;letter-spacing:.18em}
+#rail button{appearance:none;background:none;border:0;padding:0;color:#8d93a0;font:inherit;letter-spacing:.18em;text-align:left;cursor:pointer}
+#rail button.on{color:#e7e1d6}
+#strip,#web,#phone,.case,#contact,#chapter,#metric{opacity:0}
+#strip{position:absolute;left:0;top:0;display:flex;gap:22px;align-items:center;will-change:transform}
+.frame{flex:none;height:min(26vh,280px);width:calc(min(26vh,280px) * 1.5);background:#141210;position:relative;overflow:hidden}
+.frame.tall{width:min(19vh,200px);height:min(34vh,360px)}
+.frame img{width:100%;height:100%;object-fit:cover;display:block}
+.frame.night img{filter:brightness(.48) contrast(1.15) saturate(.8)}
+.frame .cap{position:absolute;left:0;right:0;bottom:14px;text-align:center;font:500 10px/1 -apple-system,"Segoe UI",system-ui,sans-serif;letter-spacing:.26em}
+#web{position:absolute;left:50%;top:0;width:min(420px,78vw);box-sizing:border-box;padding:22px 26px 30px;background:#171512;outline:1px solid rgba(141,147,160,.22);will-change:transform}
+.bar{display:flex;justify-content:space-between;font:500 10px/1 -apple-system,"Segoe UI",system-ui,sans-serif;letter-spacing:.22em;color:#8d93a0;border-bottom:1px solid rgba(141,147,160,.35);padding-bottom:12px}
+.eye{margin:28px 0 0;font:500 10px/1 -apple-system,"Segoe UI",system-ui,sans-serif;letter-spacing:.28em;color:#8d93a0}
+#web h3,.case h2{margin:12px 0 0;font:500 clamp(36px,6vw,68px)/.92 -apple-system,"Segoe UI",system-ui,sans-serif;letter-spacing:-.03em;font-weight:500}
+.lead{margin:18px 0 0;max-width:22em;font:500 15px/1.45 -apple-system,"Segoe UI",system-ui,sans-serif;color:#c8c2b6}
+.still{margin-top:22px;height:min(230px,30vh);background:#141210 center/cover no-repeat;filter:saturate(.85)}
+.cta{margin:22px 0 0;color:#e2a14a;font:500 12px/1 -apple-system,"Segoe UI",system-ui,sans-serif;letter-spacing:.24em;border-bottom:1px solid #e2a14a;display:inline-block;padding-bottom:6px}
+#web ul{list-style:none;margin:28px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:10px 18px;font:500 10px/1 -apple-system,"Segoe UI",system-ui,sans-serif;letter-spacing:.18em;color:#8d93a0}
+#phone{position:absolute;width:150px;height:266px;overflow:hidden;background:#141210;box-sizing:border-box}
+#phone img{width:100%;height:100%;object-fit:cover;filter:brightness(.8) saturate(.85)}
+#phone .ph{position:absolute;left:10px;right:10px;top:10px;display:flex;gap:4px}
+#phone .ph i{flex:1;height:2px;background:rgba(231,225,214,.35)}
+#phone .ph i.on{background:#e7e1d6}
+#phone .pc{position:absolute;left:12px;right:12px;bottom:14px;font:500 10px/1.35 -apple-system,"Segoe UI",system-ui,sans-serif;letter-spacing:.16em}
+.case{position:absolute;inset:0}
+.case .bg{position:absolute;inset:0;background:#0c0b09 center/cover no-repeat;filter:brightness(.55) saturate(.78)}
+.case .veil{position:absolute;inset:0;background:linear-gradient(to top,rgba(12,11,9,.92) 0%,rgba(12,11,9,.2) 46%,rgba(12,11,9,.28) 100%)}
+.case .copy{position:absolute;left:max(28px,7vw);right:28px;bottom:12vh;max-width:640px}
+.case h2{max-width:11em}
+.case .eye{color:#e2a14a}
+.case p{margin:16px 0 0;font:500 15px/1.45 -apple-system,"Segoe UI",system-ui,sans-serif;color:#c8c2b6;max-width:28em}
+.case .meta{letter-spacing:.2em;font-size:10px;color:#8d93a0}
+#contact{position:absolute;width:min(280px,74vw);pointer-events:auto}
+#contact label{display:block;margin-top:16px;font:500 10px/1 -apple-system,"Segoe UI",system-ui,sans-serif;letter-spacing:.22em;color:#8d93a0}
+#contact input,#contact select{display:block;width:100%;margin-top:8px;background:transparent;border:0;border-bottom:1px solid rgba(141,147,160,.5);color:#e7e1d6;font:500 16px/1.4 -apple-system,"Segoe UI",system-ui,sans-serif;letter-spacing:.02em;padding:8px 0;border-radius:0;outline:none}
+#contact select{color-scheme:dark}
+#contact button{margin-top:22px;background:none;border:0;border-bottom:1px solid #e2a14a;color:#e2a14a;font:500 11px/1 -apple-system,"Segoe UI",system-ui,sans-serif;letter-spacing:.24em;padding:0 0 7px;cursor:pointer}
+#thanks{display:none;font:500 14px/1.45 -apple-system,"Segoe UI",system-ui,sans-serif;letter-spacing:.02em}
+#thanks b{display:block;color:#e2a14a;font-weight:500;letter-spacing:.18em;font-size:11px;margin-bottom:10px}
+@media (max-width:720px){
+  #rail{display:none}
+  #brand,#chapter,#metric{left:18px}
+  #tc{right:18px}
+  #fs{top:44px}
+  #chapter{top:58px;max-width:70vw}
+  #chapter strong{font-size:18px}
+  #chapter p{font-size:12px}
+  #metric{top:auto;bottom:64px}
+  #hint{letter-spacing:.14em;bottom:calc(18px + env(safe-area-inset-bottom))}
+  .case .copy{left:18px;right:18px;bottom:16vh}
+}
+</style>
+</head>
+<body>
+<div id="hero"><img id="heroImg" alt=""></div>
+<div id="stage">
+  <div id="strip"></div>
+  <div id="web">
+    <div class="bar"><span>kadr / launch</span><span>сезон 04</span></div>
+    <p class="eye">промосторінка</p>
+    <h3>Тихий<br>запуск.</h3>
+    <p class="lead">Одна сторінка і одна дія. Кадри ведуть до неї, не навпаки.</p>
+    <div class="still" id="still"></div>
+    <p class="cta">забронювати кадр</p>
+    <ul><li>ключ-кадр</li><li>лендінг</li><li>14 днів сторіз</li></ul>
+  </div>
+  <div id="phone">
+    <img id="phoneImg" alt="">
+    <div class="ph"><i class="on"></i><i></i><i></i><i></i></div>
+    <div class="pc">ніч. один кадр.</div>
+  </div>
+  <article class="case" id="caseA">
+    <div class="bg" id="bgA"></div>
+    <div class="veil"></div>
+    <div class="copy">
+      <p class="eye">кейс 01 · нічний запуск</p>
+      <h2>Одна фаза<br>замість трьох підрядників.</h2>
+      <p>Ключ-кадр, лендінг і сторіз зібрані як один рух. Не окремі рахунки.</p>
+      <p class="meta">фото · сайт · промо</p>
+    </div>
+  </article>
+  <article class="case" id="caseB">
+    <div class="bg" id="bgB"></div>
+    <div class="veil"></div>
+    <div class="copy">
+      <p class="eye">кейс 02 · тихий дроп</p>
+      <h2>Предметка,<br>яка тримає сайт.</h2>
+      <p>Колекція без шуму. Бурштин тільки на дії.</p>
+      <p class="meta">предмет · сайт</p>
+    </div>
+  </article>
+  <form id="contact">
+    <div id="fields">
+      <label>ім'я<input name="name" autocomplete="name" required></label>
+      <label>задача
+        <select name="job">
+          <option>зйомка</option>
+          <option>сайт промоакції</option>
+          <option>кампанія в соцмережах</option>
+          <option>усе разом</option>
+        </select>
+      </label>
+      <label>коли<input name="when" placeholder="березень"></label>
+      <button type="submit">надіслати</button>
+    </div>
+    <div id="thanks"><b>кадр прийнято</b>Відповімо протягом дня. Таймкод стоїть.</div>
+  </form>
+</div>
+<canvas id="c"></canvas>
+<div class="ui" id="brand">kadr · мокап</div>
+<div class="ui" id="fs">f/16</div>
+<div class="ui" id="tc">00:00:00</div>
+<div class="ui" id="chapter"><b id="chNo">01</b><strong id="chName">контент</strong><p id="chLine"></p></div>
+<div class="ui" id="metric"><b>128</b>заявок з однієї фази</div>
+<div class="ui" id="hint"></div>
+<nav class="ui" id="rail">
+  <button type="button" data-p="0">00 вступ</button>
+  <button type="button" data-p="0.22">01 контент</button>
+  <button type="button" data-p="0.44">02 сайт</button>
+  <button type="button" data-p="0.63">03 промо</button>
+  <button type="button" data-p="0.78">04 кейси</button>
+  <button type="button" data-p="0.97">05 зв'язок</button>
+</nav>
+<div id="track"></div>
+<script>
+(() => {
+'use strict';
+const IMG = 'https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Homepage-Promo-Model-Y-L-Family-Desktop-NA.jpg';
+const TAU = Math.PI * 2, HP = Math.PI / 2, FPS = 24;
+const C = { bone: [231, 225, 214], steel: [141, 147, 160], amber: [226, 161, 74] };
+const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const cv = document.getElementById('c');
+const ctx = cv.getContext('2d');
+const $ = id => document.getElementById(id);
+
+/* ---------- content ---------- */
+const FRAMES = [
+  { cap: '01  кампанія', pos: '50% 50%' },
+  { cap: '02  ніч', night: true, pos: '30% 60%' },
+  { cap: '03  сторіз', tall: true, pos: '62% 40%' },
+  { cap: '04  інтерв\'ю · 90 сек', pos: '78% 45%', fx: 'grayscale(1) contrast(1.15) brightness(.8)', scale: 1.8 },
+  { cap: '05  предмет', tall: true, pos: '40% 70%', fx: 'brightness(.7) saturate(.6)', scale: 2.4 },
+  { cap: '06  місто', pos: '50% 15%', fx: 'brightness(.85) saturate(.75)', scale: 1.5 }
+];
+const strip = $('strip');
+for (const f of FRAMES) {
+  const el = document.createElement('div');
+  el.className = 'frame' + (f.tall ? ' tall' : '') + (f.night ? ' night' : '');
+  const im = document.createElement('img');
+  im.src = IMG; im.alt = '';
+  if (f.pos) { im.style.objectPosition = f.pos; im.style.transformOrigin = f.pos; }
+  if (f.fx) im.style.filter = f.fx;
+  if (f.scale) im.style.transform = 'scale(' + f.scale + ')';
+  el.appendChild(im);
+  const cap = document.createElement('div');
+  cap.className = 'cap'; cap.textContent = f.cap;
+  el.appendChild(cap);
+  strip.appendChild(el);
+}
+$('heroImg').src = IMG;
+$('phoneImg').src = IMG;
+$('still').style.backgroundImage = 'url("' + IMG + '")';
+$('bgA').style.backgroundImage = 'url("' + IMG + '")';
+$('bgB').style.backgroundImage = 'url("' + IMG + '")';
+$('bgB').style.backgroundPosition = '70% 30%';
+$('bgB').style.filter = 'brightness(.42) saturate(.7) contrast(1.05)';
+
+/* ---------- math ---------- */
+const clamp = (x, a, b) => x < a ? a : x > b ? b : x;
+const c01 = x => clamp(x, 0, 1);
+const lerp = (a, b, t) => a + (b - a) * t;
+const ease = t => { t = c01(t); return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2; };
+const expo = t => { t = c01(t); return t === 1 ? 1 : 1 - Math.pow(2, -10 * t); };
+const easeInCubic = t => { t = c01(t); return t * t * t; };
+const easeOutCubic = t => { t = c01(t); return 1 - Math.pow(1 - t, 3); };
+const gate = (p, a, b) => ease((p - a) / (b - a));
+const mixc = (a, b, t) => [lerp(a[0], b[0], t), lerp(a[1], b[1], t), lerp(a[2], b[2], t)];
+const mul = (c, m) => [c[0] * m, c[1] * m, c[2] * m];
+const rgba = (c, a) => `rgba(${clamp(c[0] | 0, 0, 255)},${clamp(c[1] | 0, 0, 255)},${clamp(c[2] | 0, 0, 255)},${a == null ? 1 : clamp(a, 0, 1)})`;
+const pad = (n, l) => String(n).padStart(l || 2, '0');
+const pulse = (t, decay) => t < 0 ? 0 : Math.exp(-t * decay) * (1 - Math.exp(-t * 38));
+
+// closed-form spring step response keeps the intro deterministic for any frame time
+function springStep(t, k, c) {
+  if (t <= 0) return 0;
+  const w0 = Math.sqrt(k), z = c / (2 * w0);
+  if (z < 1) {
+    const wd = w0 * Math.sqrt(1 - z * z);
+    return 1 - Math.exp(-z * w0 * t) * (Math.cos(wd * t) + (z * w0 / wd) * Math.sin(wd * t));
+  }
+  return 1 - Math.exp(-w0 * t) * (1 + w0 * t);
+}
+class Spring {
+  constructor(k, c, x) { this.k = k; this.c = c; this.x = x; this.v = 0; this.target = x; }
+  step(dt) {
+    const n = Math.ceil(dt * 240); if (n <= 0) return this.x;
+    const h = dt / n;
+    for (let i = 0; i < n; i++) {
+      const a = -this.k * (this.x - this.target) - this.c * this.v;
+      this.v += a * h; this.x += this.v * h;
+    }
+    return this.x;
+  }
+}
+
+/* ---------- grain ---------- */
+const noise = document.createElement('canvas');
+noise.width = noise.height = 160;
+{
+  const g = noise.getContext('2d'), id = g.createImageData(160, 160);
+  for (let i = 0; i < id.data.length; i += 4) {
+    const v = (Math.random() * 255) | 0;
+    id.data[i] = id.data[i + 1] = id.data[i + 2] = v;
+    id.data[i + 3] = 20;
+  }
+  g.putImageData(id, 0, 0);
+}
+const grain = ctx.createPattern(noise, 'repeat');
+
+let W = 0, H = 0, DPR = 1;
+function resize() {
+  DPR = Math.min(2, devicePixelRatio || 1);
+  W = innerWidth; H = innerHeight;
+  cv.width = Math.round(W * DPR); cv.height = Math.round(H * DPR);
+}
+addEventListener('resize', resize);
+resize();
+const portrait = () => H > W * 1.05;
+
+/* ---------- wordmark (own vector skeletons, cap height = 1) ---------- */
+function arcPts(cx, cy, r, a0, a1, n) {
+  const p = [];
+  for (let i = 0; i <= n; i++) { const a = lerp(a0, a1, i / n); p.push([cx + Math.cos(a) * r, cy + Math.sin(a) * r]); }
+  return p;
+}
+const GLYPHS = {
+  K: { w: 0.6, paths: [[[0, 0], [0, 1]], [[0.6, 0], [0, 0.58]], [[0.2, 0.4], [0.62, 1]]] },
+  A: { w: 0.74, paths: [[[0, 1], [0.37, 0], [0.74, 1]], [[0.14, 0.64], [0.6, 0.64]]] },
+  D: { w: 0.72, paths: [[[0, 1], [0, 0], [0.22, 0], ...arcPts(0.22, 0.5, 0.5, -HP, HP, 28), [0, 1]]] },
+  R: { w: 0.64, paths: [
+    [[0, 1], [0, 0], [0.34, 0], ...arcPts(0.34, 0.26, 0.26, -HP, HP, 20), [0, 0.52]],
+    [[0.3, 0.52], [0.64, 1]] ] }
+};
+const WORD = 'KADR'.split('').map(ch => {
+  const g = GLYPHS[ch];
+  const paths = g.paths.map(p => {
+    let L = 0; const seg = [0];
+    for (let i = 1; i < p.length; i++) { L += Math.hypot(p[i][0] - p[i - 1][0], p[i][1] - p[i - 1][1]); seg.push(L); }
+    return { p, L, seg };
+  });
+  return { ch, w: g.w, paths, L: paths.reduce((s, q) => s + q.L, 0) };
+});
+function traceGlyph(g, x, y, S, amt) {
+  let rem = amt * g.L;
+  ctx.beginPath();
+  for (const q of g.paths) {
+    if (rem <= 0) break;
+    const p = q.p;
+    ctx.moveTo(x + p[0][0] * S, y + p[0][1] * S);
+    for (let i = 1; i < p.length; i++) {
+      const sl = q.seg[i] - q.seg[i - 1];
+      if (rem >= sl) { ctx.lineTo(x + p[i][0] * S, y + p[i][1] * S); rem -= sl; }
+      else {
+        const t = rem / sl;
+        ctx.lineTo(x + lerp(p[i - 1][0], p[i][0], t) * S, y + lerp(p[i - 1][1], p[i][1], t) * S);
+        rem = 0; break;
+      }
+    }
+  }
+}
+
+/* ---------- intro timeline (seconds), plays once then holds ---------- */
+const BEAT = 1.5, B1 = 0.9, B4 = B1 + 3 * BEAT, HOLD = 8;
+
+function irisAperture(s) {
+  if (s < 0.25) return 0.07;
+  if (s < B1) return lerp(0.07, 0, ease((s - 0.25) / (B1 - 0.25)));
+  return springStep(s - B1, 70, 7.5);
+}
+function clickCurve(tc) {
+  if (tc < 0.12) return 1 + 0.12 * easeOutCubic(tc / 0.12);
+  if (tc < 0.3) return lerp(1.12, 0, easeInCubic((tc - 0.12) / 0.18));
+  if (tc < 0.42) return 0;
+  return springStep(tc - 0.42, 85, 7);
+}
+
+const RINGS = [
+  { r: 1.34, tilt: 1.16, rz: -0.16, ticks: 120, major: 10, len: 0.035, t0: 1.5, k: 90, c: 13, spin: 0.025 },
+  { r: 1.62, tilt: 1.22, rz: 0.10, ticks: 72, major: 6, len: 0.05, t0: 2.15, k: 55, c: 5.5, spin: -0.018 },
+  { r: 1.98, tilt: 1.10, rz: -0.04, ticks: 36, major: 3, len: 0.07, t0: 2.27, k: 40, c: 4.2, spin: 0.011 }
+];
+
+function drawBG(T) {
+  ctx.fillStyle = '#0c0b09';
+  ctx.fillRect(0, 0, W, H);
+  const M = Math.max(W, H);
+  const kx = W * (0.28 + 0.05 * Math.sin(T * TAU / 17.3)), ky = H * (0.2 + 0.04 * Math.cos(T * TAU / 23.9));
+  let g = ctx.createRadialGradient(kx, ky, 0, kx, ky, M * 0.75);
+  g.addColorStop(0, 'rgba(206,168,124,0.11)');
+  g.addColorStop(0.45, 'rgba(110,86,60,0.045)');
+  g.addColorStop(1, 'rgba(0,0,0,0)');
+  ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
+  const rx = W * (0.94 + 0.03 * Math.sin(T * TAU / 31.1 + 1)), ry = H * (0.72 + 0.05 * Math.sin(T * TAU / 19.7));
+  g = ctx.createRadialGradient(rx, ry, 0, rx, ry, M * 0.55);
+  g.addColorStop(0, 'rgba(141,160,192,0.075)');
+  g.addColorStop(1, 'rgba(0,0,0,0)');
+  ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
+}
+
+function drawRing(i, half, s, T, cx, cy, R, px, py, beat) {
+  const g = RINGS[i];
+  if (s < g.t0) return;
+  const sp = springStep(s - g.t0, g.k, g.c);
+  const alpha = c01((s - g.t0) * 3);
+  if (alpha <= 0.002) return;
+  const u1 = expo((s - g.t0) / 1.4);
+  const rad = R * g.r * lerp(0.72, 1, sp);
+  const sq = Math.cos(g.tilt + (1 - sp) * 0.45);
+  const rz = g.rz + (1 - sp) * 0.12 * (i % 2 ? -1 : 1);
+  const ox = cx + px * (6 + 4 * i), oy = cy + py * (6 + 4 * i) * 0.7;
+  const cr = Math.cos(rz), sr = Math.sin(rz);
+  const phi0 = -HP + i * 0.9, spin = T * g.spin;
+  const P = (phi, rr) => {
+    const x = Math.cos(phi) * rr, y = Math.sin(phi) * rr * sq;
+    return [ox + x * cr - y * sr, oy + x * sr + y * cr];
+  };
+  const depthA = half > 0 ? 1 : 0.4;
+
+  ctx.beginPath();
+  const N = 180; let pen = false;
+  for (let k = 0; k <= N; k++) {
+    const phi = phi0 + (k / N) * u1 * TAU;
+    if ((Math.sin(phi) > 0 ? 1 : -1) !== half) { pen = false; continue; }
+    const p = P(phi, rad);
+    if (!pen) { ctx.moveTo(p[0], p[1]); pen = true; } else ctx.lineTo(p[0], p[1]);
+  }
+  ctx.lineWidth = i === 0 ? 1.2 : 1;
+  ctx.strokeStyle = rgba(C.steel, alpha * 0.75 * depthA);
+  ctx.stroke();
+
+  const minor = new Path2D(), major = new Path2D();
+  const labels = [];
+  for (let t = 0; t < g.ticks; t++) {
+    const u = t / g.ticks;
+    if (u > u1) continue;
+    const phi = phi0 + u * TAU + spin;
+    if ((Math.sin(phi) > 0 ? 1 : -1) !== half) continue;
+    const isM = t % g.major === 0;
+    const l = rad * g.len * (isM ? 2 : 1);
+    const a1 = P(phi, rad), a2 = P(phi, rad + l);
+    const path = isM ? major : minor;
+    path.moveTo(a1[0], a1[1]); path.lineTo(a2[0], a2[1]);
+    if (isM && i === 2) labels.push([P(phi, rad + l + 11), pad(Math.round(u * 360), 3)]);
+  }
+  ctx.lineWidth = 1;
+  ctx.strokeStyle = rgba(C.steel, alpha * 0.5 * depthA);
+  ctx.stroke(minor);
+  ctx.strokeStyle = rgba(i === 0 ? mixc(C.bone, C.amber, beat) : C.bone, alpha * 0.8 * depthA);
+  ctx.stroke(major);
+  if (labels.length) {
+    ctx.font = '500 8px -apple-system,"Segoe UI",system-ui,sans-serif';
+    ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+    ctx.fillStyle = rgba(C.steel, alpha * 0.7 * depthA);
+    for (const [p, txt] of labels) ctx.fillText(txt, p[0], p[1]);
+  }
+}
+
+const KEY = -2.35, RIM = 0.5, BLADES = 14;
+
+function drawIris(cx, cy, R, a01, light, beat, sw, see) {
+  const N = BLADES, a = Math.max(0, a01) * R * 0.6, rot = 0.25 + a01 * 0.9;
+
+  ctx.save();
+  ctx.beginPath(); ctx.arc(cx, cy, R, 0, TAU); ctx.clip();
+  // the lens interior is cut out of the canvas so the DOM stage underneath shows through
+  ctx.globalCompositeOperation = 'destination-out';
+  ctx.fillStyle = '#000'; ctx.fillRect(cx - R, cy - R, R * 2, R * 2);
+  ctx.globalCompositeOperation = 'source-over';
+  if (see < 1) {
+    ctx.globalAlpha = 1 - see;
+    const ig = ctx.createRadialGradient(cx - R * 0.12, cy - R * 0.18, 0, cx, cy, R * 0.75);
+    ig.addColorStop(0, rgba(mixc([6, 6, 6], C.bone, 0.09 * light)));
+    ig.addColorStop(0.5, '#080707');
+    ig.addColorStop(1, '#030303');
+    ctx.fillStyle = ig; ctx.fillRect(cx - R, cy - R, R * 2, R * 2);
+    ctx.fillStyle = rgba(C.bone, 0.05 * light);
+    ctx.beginPath(); ctx.ellipse(cx - R * 0.12, cy - R * 0.14, R * 0.12, R * 0.05, -0.6, 0, TAU); ctx.fill();
+    ctx.globalAlpha = 1;
+  }
+
+  const quad = i => {
+    const th = (i / N) * TAU + rot;
+    const nx = Math.cos(th), ny = Math.sin(th), dx = -ny, dy = nx;
+    const p0x = cx + nx * a, p0y = cy + ny * a;
+    const Ax = p0x - dx * R * 0.2, Ay = p0y - dy * R * 0.2;
+    const Bx = p0x + dx * R * 1.3, By = p0y + dy * R * 1.3;
+    return { th, nx, ny, p0x, p0y, Ax, Ay, Bx, By,
+      Cx: Bx + nx * R * 0.9, Cy: By + ny * R * 0.9, Dx: Ax + nx * R * 1.3, Dy: Ay + ny * R * 1.3 };
+  };
+  const Q = Array.from({ length: N }, (_, i) => quad(i));
+  for (let i = 0; i < N; i++) {
+    const { th, nx, ny, p0x, p0y, Ax, Ay, Bx, By, Cx, Cy, Dx, Dy } = Q[i];
+    // a blade never paints where the next one lies, so the shingle closes around the full circle
+    // instead of the last blade sitting on top of the first
+    const nq = Q[(i + 1) % N];
+    ctx.save();
+    ctx.beginPath();
+    ctx.rect(cx - R, cy - R, R * 2, R * 2);
+    ctx.moveTo(nq.Ax, nq.Ay); ctx.lineTo(nq.Bx, nq.By); ctx.lineTo(nq.Cx, nq.Cy); ctx.lineTo(nq.Dx, nq.Dy); ctx.closePath();
+    ctx.clip('evenodd');
+
+    const L = 0.5 + 0.5 * Math.cos(th - KEY);
+    const rim = Math.pow(Math.max(0, Math.cos(th - RIM)), 3);
+    const dd = Math.atan2(Math.sin(th - sw.ang), Math.cos(th - sw.ang));
+    const hl = sw.i * Math.exp(-dd * dd / 0.18);
+    let base = mixc([20, 20, 22], C.steel, 0.12 + 0.5 * L);
+    base = mixc(base, [214, 178, 132], 0.22 * L);
+    base = mixc(base, [150, 172, 205], 0.3 * rim);
+    base = mixc(base, C.bone, 0.45 * hl);
+
+    const gr = ctx.createLinearGradient(p0x, p0y, p0x + nx * R * 0.95, p0y + ny * R * 0.95);
+    gr.addColorStop(0, rgba(mul(mixc(base, C.bone, 0.35), 1.05 * light)));
+    gr.addColorStop(0.05, rgba(mul(base, light)));
+    gr.addColorStop(0.4, rgba(mul(base, 0.55 * light)));
+    gr.addColorStop(1, rgba(mul(base, 0.8 * light)));
+
+    ctx.beginPath();
+    ctx.moveTo(Ax, Ay); ctx.lineTo(Bx, By); ctx.lineTo(Cx, Cy); ctx.lineTo(Dx, Dy); ctx.closePath();
+    ctx.shadowColor = 'rgba(0,0,0,0.6)';
+    ctx.shadowBlur = Math.min(R * 0.05, 18) * DPR;
+    ctx.shadowOffsetX = -nx * 2 * DPR; ctx.shadowOffsetY = -ny * 2 * DPR;
+    ctx.fillStyle = gr; ctx.fill();
+    ctx.shadowColor = 'rgba(0,0,0,0)'; ctx.shadowBlur = 0; ctx.shadowOffsetX = 0; ctx.shadowOffsetY = 0;
+
+    const ga = ctx.createLinearGradient(Ax, Ay, Bx, By);
+    ga.addColorStop(0, 'rgba(0,0,0,0.28)');
+    ga.addColorStop(0.32, 'rgba(255,242,224,0.06)');
+    ga.addColorStop(0.6, 'rgba(0,0,0,0)');
+    ga.addColorStop(1, 'rgba(0,0,0,0.3)');
+    ctx.fillStyle = ga; ctx.fill();
+
+    ctx.beginPath(); ctx.moveTo(Ax, Ay); ctx.lineTo(Bx, By);
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = rgba(mixc(C.bone, C.amber, beat * 0.9), (0.2 + 0.45 * L + 0.5 * hl + 0.4 * beat) * light);
+    ctx.stroke();
+    ctx.restore();
+  }
+  // the first blade's shadow lands on the last blade, which is painted after it, so cast it again
+  {
+    const f = Q[0], l = Q[N - 1], off = 10000;
+    ctx.save();
+    ctx.beginPath();
+    ctx.moveTo(l.Ax, l.Ay); ctx.lineTo(l.Bx, l.By); ctx.lineTo(l.Cx, l.Cy); ctx.lineTo(l.Dx, l.Dy); ctx.closePath();
+    ctx.clip();
+    ctx.beginPath();
+    ctx.rect(cx - R, cy - R, R * 2, R * 2);
+    ctx.moveTo(f.Ax, f.Ay); ctx.lineTo(f.Bx, f.By); ctx.lineTo(f.Cx, f.Cy); ctx.lineTo(f.Dx, f.Dy); ctx.closePath();
+    ctx.clip('evenodd');
+    ctx.beginPath();
+    ctx.moveTo(f.Ax + off, f.Ay); ctx.lineTo(f.Bx + off, f.By); ctx.lineTo(f.Cx + off, f.Cy); ctx.lineTo(f.Dx + off, f.Dy); ctx.closePath();
+    ctx.shadowColor = 'rgba(0,0,0,0.6)';
+    ctx.shadowBlur = Math.min(R * 0.05, 18) * DPR;
+    ctx.shadowOffsetX = (-f.nx * 2 - off) * DPR; ctx.shadowOffsetY = -f.ny * 2 * DPR;
+    ctx.fillStyle = '#000'; ctx.fill();
+    ctx.restore();
+  }
+
+  if (sw.i > 0.001) {
+    ctx.save();
+    ctx.beginPath();
+    ctx.arc(cx, cy, R, 0, TAU);
+    if (a > 0.5) {
+      const vr = a / Math.cos(Math.PI / N);
+      for (let i = 0; i <= N; i++) {
+        const va = ((i + 0.5) / N) * TAU + rot;
+        const x = cx + Math.cos(va) * vr, y = cy + Math.sin(va) * vr;
+        if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+      }
+      ctx.closePath();
+    }
+    ctx.clip('evenodd');
+    ctx.globalCompositeOperation = 'lighter';
+    const ang = -0.6, ux = Math.cos(ang), uy = Math.sin(ang);
+    const pos = lerp(-1.3, 1.3, sw.p) * R;
+    const gx = cx + ux * pos, gy = cy + uy * pos;
+    const g = ctx.createLinearGradient(gx - ux * R * 0.35, gy - uy * R * 0.35, gx + ux * R * 0.35, gy + uy * R * 0.35);
+    g.addColorStop(0, 'rgba(231,225,214,0)');
+    g.addColorStop(0.5, rgba(C.bone, 0.2 * sw.i * light));
+    g.addColorStop(1, 'rgba(231,225,214,0)');
+    ctx.fillStyle = g; ctx.fillRect(cx - R, cy - R, R * 2, R * 2);
+    ctx.restore();
+  }
+  ctx.restore();
+
+  if (R * 1.075 < Math.hypot(W, H)) {
+    const bz = ctx.createLinearGradient(cx - R, cy - R, cx + R, cy + R);
+    bz.addColorStop(0, rgba(mul(mixc(C.steel, [222, 192, 152], 0.45), 0.9 * light)));
+    bz.addColorStop(0.45, rgba(mul(C.steel, 0.22 * light)));
+    bz.addColorStop(0.8, rgba(mul(C.steel, 0.12 * light)));
+    bz.addColorStop(1, rgba(mul(mixc(C.steel, [160, 180, 210], 0.4), 0.6 * light)));
+    ctx.beginPath();
+    ctx.arc(cx, cy, R * 1.075, 0, TAU);
+    ctx.arc(cx, cy, R, 0, TAU, true);
+    ctx.fillStyle = bz; ctx.fill();
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = rgba(C.bone, 0.22 * light);
+    ctx.beginPath(); ctx.arc(cx, cy, R * 1.075, 0, TAU); ctx.stroke();
+    ctx.strokeStyle = 'rgba(0,0,0,0.7)';
+    ctx.beginPath(); ctx.arc(cx, cy, R, 0, TAU); ctx.stroke();
+  }
+}
+
+function drawWord(s, cx, y, S, beat, tc) {
+  const n = WORD.length;
+  const trT = expo((s - 3.0) / 3.2);
+  const track = lerp(1.2, 0.34, trT) * S;
+  let total = track * (n - 1);
+  for (const g of WORD) total += g.w * S;
+  let x = cx - total / 2;
+  const top = y - S / 2;
+  ctx.lineCap = 'butt'; ctx.lineJoin = 'miter'; ctx.miterLimit = 4;
+  for (let i = 0; i < n; i++) {
+    const g = WORD[i];
+    let st = ease((s - 3.0 - i * 0.08) / 1.15);
+    let fl = s < 4.25 + i * 0.06 ? 0 : springStep(s - 4.25 - i * 0.06, 110, 13);
+    if (tc >= 0.3) {
+      st *= ease((tc - 0.35 - i * 0.07) / 0.8);
+      fl *= tc < 0.9 + i * 0.06 ? 0 : springStep(tc - 0.9 - i * 0.06, 120, 14);
+    }
+    if (st > 0.001) {
+      if (fl > 0.001) {
+        traceGlyph(g, x, top, S, 1);
+        ctx.lineWidth = Math.max(0.5, S * 0.12 * fl);
+        ctx.strokeStyle = rgba(C.bone, c01(fl));
+        ctx.stroke();
+      }
+      traceGlyph(g, x, top, S, st);
+      ctx.lineWidth = 1.1;
+      ctx.strokeStyle = rgba(mixc(C.bone, C.amber, beat * 0.85), 0.9);
+      ctx.stroke();
+    }
+    x += g.w * S + track;
+  }
+  const subA = c01((s - 5.8) / 0.8);
+  if (subA > 0) {
+    ctx.font = '500 10px -apple-system,"Segoe UI",system-ui,sans-serif';
+    const ls = lerp(portrait() ? 7 : 10, portrait() ? 3.5 : 5, expo((s - 5.8) / 2));
+    if ('letterSpacing' in ctx) ctx.letterSpacing = ls + 'px';
+    ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+    ctx.fillStyle = rgba(C.steel, subA * 0.85);
+    ctx.fillText('ФОТО · ВІДЕО · САЙТИ · ПРОМО', cx, y + S * 0.55 + 22);
+    if ('letterSpacing' in ctx) ctx.letterSpacing = '0px';
+  }
+}
+
+/* ---------- scroll scenes ---------- */
+const scrollP = () => {
+  const max = document.documentElement.scrollHeight - innerHeight;
+  return max > 0 ? c01(scrollY / max) : 0;
+};
+
+// lens radius is derived from the hole each chapter needs; on portrait screens the hole is
+// wider than the viewport so the blades only frame the content from above and below
+function scene(p) {
+  const m = Math.min(W, H), pt = portrait();
+  const hole = (desk, mob, a) => (pt ? W * mob : m * desk) / (0.6 * a);
+  const Rh = pt ? W * 0.34 : m * 0.22;
+  const Rc = hole(0.3456, 0.6, 0.96), Rw = hole(0.265, 0.6, 0.94), Rp = hole(0.177, 0.46, 0.82), Rk = hole(0.258, 0.6, 0.86);
+  const Rf = Math.hypot(W, H) * 0.98;
+  let a = 0.96, R = Rh, ch = 0;
+  let hero = 0, content = 0, web = 0, promo = 0, caseA = 0, caseB = 0, contact = 0;
+  let stripU = 0, page = 0, promoU = 0;
+  if (p < 0.16) {
+    R = lerp(Rh, Rc, gate(p, 0.07, 0.16));
+    hero = 1 - gate(p, 0.07, 0.15);
+    content = gate(p, 0.09, 0.16);
+    ch = content > hero ? 1 : 0;
+  } else if (p < 0.32) {
+    R = Rc; content = 1; ch = 1;
+    stripU = (p - 0.16) / 0.16;
+  } else if (p < 0.38) {
+    const shut = gate(p, 0.32, 0.348), open = gate(p, 0.35, 0.38);
+    a = lerp(lerp(0.96, 0.05, shut), 0.94, open);
+    R = lerp(Rc, Rw, open);
+    content = 1 - shut; web = open; ch = open > 0.45 ? 2 : 1;
+    stripU = 1;
+  } else if (p < 0.52) {
+    a = 0.94; R = Rw; web = 1; ch = 2;
+    page = (p - 0.38) / 0.14;
+  } else if (p < 0.58) {
+    const shut = gate(p, 0.52, 0.548), open = gate(p, 0.55, 0.58);
+    a = lerp(lerp(0.94, 0.06, shut), 0.82, open);
+    R = lerp(Rw, Rp, open);
+    web = 1 - shut; promo = open; ch = open > 0.45 ? 3 : 2;
+    page = 1;
+  } else if (p < 0.70) {
+    a = 0.82; R = Rp; promo = 1; ch = 3;
+    promoU = (p - 0.58) / 0.12;
+  } else if (p < 0.76) {
+    const shut = gate(p, 0.70, 0.728), open = gate(p, 0.73, 0.76);
+    a = lerp(lerp(0.82, 0.04, shut), 1, open);
+    R = lerp(Rp, Rf, open);
+    promo = 1 - shut; caseA = open; ch = open > 0.4 ? 4 : 3;
+    promoU = 1;
+  } else if (p < 0.83) {
+    a = 1; R = Rf; caseA = 1; ch = 4;
+  } else if (p < 0.89) {
+    const shut = gate(p, 0.83, 0.855), open = gate(p, 0.858, 0.89);
+    a = lerp(lerp(1, 0.04, shut), 1, open);
+    R = Rf;
+    caseA = 1 - shut; caseB = gate(p, 0.85, 0.866); ch = 4;
+  } else if (p < 0.93) {
+    a = 1; R = Rf; caseB = 1; ch = 4;
+  } else if (p < 0.97) {
+    const t = gate(p, 0.93, 0.97);
+    a = lerp(1, 0.86, t); R = lerp(Rf, Rk, t);
+    caseB = 1 - t; contact = t; ch = t > 0.5 ? 5 : 4;
+  } else {
+    a = 0.86; R = Rk; contact = 1; ch = 5;
+  }
+  return { a, R, Rh, ch, hero, content, web, promo, caseA, caseB, contact, stripU, page, promoU };
+}
+
+const COPY = [
+  ['00', 'вступ', ''],
+  ['01', 'контент', 'Кадр, з якого збирається кампанія.'],
+  ['02', 'сайт', 'Промосторінка під одну дію.'],
+  ['03', 'промо', 'Пости — поділки одного кільця.'],
+  ['04', 'кейси', ''],
+  ['05', 'зв\'язок', 'Забронювати об\'єктив.']
+];
+const HINTS = [
+  'скрол — увійти в об\'єктив',
+  'скрол гортає плівку',
+  'сторінка їде всередині кадру',
+  'кільце збирає кампанію',
+  'ірис міняє кейс',
+  'ім\'я · задача · коли'
+];
+const MARKS = [
+  { t: 0.12, label: 'сторіз', ang: -1.15 },
+  { t: 0.36, label: 'пост', ang: -0.25 },
+  { t: 0.60, label: 'лендінг', ang: 0.85 },
+  { t: 0.82, label: 'лист', ang: 2.35 }
+];
+
+function drawPromoRings(cx, cy, R, alpha, u, T) {
+  if (alpha < 0.02) return;
+  const pt = portrait();
+  const rings = [
+    { rad: R * 1.62, sq: pt ? 0.62 : 0.46, ticks: 64, spin: 0.04 },
+    { rad: R * (pt ? 1.9 : 2.05), sq: pt ? 0.56 : 0.4, ticks: 32, spin: -0.03 }
+  ];
+  rings.forEach((g, i) => {
+    ctx.beginPath();
+    for (let k = 0; k <= 160; k++) {
+      const phi = (k / 160) * TAU + T * g.spin;
+      const x = cx + Math.cos(phi) * g.rad, y = cy + Math.sin(phi) * g.rad * g.sq;
+      if (k === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+    }
+    ctx.strokeStyle = rgba(C.steel, alpha * (i ? 0.45 : 0.7));
+    ctx.lineWidth = 1; ctx.stroke();
+    ctx.beginPath();
+    for (let t = 0; t < g.ticks; t++) {
+      const phi = (t / g.ticks) * TAU + T * g.spin;
+      const outer = g.rad + (t % (i ? 8 : 10) === 0 ? 12 : 6);
+      ctx.moveTo(cx + Math.cos(phi) * g.rad, cy + Math.sin(phi) * g.rad * g.sq);
+      ctx.lineTo(cx + Math.cos(phi) * outer, cy + Math.sin(phi) * outer * g.sq);
+    }
+    ctx.strokeStyle = rgba(C.steel, alpha * 0.4); ctx.stroke();
+  });
+  // on narrow screens the outer ring leaves the viewport, so labels sit on a ring clamped to the screen
+  const g = rings[1];
+  const lr = Math.min(g.rad + 22, W / 2 - 34);
+  ctx.font = '500 10px -apple-system,"Segoe UI",system-ui,sans-serif';
+  ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+  let active = -1;
+  MARKS.forEach((mk, i) => { if (u >= mk.t) active = i; });
+  MARKS.forEach((mk, i) => {
+    const ly = pt ? Math.min(H / 2 - 90, (g.rad + 22) * g.sq) : (g.rad + 22) * g.sq;
+    const x = cx + Math.cos(mk.ang) * lr, y = cy + Math.sin(mk.ang) * ly;
+    const on = u >= mk.t;
+    ctx.fillStyle = rgba(i === active && on ? C.amber : (on ? C.bone : C.steel), alpha * (on ? 0.95 : 0.45));
+    ctx.fillText(mk.label, x, y);
+  });
+}
+
+/* ---------- state + input ---------- */
+const parX = new Spring(60, 2 * Math.sqrt(60), 0);
+const parY = new Spring(60, 2 * Math.sqrt(60), 0);
+const init = scene(scrollP());
+const aS = new Spring(42, 2 * Math.sqrt(42) * 0.82, init.a);
+const rS = new Spring(26, 2 * Math.sqrt(26) * 0.86, init.R);
+let seq = reduced ? HOLD : 0;
+let clickAt = -1e9, lastTc = '', lastFs = '', shownCh = -1;
+let irisHit = { x: 0, y: 0, r: 0 };
+const storyBars = Array.from(document.querySelectorAll('#phone .ph i'));
+const T0 = performance.now() / 1000;
+const clock = () => performance.now() / 1000 - T0;
+
+addEventListener('pointermove', e => {
+  if (reduced || e.pointerType !== 'mouse') return;
+  parX.target = e.clientX / W * 2 - 1; parY.target = e.clientY / H * 2 - 1;
+});
+document.addEventListener('pointerleave', () => { parX.target = 0; parY.target = 0; });
+addEventListener('pointerup', e => {
+  if (e.target.closest('#contact, #rail, a, button')) return;
+  if (scrollP() > 0.06) return;
+  if (Math.hypot(e.clientX - irisHit.x, e.clientY - irisHit.y) < irisHit.r) clickAt = clock();
+});
+document.querySelectorAll('#rail button').forEach(b => {
+  b.addEventListener('click', () => {
+    const max = document.documentElement.scrollHeight - innerHeight;
+    scrollTo({ top: Number(b.dataset.p) * max, behavior: reduced ? 'auto' : 'smooth' });
+  });
+});
+$('contact').addEventListener('submit', e => {
+  e.preventDefault();
+  $('fields').style.display = 'none';
+  $('thanks').style.display = 'block';
+});
+
+/* ---------- render ---------- */
+function render(now, p, dt) {
+  const sc = scene(p);
+  const pt = portrait();
+  const s = seq;
+  const tc = now - clickAt;
+  const openP = gate(p, 0.012, 0.12);
+  const px = parX.x, py = parY.x;
+
+  aS.target = sc.a; rS.target = sc.R;
+  if (reduced) { aS.x = aS.target; rS.x = rS.target; } else { aS.step(dt); rS.step(dt); }
+
+  let aHero = irisAperture(s);
+  if (tc < 2.6) {
+    const ca = clickCurve(tc) * Math.max(aHero, 0.85);
+    aHero = lerp(ca, aHero, ease((tc - 1.8) / 0.8));
+  }
+  const beat = Math.max(pulse(s - B1, 2.6), pulse(s - B4, 2.6)) * (1 - openP);
+  const push = 1 + 0.028 * pulse(s - B1, 5) + 0.028 * pulse(s - B4, 5) + 0.03 * pulse(tc - 0.3, 6);
+  const sclHero = lerp(0.9, 1, springStep(s - 0.15, 40, 9)) * push;
+  const a = Math.max(0, lerp(aHero, aS.x, openP));
+  const R = Math.max(8, rS.x * lerp(sclHero, 1, openP));
+  const light = lerp(0.18 + 0.82 * easeOutCubic(s / 0.9), 1, openP);
+  const see = lerp(0.5 * ease((s - 2.4) / 1.6), 1, openP);
+  const cy0 = H * (pt ? 0.4 : 0.43);
+  const cx = W / 2 + px * 3 * (1 - openP), cy = lerp(cy0, H / 2, 1 - sc.hero) + py * 2 * (1 - openP);
+  irisHit = { x: cx, y: cy, r: R * 1.1 };
+
+  let sw;
+  if (openP < 0.5) {
+    const swRaw = c01((s - 4.8) / 1.6);
+    sw = { i: Math.sin(Math.PI * swRaw), p: ease(swRaw), ang: 0 };
+    sw.ang = lerp(-2.6, 1.0, sw.p);
+  } else {
+    sw = { i: 0.3, p: (now * 0.07) % 1, ang: (now * 0.35) % TAU };
+  }
+  const promoBeat = sc.ch === 3 ? c01((sc.promoU - 0.72) / 0.28) : 0;
+
+  /* DOM layers behind the lens */
+  $('hero').style.opacity = sc.hero.toFixed(3);
+  $('heroImg').style.transform = `translate3d(${(-px * 16).toFixed(2)}px,${(-py * 11).toFixed(2)}px,0) scale(${(1.12 + (reduced ? 0 : Math.min(0.1, now * 0.006))).toFixed(4)})`;
+  strip.style.opacity = sc.content.toFixed(3);
+  $('web').style.opacity = sc.web.toFixed(3);
+  $('phone').style.opacity = sc.promo.toFixed(3);
+  $('caseA').style.opacity = sc.caseA.toFixed(3);
+  $('caseB').style.opacity = sc.caseB.toFixed(3);
+  $('contact').style.opacity = sc.contact.toFixed(3);
+  $('contact').style.pointerEvents = sc.contact > 0.6 ? 'auto' : 'none';
+
+  const fw = strip.children[0] ? strip.children[0].offsetWidth : 300;
+  const lw = strip.lastElementChild ? strip.lastElementChild.offsetWidth : fw;
+  const travel = sc.stripU * (strip.scrollWidth - fw / 2 - lw / 2);
+  strip.style.top = cy + 'px';
+  strip.style.transform = `translate3d(${W / 2 - fw / 2 - travel}px,-50%,0)`;
+  $('web').style.top = cy + 'px';
+  $('web').style.transform = `translate3d(-50%,${lerp(-30, -76, c01(sc.page))}%,0)`;
+  $('phone').style.left = (cx - 75) + 'px';
+  $('phone').style.top = (cy - 133) + 'px';
+  const cW = $('contact').offsetWidth || 280, cH = $('contact').offsetHeight || 220;
+  $('contact').style.left = (cx - cW / 2) + 'px';
+  $('contact').style.top = (cy - cH / 2) + 'px';
+
+  const showTitle = Math.max(sc.content, sc.web, sc.promo, sc.contact) * (1 - Math.max(sc.caseA, sc.caseB));
+  $('chapter').style.opacity = showTitle.toFixed(3);
+  if (shownCh !== sc.ch) {
+    shownCh = sc.ch;
+    $('chNo').textContent = COPY[sc.ch][0];
+    $('chName').textContent = COPY[sc.ch][1];
+    $('chLine').textContent = COPY[sc.ch][2];
+    $('hint').textContent = HINTS[sc.ch];
+    document.querySelectorAll('#rail button').forEach((b, i) => b.classList.toggle('on', i === sc.ch));
+  }
+  $('hint').style.opacity = (0.42 * (sc.caseA + sc.caseB > 0.4 ? 0.35 : 1) * (sc.ch === 0 ? c01((s - 6) / 1) : 1)).toFixed(3);
+  $('metric').style.opacity = (promoBeat * sc.promo).toFixed(3);
+  storyBars.forEach((el, i) => el.classList.toggle('on', i <= Math.floor(c01(sc.promoU) * 3.999)));
+
+  const fNum = (16 * Math.pow(1.4 / 16, c01(a))).toFixed(1);
+  if (fNum !== lastFs) { $('fs').textContent = 'f/' + fNum; lastFs = fNum; }
+  const fr = sc.ch === 0 ? Math.floor(s * FPS) : Math.floor(HOLD * FPS + c01(p) * 20 * FPS);
+  const tcs = pad(Math.floor(fr / FPS / 60)) + ':' + pad(Math.floor(fr / FPS) % 60) + ':' + pad(fr % FPS);
+  if (tcs !== lastTc) { $('tc').textContent = tcs; lastTc = tcs; }
+
+  /* canvas */
+  ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+  ctx.globalAlpha = 1;
+  ctx.globalCompositeOperation = 'source-over';
+  drawBG(reduced ? 0 : now);
+
+  if (beat > 0.002) {
+    const g = ctx.createRadialGradient(cx, cy, R * 0.6, cx, cy, R * 2.4);
+    g.addColorStop(0, rgba(C.amber, 0.09 * beat));
+    g.addColorStop(1, 'rgba(226,161,74,0)');
+    ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
+  }
+
+  const ringA = 1 - openP;
+  if (ringA > 0.002) {
+    ctx.globalAlpha = ringA;
+    for (let i = 0; i < RINGS.length; i++) drawRing(i, -1, s, now, cx, cy, R, px, py, beat);
+    ctx.globalAlpha = 1;
+  }
+  drawIris(cx, cy, R, a, light, beat + promoBeat * sc.promo * 0.6, sw, see);
+  if (ringA > 0.002) {
+    ctx.globalAlpha = ringA;
+    for (let i = 0; i < RINGS.length; i++) drawRing(i, 1, s, now, cx, cy, R, px, py, beat);
+    for (const [del, str] of [[0, 1], [0.09, 0.45]]) {
+      const u = (tc - 0.3 - del) / 1.5;
+      if (u > 0 && u < 1) {
+        ctx.beginPath();
+        ctx.arc(cx, cy, R * (0.55 + expo(u) * 2.7), 0, TAU);
+        ctx.lineWidth = (1 + (1 - u) * 5) * str;
+        ctx.strokeStyle = rgba(C.bone, Math.pow(1 - u, 2) * 0.55 * str);
+        ctx.stroke();
+      }
+    }
+    ctx.globalAlpha = 1;
+  }
+  drawPromoRings(cx, cy, R, sc.promo, sc.promoU, now);
+
+  if (ringA > 0.002) {
+    const S = Math.min(W / 7.5, H * 0.07, 64);
+    const wy = Math.min(H - 96, cy0 + sc.Rh * 1.42 + S * 0.6) + openP * S;
+    ctx.globalAlpha = ringA;
+    drawWord(s, W / 2, wy, S, beat, tc);
+    ctx.globalAlpha = 1;
+  }
+
+  const cover = c01((a * R * 0.6) / (Math.hypot(W, H) * 0.45));
+  const M = Math.max(W, H);
+  const vg = ctx.createRadialGradient(cx, cy, Math.min(W, H) * 0.25, cx, cy, M * 0.75);
+  vg.addColorStop(0, 'rgba(0,0,0,0)');
+  vg.addColorStop(1, rgba([0, 0, 0], lerp(0.6, 0.2, cover)));
+  ctx.fillStyle = vg; ctx.fillRect(0, 0, W, H);
+
+  // keeps the chapter title readable where it sits over bright blades
+  if (showTitle > 0.01) {
+    const sh = pt ? 150 : 130;
+    const tg = ctx.createLinearGradient(0, 0, 0, sh);
+    tg.addColorStop(0, rgba([8, 7, 6], 0.7 * showTitle));
+    tg.addColorStop(1, 'rgba(8,7,6,0)');
+    ctx.fillStyle = tg; ctx.fillRect(0, 0, W, sh);
+  }
+
+  ctx.setTransform(1, 0, 0, 1, 0, 0);
+  ctx.save();
+  const ox = reduced ? 0 : (Math.random() * 160) | 0, oy = reduced ? 0 : (Math.random() * 160) | 0;
+  ctx.translate(-ox, -oy);
+  ctx.globalAlpha = 0.6;
+  ctx.fillStyle = grain;
+  ctx.fillRect(0, 0, cv.width + 160, cv.height + 160);
+  ctx.restore();
+}
+
+let last = clock();
+function frame() {
+  const now = clock();
+  const dt = Math.min(0.05, Math.max(0, now - last));
+  last = now;
+  if (!reduced) {
+    seq = Math.min(HOLD, seq + dt);
+    parX.step(dt); parY.step(dt);
+  }
+  render(now, scrollP(), dt);
+  requestAnimationFrame(frame);
+}
+requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>
